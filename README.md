@@ -9,4 +9,4 @@ Learn about pointers!
 
 ## local development
 
-edit for testing git cmds
+edit for testing git cmds.  
