@@ -12,34 +12,42 @@ Course: https://www.udemy.com/course/c-programming-pointers-from-zero-to-hero/
 * Declaration and Usage
 * Initialisation
 * Short Derefrencing
-
-### Pointers Arithmetic
-
-* Rules / Summary
-* Pointer Arithmetic - DIY Cases
-* "sizeof" Operator
-
-### Pointers Concept and Beyond
-
-* Multiple Indirection
-* Generic Pointer (void*)
-* Generic Swap Function
-
-### Arrays and Pointers
-
-* Passin an Array to a Function
-* Memory Representation
-* Search for Element in Array
-* Input and Print
-* 9 Challenges
-* 7 Extra Practice
-* +5 Extra Exercises
-
-### Arrays Swapping 
-
-* Big O notation
-* O(n) Swapping
-* O(1) Swapping
+* Pointers Arithmetic
+    * Rules / Summary
+    * Pointer Arithmetic - DIY Cases
+    * "sizeof" Operator
+* Pointers Concept and Beyond
+    * Multiple Indirection
+    * Generic Pointer (void*)
+    * Generic Swap Function
+* Arrays and Pointers
+    * Passin an Array to a Function
+    * Memory Representation
+    * Search for Element in Array
+    * Input and Print
+    * 9 Challenges
+    * 7 Extra Practice
+    * +5 Extra Exercises
+* Arrays Swapping
+    * Big O notation
+    * O(n) Swapping
+    * O(1) Swapping
+* Strings adn Pointers
+    * Returning a String from a Function
+    * String Library Functions Implementation
+    * finding String Length
+    * Concatenation Strings
+    * Copying Strings
+    * Comparing Strings
+* Pointers to Functions 
+    * Introduction
+    * Declaration of Pointer to Function
+    * Common mistakes when using a Pointer to a Function
+    * Array of Pointers to Function
+    * 2 Practice Exercises
+* Constants & Pointers
+    * Gerneral Introduction and Usage
+    * Why and When to use Constants
 
 ### Dynamic Memory Allocation (DMA)
 
@@ -51,26 +59,15 @@ Course: https://www.udemy.com/course/c-programming-pointers-from-zero-to-hero/
 * Finding Memory Leakages - Valgrind
 * realloc()
 * 5 Advanced Practical Exercises for DMA
-
-### Dynamic Allocated Arrays and Matrices
-
-* Reason and Usage
-* Creating a totally Dynamically Allocated 2D Array
-* Developing the allocate2DMatrix() function
-* Developing the print2DMatrix() function
-* Developing the freeMatrix() function
-* Swapping rows in a Dynamic Array
-* Swapping columns in a Dynamic Array
-* 3 Practice Questions
-
-### Strings adn Pointers
-
-* Returning a String from a Function
-* String Library Functions Implementation
-* finding String Length
-* Concatenation Strings
-* Copying Strings
-* Comparing Strings
+* Dynamic Allocated Arrays and Matrices
+    * Reason and Usage
+    * Creating a totally Dynamically Allocated 2D Array
+    * Developing the allocate2DMatrix() function
+    * Developing the print2DMatrix() function
+    * Developing the freeMatrix() function
+    * Swapping rows in a Dynamic Array
+    * Swapping columns in a Dynamic Array
+    * 3 Practice Questions
 
 ### Debugger and Debugging
 
@@ -104,14 +101,6 @@ Course: https://www.udemy.com/course/c-programming-pointers-from-zero-to-hero/
 * Variables Alignment
 * Practical Checking Variables Addressing in Memmory in IDE
 
-### Pointers to Functions 
-
-* Introduction
-* Declaration of Pointer to Function
-* Common mistakes when using a Pointer to a Function
-* Array of Pointers to Function
-* 2 Practice Exercises
-
 ### Files - Sequential Files and Function
 
 * remove()
@@ -140,11 +129,6 @@ Course: https://www.udemy.com/course/c-programming-pointers-from-zero-to-hero/
 * Introduction
 * Reason and Usage
 
-### Constants & Pointers
-
-* Gerneral Introduction and Usage
-* Why and When to use Constants
-
 ### Bitwise Operations
 
 * Introduction
@@ -167,7 +151,7 @@ Course: https://www.udemy.com/course/c-programming-pointers-from-zero-to-hero/
 * 3 Pratice Exercises
 * Assignment: Bitwise Operations in C
 
-### Bit Fields in C
+### Bit Fields
 
 * Introduction
 * Usage
