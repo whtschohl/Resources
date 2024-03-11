@@ -6,3 +6,7 @@ Files are included
 ## Pointers
 
 Learn about pointers!
+
+## local development
+
+edit for testing git cmds
