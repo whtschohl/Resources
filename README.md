@@ -2,4 +2,4 @@
 
 ## C / C++
 
-* AlphaTech C Masterclass
+* AlphaTech - C Programming Masterclass: Pointers & Advanced C Language
