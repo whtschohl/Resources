@@ -15,19 +15,24 @@ Example:
 
 #define SIZE 5
 
-int maxAdj(int *arr, int size, int temp)
+int maxAdj(int *arr, int size)
 {
-    if (size == 1)
-        return 1;
+    int Max, Sum;
 
-    if (arr[0]+arr[1]>temp)
-        temp = arr[0]+arr[1];
+    if (size == 2)
+        return arr[0]+arr[1];
 
-    return maxAdj(arr+1, size-1, temp);
+    Sum = arr[0] + arr[1];
+    Max = maxAdj(arr+1,size-1);
+
+    if (Max > Sum)
+        return Max;
+    else 
+        return Sum;    
 }
 
 int main()
 {
     int arr[SIZE] = {1,2,4,3,1};
-    printf("\n\n%d\n\n", maxAdj(arr, SIZE, 0));
+    printf("\n\n%d\n\n", maxAdj(arr, SIZE));
 }
