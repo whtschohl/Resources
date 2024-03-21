@@ -1,12 +1,16 @@
-// Exercise:Write a function that receives a Sorted (smallest->largest) Array of elements The function also receives a "value". The function should find if there is a sum of 2 elements in the array that is equal to the received "value". If there are such 2 elements, then return 1 and pass them by refrence. Else, return 0, and pass for both of them the value 0.
-
+/* Exercise:    Write a function that receives a Sorted (smallest->largest) Array of elements 
+                The function also receives a "value". The function should find if there is a sum of 
+                2 elements in the array that is equal to the received "value". If there are such 2 
+                elements, then return 1 and pass them by refrence. Else, return 0, and pass for both of 
+                them the value 0.
+*/
 #include <stdio.h>
 
 /******************************************************************************/
 // First thoughts -> basic logical solution
 /******************************************************************************/
 
-int isSum(int *arr, int value, int size, int* index)
+/*int isSum(int *arr, int value, int size, int* index)
 {
     for(int i=0; i<size; i++)
     {
@@ -33,7 +37,7 @@ int main()
     
     isSum(arr, value, size, index);
     printf("%d + %d = %d", arr[index[0]], arr[index[1]], value);
-}
+}*/
 
 /******************************************************************************/
 // nicer solution (only works for sorted arrays) -> logic upgrade
