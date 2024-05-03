@@ -23,7 +23,32 @@
 
 */
 
+int LtoR(int *arr, int size)
+{
+    // end statement
+    if (size < 1)
+        return 0;
+        
+    // recursive Procedure
+    printf("%d", arr[0]);
+    LtoR(arr+1, size-1);
+}
+
+int RtoL(int *arr, int size)
+{
+    // end statement
+    if (size < 1)
+        return 0;
+
+    // recursive Procedure
+    printf("%d", arr[size-1]);
+    LtoR(arr, size-1);
+}
+
 int main()
 {
-    
+    int arr[4] = {1,3,2,4};
+    LtoR(arr, 4);
+    printf("\n");
+    RtoL(arr, 4);
 }
