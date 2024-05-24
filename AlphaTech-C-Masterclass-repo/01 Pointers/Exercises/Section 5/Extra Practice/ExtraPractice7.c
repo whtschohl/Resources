@@ -14,23 +14,15 @@ void printDecimalToBinary(int n)
 {
     // end condition
 
-    switch (n)
-    {
-    case 0:
-        printf("0");
-        break;
-    case 1:
-        printf("1");
-        break;
+    if (n<=1)
+        printf("%d", n);
     
-    default:
+    // process
+    else
+    {
         printDecimalToBinary(n/2);
         printf("%i", n % 2);
-        break;
-    }  
-
-    // process
-
+    }
 }
 
 int main()
