@@ -10,17 +10,31 @@
 #include <stdlib.h>
 #include <math.h>
 
-int changeDecimalToBinary(int n)
+void printDecimalToBinary(int n)
 {
     // end condition
 
-    if (n < 1)
-
+    switch (n)
+    {
+    case 0:
+        printf("0");
+        break;
+    case 1:
+        printf("1");
+        break;
+    
+    default:
+        printDecimalToBinary(n/2);
+        printf("%i", n % 2);
+        break;
+    }  
 
     // process
+
 }
 
 int main()
 {
-
+    printDecimalToBinary(12);
+    printf("\n");
 }
