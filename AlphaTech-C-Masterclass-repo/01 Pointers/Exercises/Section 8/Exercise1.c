@@ -28,6 +28,12 @@ void createNoDoublesArray(int *arr, int size)
     noDoublesArr[0] = arr[0];
     noDoulesSize++;
 
+    if (!noDoublesArr)
+    {
+        printf("Memory allocation failed\n");
+        return;
+    }
+
     for (int i = 1; i < size; i++)
     {
         if(arr[i] != arr[i-1]) 
