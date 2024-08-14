@@ -2,42 +2,14 @@
 Exercise
 =====================================================
 
-Given an array of intergers [12,5,7,8,3,10,4,9]
-Create 2 dynamically allocated arrays
-First array will consist only of "Even Values" [12,8,10,4]
-Second array will consist only of "Odd Values" [5,7,3,9]
-The function should simply print the values of both of the arrays
-Step 2 - Return & Pass by Ref
+Given a sorted array of integers [1,3,3,5,6,7,7,7,8,12,12]
+Create a new, dynamically allocated array, with no duplicates
 
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 8
-
-void splitArray(int *arr, int size, int **evenArr, int **oddArr, int *oddSize, int *evenSize)
-{ 
-    for (int i = 0; i < size; i++)
-    {
-        if(arr[i] % 2 == 0) //Even
-        {
-            (*evenSize)++;
-            *evenArr = (int*)realloc(*evenArr, *evenSize*sizeof(int));
-            (*evenArr)[*evenSize-1] = arr[i];
-            if(!evenArr)
-                return;
-        }        
-        else
-        {
-            (*oddSize)++;
-            *oddArr = (int*)realloc(*oddArr, *oddSize*sizeof(int));
-            (*oddArr)[*oddSize-1] = arr[i];
-            if(!oddArr)
-                return;
-        }
-    }
-}
 
 void printArray(int *arr, int size)
 {
@@ -45,28 +17,47 @@ void printArray(int *arr, int size)
     {
         printf("%d, ", arr[i]);
     }
-    printf("\n-----\n");
+}
+
+void createNoDoublesArray(int *arr, int size)
+{
+    int noDoulesSize = 0;
+    int *noDoublesArr = NULL;
+
+    noDoublesArr = (int*)malloc(sizeof(int));
+    noDoublesArr[0] = arr[0];
+    noDoulesSize++;
+
+    for (int i = 1; i < size; i++)
+    {
+        if(arr[i] != arr[i-1]) 
+        {
+            noDoulesSize++;
+            noDoublesArr = (int*)realloc(noDoublesArr, noDoulesSize*sizeof(int));
+            noDoublesArr[noDoulesSize-1] = arr[i];
+
+            if(!noDoublesArr)
+            {
+                printf("noDoublesArr is NULL");
+                free(noDoublesArr);
+            }
+        }
+    }
     
+    printf("\nSource Array: ");
+    printArray(arr, size);
+
+    printf("\nNo Doubles Array: ");
+    printArray(noDoublesArr, noDoulesSize);
+
+    printf("\n---------------------\n");
+    free(noDoublesArr);
 }
 
 int main()
 {
-    int *evenArr = NULL;
-    int *oddArr = NULL;
-    int arr[SIZE] = {12,5,7,8,3,10,4,9};
-    int oddSize = 0, evenSize = 0;
-    
-    splitArray(arr, SIZE, &evenArr, &oddArr, &oddSize, &evenSize);
-    
-    printf("\nSource Array: ");
-    printArray(arr, SIZE);
-    
-    printf("\nEven Array: ");
-    printArray(evenArr, evenSize);
+    int arr[] = {1,3,3,5,6,7,7,7,8,12,12};
+    int size = sizeof(arr) / sizeof(arr[0]);
 
-    printf("\nOdd Array: ");
-    printArray(oddArr, oddSize);
-
-    free(evenArr);
-    free(oddArr);
+    createNoDoublesArray(arr, size);
 }
