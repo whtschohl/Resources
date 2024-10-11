@@ -10,6 +10,7 @@ Create a new, dynamically allocated array, with no duplicates
 #include <stdio.h>
 #include <stdlib.h>
 
+/*  My Solution */
 
 void printArray(int *arr, int size)
 {
@@ -67,3 +68,50 @@ int main()
 
     createNoDoublesArray(arr, size);
 }
+
+
+/*  Given Solution  */
+
+/*
+
+int *createNoDuplexArray(int* sourceArray, int size)
+{
+    int i, j=0;
+    int count = 1;
+    int *noDuplexArray;
+    for (i = 0; i < size-1; i++)
+        if (sourceArray[i] != sourceArray[i+1])
+            count++;
+
+    noDuplexArray = (int*)malloc(count*sizeof(int));
+    // [_,_,_,_,_,_]
+    for (i = 0; i < size-1; i++) // "i" - represents the index of the source array
+        if(sourceArray[i] != sourceArray[i+1])
+        {
+            noDuplexArray[j] = sourceArray[i];
+            j++;
+        }
+    noDuplexArray[j] = sourceArray[i];
+    //[1,3,5,6,7,8,12]
+    return noDuplexArray;
+}
+
+void printArray(int *arr, int size)
+{
+    int i;
+    printf("\nArray Values: \n");
+    for (i = 0; i < size; i++)
+        printf("%d ", arr[i]);
+}
+
+int main()
+{
+    int originalArray[] = {1,3,3,5,6,7,7,7,8,12,12};
+    int *newArray;
+    printArray(originalArray, 11);
+    newArray = createNoDuplexArray(originalArray, 11);
+    printArray(newArray, 7);
+    return 0;
+}
+
+*/
