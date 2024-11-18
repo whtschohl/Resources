@@ -1,21 +1,13 @@
-# Coding Resources:
-## Cources
-### C / C++
+# Why
 
-* AlphaTech - C Programming Masterclass: Pointers & Advanced C Language
+This Repo is here for me to keep track of all of the resources I use to develop my skills. I aim to develop myself in the direction of 6 skills and those 6 skills have thier own 6 sub skill sets that I will improve myself in. 
 
-## Books
-### C / C++
+Active Cources will be directly placed in the "Resources" folder. Once completed, they will move to their respective subfolders in their skills.
 
-* C Language Standard
-* Grundkurs C
-
-### Elixer
-
-* Programming Elixir16
-* Build a Weather Station with Elixir and Nerves
-
-### Web Coding (Backend) 
-
-* REST API Design Rulebook
-* RESTful Web Services
+## The 6 main skill categories:
+* Technical Skills
+* Interpersonal Skills
+* Leadership Skills
+* Entrepreneurship SKills
+* Adaptability Skills
+* Strategic Thinking Skills
