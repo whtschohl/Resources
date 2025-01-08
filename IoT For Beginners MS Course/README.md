@@ -1,3 +1,3 @@
 # IoT Course for beginners by MS
-Notes on notion
+Notes on notion.
 Code is here
