@@ -24,7 +24,7 @@ int main()
 
     printf("\nOriginal Array: ");
     vPrintArray(arrOriginal, SIZE);
-    printf("\n\nCopy Array: ");
+    printf("\nCopy Array: ");
     vPrintArray(arrCopy, SIZE);
 }
 
