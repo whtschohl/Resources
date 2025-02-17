@@ -12,7 +12,7 @@ int main()
 
 }
 
-void freeMatrix(int ** a, int row);
+void freeMatrix(int ** a, int row)
 {
     /*  Note: 
 

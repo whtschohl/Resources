@@ -47,7 +47,7 @@ int** allocated2DMatrix()
     return a; //a has the address that will point to everything else in the matrix
 }
 
-int** allocated2DMatrixV2()
+int** allocated2DMatrixV2(int iRows, int iCols)
 {
     int** a;
 
