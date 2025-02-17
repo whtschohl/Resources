@@ -3,7 +3,6 @@
 // Header
 // ---------------------------------
 #include <stdio.h>
-
 // Private functions
 // ---------------------------------
 int** allocated2DMatrix();
