@@ -32,25 +32,35 @@ int main()
     printf("\nEnter number of columns: ");
     scanf("%d", &iCols);
 
-    //if (!iRows && !iCols) {printf("no value error 1"); return NULL;}
-
     m = iAllocatedMatrix(iRows, iCols);
     vPopulateMatrix(m, iRows, iCols);
 
     printf("\nEnter Row 1 to swap: ");
-    scanf("%d", iSwapRow1);
+    scanf("%d", &iSwapRow1);
     printf("\nEnter Row 2 to swap: ");
-    scanf("%d", iSwapRow2);
-
-    //if (!iSwapRow1 && !iSwapRow2) {printf("no value error 2"); return NULL;}
+    scanf("%d", &iSwapRow2);
 
     printf("\nEnter Column 1 to swap: ");
-    scanf("%d", iSwapCol1);
-    printf("\nEnter Column 2 to swap: ");
-    scanf("%d", iSwapCol2);
+    scanf("%d", &iSwapCol1); 
 
-    //if (!iSwapCol1 && !iSwapCol2) {printf("no value error 3"); return NULL;}
-    
+    printf("\nEnter Column 2 to swap: ");
+    scanf("%d", &iSwapCol2);
+
+    //Quality Input check
+   if ((!iSwapCol1) || (!iSwapCol2) || (!iSwapRow1) || (!iSwapRow2))
+    {
+        printf("No Number in Swap Var");
+        return 0;
+    }
+
+    if ((iSwapCol1 > iCols) || (iSwapCol2 > iCols) || (iSwapRow1 > iRows) || (iSwapRow2 > iRows))
+    {
+        printf("Swap row/column doesnt exist");
+        return 0;
+    }
+
+
+    // Printing
 
     printf("\n\nDynamic Matrix:\n");
     vPrint2dDynamicMatrix(m, iRows, iCols);
@@ -74,7 +84,10 @@ int** iAllocatedMatrix(int iRows, int iCols)
     {
         a[i] = (int*)calloc(iCols, sizeof(int));
         if(!a[i]) 
-            vFreeMatrix(a, iRows);
+        {   
+            vFreeMatrix(a, i);
+            return NULL;
+        }
     }
     
     return a;
@@ -82,18 +95,23 @@ int** iAllocatedMatrix(int iRows, int iCols)
 
 void vFreeMatrix(int ** a, int row)
 {
+    if(a == NULL) return;
+
     for (int i = 0; i < row; i++)
         free(a[i]);
-    free(a);   
+    free(a);
+    
+    printf("Had to free memory\n");
 }
 
 void vPrint2dDynamicMatrix(int** a, int rows, int cols)
 {
     for (int i = 0; i < rows; i++)
+    {   
         for (int j = 0; j < cols; j++)
             printf("%10d ", a[i][j]);
-        printf("/n");
-               
+        printf("\n");
+    }           
 }
 
 void vSwap2Cols(int **a, int col1, int col2, int rows)
@@ -102,19 +120,19 @@ void vSwap2Cols(int **a, int col1, int col2, int rows)
 
     for (int i = 0; i < rows; i++)
     {
-        temp = a[i][col1];
-        a[i][col1] = a[i][col2];
-        a[i][col2] = temp;    
+        temp = a[i][col1-1];
+        a[i][col1-1] = a[i][col2-1];
+        a[i][col2-1] = temp;    
     }
 }
 
 void vSwap2Rows(int **a, int row1, int row2)
 {
-    int temp;
+    int *temp;
 
-    temp = *a[row1];
-    *a[row1] = *a[row2];
-    *a[row2] = temp;
+    temp = a[row1-1];
+    a[row1-1] = a[row2-1];
+    a[row2-1] = temp;
 }
 
 void vPopulateMatrix(int **a, int row, int col)
