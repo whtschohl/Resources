@@ -46,7 +46,7 @@ int** lowerTriMat(int **a, int iSize)
     a = (int**)calloc(iSize, sizeof(int*));
     for (int i = 0; i < iSize; i++)
     {
-        a[i] = (int*)calloc(i, sizeof(int));
+        a[i] = (int*)calloc(i+1, sizeof(int));
         if (!a[i]) 
         {   
             vfreeMatrix(a, i);
@@ -71,7 +71,7 @@ int** upperTriMat(int **a, int iSize)
     {   
         if ((iSize - i) > 0)
         {   
-            a[i] = (int*)calloc((iSize-i)-1, sizeof(int));
+            a[i] = (int*)calloc((iSize-i), sizeof(int));
             if (a[i]==NULL)           
             {   
                 printf("FAILURE!");
