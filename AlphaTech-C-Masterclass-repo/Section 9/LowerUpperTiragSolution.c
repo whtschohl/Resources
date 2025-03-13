@@ -18,8 +18,10 @@
 // Functions
 // ------------------------------
 
-int ** createLowerTriangular(int n);
-int ** createUpperTriangular(int n);
+int** createLowerTriangular(int n);
+int** createUpperTriangular(int n);
+void printLowerTriangular(int** a, int n);
+void printUpperTriangular(int **a, int n);
 
 // Code
 // ------------------------------
@@ -29,7 +31,7 @@ int main()
     // code
 }
 
-int ** createLowerTriangular(int n)
+int** createLowerTriangular(int n)
 {
     int** a;
     a = (int**)malloc(n * sizeof(int));
@@ -40,7 +42,7 @@ int ** createLowerTriangular(int n)
     return;
 }
 
-int ** createUpperTriangular(int n)
+int** createUpperTriangular(int n)
 {
     int** a;
     a = (int**)malloc(n * sizeof(int));
@@ -49,4 +51,34 @@ int ** createUpperTriangular(int n)
         a[i] = (int*)malloc((n-i) * sizeof(int));
     }
     return;
+}
+
+void printLowerTriangular(int **a, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < count; j++)
+        {
+            if (i<j)
+                printf("0");
+            else
+                printf ("%d", a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void printUpperTriangular(int **a, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < count; j++)
+        {
+            if (i>j)
+                printf("0");
+            else
+                printf ("%d", a[i][j]);
+        }
+        printf("\n");
+    }
 }
