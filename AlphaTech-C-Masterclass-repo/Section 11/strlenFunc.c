@@ -1,3 +1,9 @@
+/*
+    Creating my own strlen function
+    Function that receives a string
+    Finds our string and returns the length
+*/
+
 // Header
 
 #include <stdio.h>
