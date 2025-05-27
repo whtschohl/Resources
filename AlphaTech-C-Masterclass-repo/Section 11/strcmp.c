@@ -14,7 +14,7 @@ int iStrCmp(char *str1, char *str2);
 
 int main()
 {
-    char *name1 = "Apple";
+    char *name1 = "CApple";
     char *name2 = "Banana";
 
     printf("result: %d\n", iStrCmp(name1, name2));
@@ -22,18 +22,17 @@ int main()
 
 int iStrCmp(char *str1, char *str2)
 {
-    if (*str1 == *str2)
-    {
+    while (*str1 && *str2) {
+        if (*str1 != *str2) {
+            return (*str1 > *str2) ? 1 : -1;
+        }
         str1++;
         str2++;
-    } else
-    {        
-        if (str1 > str2)
-            return 1;
-        else if (str1 < str2)
-            return -1;
-        else
-            return 0;   
     }
-        
+
+    // If we get here, one or both strings ended
+    if (*str1 == *str2)
+        return 0;
+    else
+        return (*str1 > *str2) ? 1 : -1;
 }
