@@ -14,7 +14,7 @@ int iStrCmp(char *str1, char *str2);
 
 int main()
 {
-    char *name1 = "CApple";
+    char *name1 = "Apple";
     char *name2 = "Banana";
 
     printf("result: %d\n", iStrCmp(name1, name2));
