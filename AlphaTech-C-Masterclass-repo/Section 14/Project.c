@@ -1,3 +1,12 @@
+/* Notes
+--------------------------------------------------------------
+
+The array of all students is kept in the school struct
+
+
+
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h> // needed for dynamic memory allocation
@@ -15,14 +24,14 @@ typedef struct course
 {
     char *name;
     float avgGrage;
-    Student *studnetsEnrolled;
+    Student *studentsEnrolled;
 }Course;
 
 typedef struct school
 {
     char *name;
     Course *coursesOffered;
-
+    Student *studentsEnrolled;
 }School;
 
 // Functions
@@ -43,6 +52,7 @@ void printCourseAvgFail();
 void printAvgScoreOfAllCourses();
 void printCourseWithHighestAverage();
 void freeMemory();
+void printMenu();
 
 // Code
 
@@ -55,10 +65,35 @@ int main()
             create a menu to do what the functions want
             add in an option to close program
         */
-        printf("in the loop \n");
+        printMenu();
+
+
+        // test
         break;
     }
 
-    printf("out of loop");
+    printf("\n\nout of loop");
     return 0;
+}
+
+void printMenu()
+{
+    printf("\n<<<<<<<<<<<<<<<<<<<<<<<<<<< MENU >>>>>>>>>>>>>>>>>>>>>>>>>>>");
+    printf("\n============================================================");
+    printf("\n 1 - Add Student");
+    printf("\n 2 - Add Course");
+    printf("\n 3 - Add School");
+    printf("\n 4 - Print Student Details");
+    printf("\n 5 - Print Course Details");
+    printf("\n 6 - Print School Details");
+    printf("\n 7 - Check if Student in course");
+    printf("\n 8 - Check if Student in School");
+    printf("\n 9 - Print all Students in Course");
+    printf("\n10 - Print all students who failed a Course");
+    printf("\n11 - Print all students who passed a Course");
+    printf("\n12 - Print all the courses with a passed average grade");
+    printf("\n13 - Print all the courses with a failed average grade");
+    printf("\n14 - Print the average grade between all the courses");
+    printf("\n15 - Print the course with the highest average grade");
+    printf("\n============================================================");
 }
