@@ -16,27 +16,26 @@ The array of all students is kept in the school struct
 
 typedef struct student
 {
-    char *name;
+    char name[10];
     int id;
 }Student;
 
 typedef struct course
 {
-    char *name;
+    char name[10];
     float avgGrage;
     Student *studentsEnrolled;
 }Course;
 
 typedef struct school
 {
-    char *name;
+    char name[10];
     Course *coursesOffered;
-    Student *studentsEnrolled;
 }School;
 
 // Functions
 
-void createStudent();
+Student *createStudent();
 void createCourse();
 void createSchool();
 void printStudentDetails();
@@ -58,6 +57,8 @@ void printMenu();
 
 int main()
 {
+    Student *allStudnets;
+
     while(true)
     {
         // menu code
@@ -72,7 +73,7 @@ int main()
         break;
     }
 
-    printf("\n\nout of loop");
+    printf("\n\nEnd of Program");
     return 0;
 }
 
@@ -80,20 +81,31 @@ void printMenu()
 {
     printf("\n<<<<<<<<<<<<<<<<<<<<<<<<<<< MENU >>>>>>>>>>>>>>>>>>>>>>>>>>>");
     printf("\n============================================================");
-    printf("\n 1 - Add Student");
-    printf("\n 2 - Add Course");
-    printf("\n 3 - Add School");
-    printf("\n 4 - Print Student Details");
-    printf("\n 5 - Print Course Details");
-    printf("\n 6 - Print School Details");
-    printf("\n 7 - Check if Student in course");
-    printf("\n 8 - Check if Student in School");
-    printf("\n 9 - Print all Students in Course");
-    printf("\n10 - Print all students who failed a Course");
-    printf("\n11 - Print all students who passed a Course");
-    printf("\n12 - Print all the courses with a passed average grade");
-    printf("\n13 - Print all the courses with a failed average grade");
-    printf("\n14 - Print the average grade between all the courses");
-    printf("\n15 - Print the course with the highest average grade");
+    printf("\n 1 - Add School");
+    printf("\n 2 - Print Student Details");
+    printf("\n 3 - Print Course Details");
+    printf("\n 4 - Print School Details");
+    printf("\n 5 - Check if Student in course");
+    printf("\n 6 - Check if Student in School");
+    printf("\n 7 - Print all Students in Course");
+    printf("\n 8 - Print all students who failed a Course");
+    printf("\n 9 - Print all students who passed a Course");
+    printf("\n10 - Print all the courses with a passed average grade");
+    printf("\n11 - Print all the courses with a failed average grade");
+    printf("\n12 - Print the average grade between all the courses");
+    printf("\n13 - Print the course with the highest average grade");
     printf("\n============================================================");
+}
+
+Student *createStudent()
+{
+    Student *newStudent;
+    newStudent = (Student*)malloc(sizeof(Student));
+
+    printf("\nStudent Name: ");
+    scanf("%s", newStudent->name);
+    printf("\nStudent ID: ");
+    scanf("%d", &newStudent->id);
+
+    return newStudent;
 }
