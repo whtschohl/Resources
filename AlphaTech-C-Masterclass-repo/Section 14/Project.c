@@ -36,7 +36,7 @@ typedef struct school
 // Functions
 
 Student *createStudent();
-void createCourse();
+Course *createCourse(int numOfStudent);
 void createSchool();
 void printStudentDetails();
 void printCourseDetails();
@@ -108,4 +108,19 @@ Student *createStudent()
     scanf("%d", &newStudent->id);
 
     return newStudent;
+}
+
+Course *createCourse(int numOfStudent)
+{
+    Course *newCourse;
+    newCourse = (Course*)malloc(sizeof(Course));
+    Student **arrStudents;
+    *arrStudents = (Student*)malloc(sizeof(Student) * numOfStudent);
+
+    for (int i = 0; i < numOfStudent; i++)
+        arrStudents[i] = createStudent();
+    
+    newCourse->studentsEnrolled = *arrStudents;
+
+    return newCourse;
 }
