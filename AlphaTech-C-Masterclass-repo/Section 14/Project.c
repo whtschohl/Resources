@@ -3,8 +3,6 @@
 
 The array of all students is kept in the school struct
 
-
-
 */
 
 #define _CRT_SECURE_NO_WARNINGS
@@ -36,8 +34,8 @@ typedef struct school
 // Functions
 
 Student *createStudent();
-Course *createCourse(int numOfStudent);
-void createSchool();
+Course *createCourse();
+void createSchool(School **arr);
 void printStudentDetails();
 void printCourseDetails();
 void printSchoolDetails();
@@ -57,17 +55,28 @@ void printMenu();
 
 int main()
 {
-    Student *allStudnets;
+    School **allSchools;
 
     while(true)
     {
+        int option;
         // menu code
         /*
             create a menu to do what the functions want
             add in an option to close program
         */
         printMenu();
+        scanf("%d", &option);
 
+        switch (option)
+        {
+        case 1:
+            createSchool(allSchools);
+            break;
+        
+        default:
+            break;
+        }
 
         // test
         break;
@@ -95,6 +104,7 @@ void printMenu()
     printf("\n12 - Print the average grade between all the courses");
     printf("\n13 - Print the course with the highest average grade");
     printf("\n============================================================");
+    printf("\nYour option: ");
 }
 
 Student *createStudent()
@@ -110,11 +120,16 @@ Student *createStudent()
     return newStudent;
 }
 
-Course *createCourse(int numOfStudent)
+Course *createCourse()
 {
+    int numOfStudent;
     Course *newCourse;
     newCourse = (Course*)malloc(sizeof(Course));
     Student **arrStudents;
+
+    printf("\nHow many students are in this Course? ");
+    scanf("%d", &numOfStudent);
+
     *arrStudents = (Student*)malloc(sizeof(Student) * numOfStudent);
 
     for (int i = 0; i < numOfStudent; i++)
@@ -123,4 +138,28 @@ Course *createCourse(int numOfStudent)
     newCourse->studentsEnrolled = *arrStudents;
 
     return newCourse;
+}
+
+void createSchool(School **arr)
+{
+    static int numberOfSchools = 0;
+    int numOfCourses;
+    School *newArr;
+
+    // the array of schools increases by 1 to add the new school
+    numberOfSchools++;
+    newArr = (School*)realloc(*arr, numberOfSchools); 
+    newArr += (numberOfSchools-1); //get to the right element in the array
+
+    printf("\nEnter new school name: ");
+    scanf("%s", newArr->name);
+
+    // Insert courses
+    printf("\nHow many courses are offered: ");
+    scanf("%d", &numOfCourses);
+    for (int i = 0; i < numOfCourses; i++)
+        createCourse();
+
+    *arr = newArr;
+    
 }
