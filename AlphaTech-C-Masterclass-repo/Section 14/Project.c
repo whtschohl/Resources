@@ -35,7 +35,7 @@ typedef struct school
 
 Student *createStudent();
 Course *createCourse();
-void createSchool(School **arr);
+void createSchool(School **arr, int numberOfSchools);
 void printStudentDetails();
 void printCourseDetails();
 void printSchoolDetails();
@@ -55,7 +55,8 @@ void printMenu();
 
 int main()
 {
-    School **allSchools;
+    static int numberOfSchools = 0;
+    School *allSchools = (School*)malloc(sizeof(School) * numberOfSchools);
 
     while(true)
     {
@@ -71,7 +72,13 @@ int main()
         switch (option)
         {
         case 1:
-            createSchool(allSchools);
+            if (allSchools == NULL)
+            {
+                createSchool(&allSchools, 0);
+            } else
+            {
+                createSchool(&allSchools, numberOfSchools);
+            }
             break;
         
         default:
@@ -125,41 +132,48 @@ Course *createCourse()
     int numOfStudent;
     Course *newCourse;
     newCourse = (Course*)malloc(sizeof(Course));
-    Student **arrStudents;
 
     printf("\nHow many students are in this Course? ");
     scanf("%d", &numOfStudent);
 
-    *arrStudents = (Student*)malloc(sizeof(Student) * numOfStudent);
+    Student *arrStudents = (Student*)malloc(sizeof(Student) * numOfStudent);
 
     for (int i = 0; i < numOfStudent; i++)
-        arrStudents[i] = createStudent();
+        arrStudents[i] = *createStudent();
     
-    newCourse->studentsEnrolled = *arrStudents;
+    newCourse->studentsEnrolled = arrStudents;
 
     return newCourse;
 }
 
-void createSchool(School **arr)
+void createSchool(School **arr, int numberOfSchools)
 {
-    static int numberOfSchools = 0;
     int numOfCourses;
-    School *newArr;
+    School *newArr = (School*)malloc(sizeof(School) * numberOfSchools);
+    School *newSchool = NULL;
 
     // the array of schools increases by 1 to add the new school
     numberOfSchools++;
-    newArr = (School*)realloc(*arr, numberOfSchools); 
-    newArr += (numberOfSchools-1); //get to the right element in the array
+    newArr = (School*)realloc(*arr, sizeof(School) * numberOfSchools); 
+    if(newArr == NULL)
+    {
+        printf("newArr is still NULL");
+        exit(EXIT_FAILURE);
+    }
+    
+    newSchool = newArr + (numberOfSchools-1); //get to the right element in the array
 
     printf("\nEnter new school name: ");
-    scanf("%s", newArr->name);
+    scanf("%s", newSchool->name);
 
     // Insert courses
     printf("\nHow many courses are offered: ");
     scanf("%d", &numOfCourses);
-    for (int i = 0; i < numOfCourses; i++)
-        createCourse();
+    newSchool->coursesOffered = (Course*)malloc(sizeof(Course) * numOfCourses);
 
-    *arr = newArr;
-    
+    for (int i = 0; i < numOfCourses; i++)
+        newSchool->coursesOffered[i] = *createCourse();
+
+    // return new array of schools
+    *arr = newArr;    
 }
