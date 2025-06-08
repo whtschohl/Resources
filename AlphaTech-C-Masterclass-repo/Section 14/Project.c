@@ -30,6 +30,7 @@ typedef struct school
 {
     char name[10];
     Course *coursesOffered;
+    int numberOfCourses;
 }School;
 
 // Functions
@@ -39,7 +40,7 @@ Course *createCourse();
 void createSchool(School **arr, int numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
-void printSchoolDetails();
+void printSchoolDetails(School skool);
 bool isStudentInCourse(int id, Course course);
 bool isStudentInSchool(int id, School school);
 void printStudenCourses(int id, Course course);
@@ -96,18 +97,16 @@ void printMenu()
     printf("\n<<<<<<<<<<<<<<<<<<<<<<<<<<< MENU >>>>>>>>>>>>>>>>>>>>>>>>>>>");
     printf("\n============================================================");
     printf("\n 1 - Add School");
-    printf("\n 2 - Print Student Details");
-    printf("\n 3 - Print Course Details");
-    printf("\n 4 - Print School Details");
-    printf("\n 5 - Check if Student in course");
-    printf("\n 6 - Check if Student in School");
-    printf("\n 7 - Print all Students in Course");
-    printf("\n 8 - Print all students who failed a Course");
-    printf("\n 9 - Print all students who passed a Course");
-    printf("\n10 - Print all the courses with a passed average grade");
-    printf("\n11 - Print all the courses with a failed average grade");
-    printf("\n12 - Print the average grade between all the courses");
-    printf("\n13 - Print the course with the highest average grade");
+    printf("\n 2 - Print School Details");
+    printf("\n 3 - Check if Student in course");
+    printf("\n 4 - Check if Student in School");
+    printf("\n 5 - Print all Students in Course");
+    printf("\n 6 - Print all students who failed a Course");
+    printf("\n 7 - Print all students who passed a Course");
+    printf("\n 8 - Print all the courses with a passed average grade");
+    printf("\n 9 - Print all the courses with a failed average grade");
+    printf("\n10 - Print the average grade between all the courses");
+    printf("\n11 - Print the course with the highest average grade");
     printf("\n============================================================");
     printf("\nYour option: ");
 }
@@ -146,7 +145,6 @@ Course *createCourse()
 
 void createSchool(School **arr, int numberOfSchools)
 {
-    int numOfCourses;
     School *newArr = (School*)malloc(sizeof(School) * numberOfSchools);
     School *newSchool = NULL;
 
@@ -166,10 +164,10 @@ void createSchool(School **arr, int numberOfSchools)
 
     // Insert courses
     printf("\nHow many courses are offered: ");
-    scanf("%d", &numOfCourses);
-    newSchool->coursesOffered = (Course*)malloc(sizeof(Course) * numOfCourses);
+    scanf("%d", &newSchool->numberOfCourses);
+    newSchool->coursesOffered = (Course*)malloc(sizeof(Course) * newSchool->numberOfCourses);
 
-    for (int i = 0; i < numOfCourses; i++)
+    for (int i = 0; i < newSchool->numberOfCourses; i++)
         newSchool->coursesOffered[i] = *createCourse();
 
     // return new array of schools
@@ -178,19 +176,37 @@ void createSchool(School **arr, int numberOfSchools)
 
 void printStudentDetails(Student stud)
 {
+    printf("\n----------------------------");
     printf("\nStudent name: %s", stud.name);
     printf("\nStudent id: %d", stud.id);
+    printf("\n----------------------------");
 }
 
 void printCourseDetails(Course course)
 {
     Student *temp = course.studentsEnrolled;
+    printf("\n------------------------------------------------------------");
     printf("\nCourse: %s", course.name);
     printf("\nCourse Average Grade: %.2f", course.avgGrage);
     printf("\nStudents in Course: \n");
     for (int i = 0; i < course.numberOfStudents; i++)
     {
-        printf("%s,", temp->name);
+        printStudentDetails(*temp);
         temp++;
     }    
+    printf("\n------------------------------------------------------------");
+}
+
+void printSchoolDetails(School skool)
+{
+    Course *temp = skool.coursesOffered;
+    printf("\n============================================================");
+    printf("\nSchool Name: %s", skool.name);
+    printf("\nSchool Courses Details: ");
+    for (int i = 0; i < skool.numberOfCourses; i++)
+    {
+        printCourseDetails(*temp);
+        temp++;
+    }    
+    printf("\n============================================================");
 }
