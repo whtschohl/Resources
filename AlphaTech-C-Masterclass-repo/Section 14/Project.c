@@ -36,7 +36,7 @@ typedef struct school
 Student *createStudent();
 Course *createCourse();
 void createSchool(School **arr, int numberOfSchools);
-void printStudentDetails();
+void printStudentDetails(Student stud);
 void printCourseDetails();
 void printSchoolDetails();
 bool isStudentInCourse(int id, Course course);
@@ -84,9 +84,6 @@ int main()
         default:
             break;
         }
-
-        // test
-        break;
     }
 
     printf("\n\nEnd of Program");
@@ -176,4 +173,10 @@ void createSchool(School **arr, int numberOfSchools)
 
     // return new array of schools
     *arr = newArr;    
+}
+
+void printStudentDetails(Student stud)
+{
+    printf("\nStudnet name: %s", stud.name);
+    printf("\nStudnet id: %d", stud.id);
 }
