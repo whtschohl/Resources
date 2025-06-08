@@ -186,7 +186,7 @@ void printCourseDetails(Course course)
 {
     Student *temp = course.studentsEnrolled;
     printf("\nCourse: %s", course.name);
-    printf("\nCourse Average Grade: %d", course.avgGrage);
+    printf("\nCourse Average Grade: %.2f", course.avgGrage);
     printf("\nStudents in Course: \n");
     for (int i = 0; i < course.numberOfStudents; i++)
     {
