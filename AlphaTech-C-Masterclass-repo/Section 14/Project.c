@@ -83,6 +83,16 @@ int main()
             }
             break;
         
+        case 2:
+            if (NULL == allSchools)
+            {
+                printf("\nNo schools in database");
+            }else {            
+            printSchoolDetails(allSchools[0]);
+            }
+
+            break;
+        
         default:
             break;
         }
@@ -107,6 +117,7 @@ void printMenu()
     printf("\n 9 - Print all the courses with a failed average grade");
     printf("\n10 - Print the average grade between all the courses");
     printf("\n11 - Print the course with the highest average grade");
+    printf("\n 0 - Exit Program");
     printf("\n============================================================");
     printf("\nYour option: ");
 }
