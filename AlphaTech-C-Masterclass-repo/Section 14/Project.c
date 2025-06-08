@@ -23,6 +23,7 @@ typedef struct course
     char name[10];
     float avgGrage;
     Student *studentsEnrolled;
+    int numberOfStudents;
 }Course;
 
 typedef struct school
@@ -37,7 +38,7 @@ Student *createStudent();
 Course *createCourse();
 void createSchool(School **arr, int numberOfSchools);
 void printStudentDetails(Student stud);
-void printCourseDetails();
+void printCourseDetails(Course course);
 void printSchoolDetails();
 bool isStudentInCourse(int id, Course course);
 bool isStudentInSchool(int id, School school);
@@ -126,16 +127,16 @@ Student *createStudent()
 
 Course *createCourse()
 {
-    int numOfStudent;
     Course *newCourse;
     newCourse = (Course*)malloc(sizeof(Course));
+    
 
     printf("\nHow many students are in this Course? ");
-    scanf("%d", &numOfStudent);
+    scanf("%d", &newCourse->numberOfStudents);
 
-    Student *arrStudents = (Student*)malloc(sizeof(Student) * numOfStudent);
+    Student *arrStudents = (Student*)malloc(sizeof(Student) * newCourse->numberOfStudents);
 
-    for (int i = 0; i < numOfStudent; i++)
+    for (int i = 0; i < newCourse->numberOfStudents; i++)
         arrStudents[i] = *createStudent();
     
     newCourse->studentsEnrolled = arrStudents;
@@ -177,6 +178,19 @@ void createSchool(School **arr, int numberOfSchools)
 
 void printStudentDetails(Student stud)
 {
-    printf("\nStudnet name: %s", stud.name);
-    printf("\nStudnet id: %d", stud.id);
+    printf("\nStudent name: %s", stud.name);
+    printf("\nStudent id: %d", stud.id);
+}
+
+void printCourseDetails(Course course)
+{
+    Student *temp = course.studentsEnrolled;
+    printf("\nCourse: %s", course.name);
+    printf("\nCourse Average Grade: %d", course.avgGrage);
+    printf("\nStudents in Course: \n");
+    for (int i = 0; i < course.numberOfStudents; i++)
+    {
+        printf("%s,", temp->name);
+        temp++;
+    }    
 }
