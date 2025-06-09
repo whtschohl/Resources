@@ -235,3 +235,18 @@ void printSchoolDetails(School skool)
     }    
     printf("\n============================================================");
 }
+
+bool isStudentInCourse(int id, Course course)
+{
+    Student *temp;
+    temp = course.studentsEnrolled;
+
+    for (int i = 0; i < course.numberOfStudents; i++)
+    {
+        if(temp->id == id)
+            return true;
+        temp++;
+    }
+    
+    return false;
+}
