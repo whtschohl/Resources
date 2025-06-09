@@ -48,7 +48,7 @@ void printStudentCourses(int id, School skool);
 void printFailedStudents(Course course);
 void printPassedStudents(Course course);
 void printCourseAvgPass(School skool);
-void printCourseAvgFail();
+void printCourseAvgFail(School skool);
 void printAvgScoreOfAllCourses();
 void printCourseWithHighestAverage();
 void freeMemory();
@@ -326,4 +326,18 @@ void printCourseAvgPass(School skool)
             printf("\n%s", temp->name);
         temp++;        
     }   
+}
+
+void printCourseAvgFail(School skool)
+{
+        Course *temp = skool.coursesOffered;
+
+    printf("All Courses with a failing average:");
+
+    for (int i = 0; i < skool.numberOfCourses; i++)
+    {
+        if (temp->avgGrage < 50)
+            printf("\n%s", temp->name);
+        temp++;        
+    } 
 }
