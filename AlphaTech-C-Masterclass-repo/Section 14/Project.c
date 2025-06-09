@@ -49,7 +49,7 @@ void printFailedStudents(Course course);
 void printPassedStudents(Course course);
 void printCourseAvgPass(School skool);
 void printCourseAvgFail(School skool);
-void printAvgScoreOfAllCourses();
+void printAvgScoreOfAllCourses(School skool);
 void printCourseWithHighestAverage();
 void freeMemory();
 void printMenu();
@@ -340,4 +340,19 @@ void printCourseAvgFail(School skool)
             printf("\n%s", temp->name);
         temp++;        
     } 
+}
+
+void printAvgScoreOfAllCourses(School skool)
+{
+    Course *temp = skool.coursesOffered;
+    float avg = 0;
+
+    for (int i = 0; i < skool.numberOfCourses; i++)
+    {
+        avg += temp->avgGrage;
+        temp++;
+    }
+    avg = avg / skool.numberOfCourses;
+
+    printf("\nAverage grade of all courses: %.2f", avg);    
 }
