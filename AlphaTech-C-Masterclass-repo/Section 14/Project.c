@@ -244,7 +244,26 @@ bool isStudentInCourse(int id, Course course)
     for (int i = 0; i < course.numberOfStudents; i++)
     {
         if(temp->id == id)
+        {
             return true;
+        }
+        temp++;
+    }
+    
+    return false;
+}
+
+bool isStudentInSchool(int id, School school)
+{
+    Course *temp;
+    temp = school.coursesOffered;
+
+    for (int i = 0; i < school.numberOfCourses; i++)
+    {
+        if(true == isStudentInCourse(id, *temp))
+        {
+            return true;
+        }
         temp++;
     }
     
