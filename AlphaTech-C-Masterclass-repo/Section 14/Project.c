@@ -46,7 +46,7 @@ bool isStudentInCourse(int id, Course course);
 bool isStudentInSchool(int id, School school);
 void printStudentCourses(int id, School skool);
 void printFailedStudents(Course course);
-void printPassedStudents();
+void printPassedStudents(Course course);
 void printCourseAvgPass();
 void printCourseAvgFail();
 void printAvgScoreOfAllCourses();
@@ -298,4 +298,18 @@ void printFailedStudents(Course course)
             printf("\n%d: %s", temp->id, temp->name);
         temp++;
     }    
+}
+
+void printPassedStudents(Course course)
+{
+        Student *temp = course.studentsEnrolled;
+
+    printf("\nThe following students have Passed: ");
+
+    for (int i = 0; i < course.numberOfStudents; i++)
+    {
+        if (temp->grade > 50)
+            printf("\n%d: %s", temp->id, temp->name);
+        temp++;
+    } 
 }
