@@ -286,3 +286,16 @@ void printStudentCourses(int id, School skool)
         printf("\nStudent is not in the given school");
 }
 
+void printFailedStudents(Course course)
+{
+    Student *temp = course.studentsEnrolled;
+
+    printf("\nThe following students have failed: ");
+
+    for (int i = 0; i < course.numberOfStudents; i++)
+    {
+        if (temp->grade < 50)
+            printf("\n%d: %s", temp->id, temp->name);
+        temp++;
+    }    
+}
