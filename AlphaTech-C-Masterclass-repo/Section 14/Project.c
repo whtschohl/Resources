@@ -50,7 +50,7 @@ void printPassedStudents(Course course);
 void printCourseAvgPass(School skool);
 void printCourseAvgFail(School skool);
 void printAvgScoreOfAllCourses(School skool);
-void printCourseWithHighestAverage();
+void printCourseWithHighestAverage(School skool);
 void freeMemory();
 void printMenu();
 
@@ -355,4 +355,18 @@ void printAvgScoreOfAllCourses(School skool)
     avg = avg / skool.numberOfCourses;
 
     printf("\nAverage grade of all courses: %.2f", avg);    
+}
+
+void printCourseWithHighestAverage(School skool)
+{
+    Course *temp = skool.coursesOffered;
+    Course *best = NULL;
+
+    if (temp->avgGrage > best->avgGrage)
+    {
+        best = temp;
+        temp++;
+    }
+    
+    printf("\nCourse with the highest score (%d): %s", best->avgGrage, best->name);
 }
