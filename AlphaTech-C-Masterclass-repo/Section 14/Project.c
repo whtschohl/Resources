@@ -51,7 +51,7 @@ void printCourseAvgPass(School skool);
 void printCourseAvgFail(School skool);
 void printAvgScoreOfAllCourses(School skool);
 void printCourseWithHighestAverage(School skool);
-void freeMemory();
+void freeMemory2DArr(void **ptr, int size);
 void printMenu();
 
 // Code
@@ -369,4 +369,12 @@ void printCourseWithHighestAverage(School skool)
     }
     
     printf("\nCourse with the highest score (%d): %s", best->avgGrage, best->name);
+}
+
+void freeMemory2DArr(void **ptr, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        free(ptr[i]); 
+    }
 }
