@@ -44,8 +44,8 @@ void printCourseDetails(Course course);
 void printSchoolDetails(School skool);
 bool isStudentInCourse(int id, Course course);
 bool isStudentInSchool(int id, School school);
-void printStudenCourses(int id, Course course);
-void printFailedStudents();
+void printStudentCourses(int id, School skool);
+void printFailedStudents(Course course);
 void printPassedStudents();
 void printCourseAvgPass();
 void printCourseAvgFail();
@@ -269,3 +269,20 @@ bool isStudentInSchool(int id, School school)
     
     return false;
 }
+
+void printStudentCourses(int id, School skool)
+{
+    Course *temp;
+    temp = skool.coursesOffered;
+
+    if (isStudentInSchool(id, skool))
+    {
+        printf("\nStudent Courses: ");
+        if (isStudentInCourse(id, *temp))
+            printf("\n%s", temp->name);
+        
+    }
+    else 
+        printf("\nStudent is not in the given school");
+}
+
