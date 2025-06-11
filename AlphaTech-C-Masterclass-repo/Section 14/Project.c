@@ -158,7 +158,9 @@ Course *createCourse()
     // Calculate average grade in course
     temp = newCourse->studentsEnrolled;
     for (int i = 0; i < newCourse->numberOfStudents; i++)
-    {   Sum += temp->grade;}
+    {   Sum += temp->grade;
+        temp++;
+    }
     newCourse->avgGrage = Sum / newCourse->numberOfStudents;
     
     
@@ -368,13 +370,16 @@ void printCourseWithHighestAverage(School skool)
         temp++;
     }
     
-    printf("\nCourse with the highest score (%d): %s", best->avgGrage, best->name);
+    printf("\nCourse with the highest score (%f): %s", best->avgGrage, best->name);
 }
 
-void freeMemory2DArr(void **ptr, int size)
+void freeAllSchools(void **ptr, int size)
 {
-    for (int i = 0; i < size; i++)
-    {
-        free(ptr[i]); 
-    }
+    /*  for length of array 
+
+    
+    
+    
+    
+    */
 }
