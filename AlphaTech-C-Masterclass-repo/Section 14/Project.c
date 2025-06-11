@@ -38,7 +38,7 @@ typedef struct school
 
 Student *createStudent();
 Course *createCourse();
-void createSchool(School **arr, int numberOfSchools);
+void createSchool(School **arr, int *numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
 void printSchoolDetails(School skool);
@@ -51,7 +51,7 @@ void printCourseAvgPass(School skool);
 void printCourseAvgFail(School skool);
 void printAvgScoreOfAllCourses(School skool);
 void printCourseWithHighestAverage(School skool);
-void freeMemory2DArr(void **ptr, int size);
+void freeMemory2DArr(School **ptr, int size);
 void printMenu();
 
 // Code
@@ -80,7 +80,7 @@ int main()
                 createSchool(&allSchools, 0);
             } else
             {
-                createSchool(&allSchools, numberOfSchools);
+                createSchool(&allSchools, &numberOfSchools);
             }
             break;
         
@@ -98,7 +98,7 @@ int main()
             break;
         }
     }
-
+    freeAllSchools(&allSchools, numberOfSchools);
     printf("\n\nEnd of Program");
     return 0;
 }
@@ -169,21 +169,21 @@ Course *createCourse()
     return newCourse;
 }
 
-void createSchool(School **arr, int numberOfSchools)
+void createSchool(School **arr, int *numberOfSchools)
 {
-    School *newArr = (School*)malloc(sizeof(School) * numberOfSchools);
+    School *newArr = (School*)malloc(sizeof(School) * *numberOfSchools);
     School *newSchool = NULL;
 
     // the array of schools increases by 1 to add the new school
     numberOfSchools++;
-    newArr = (School*)realloc(*arr, sizeof(School) * numberOfSchools); 
+    newArr = (School*)realloc(*arr, sizeof(School) * *numberOfSchools); 
     if(newArr == NULL)
     {
         printf("newArr is still NULL");
         exit(EXIT_FAILURE);
     }
     
-    newSchool = newArr + (numberOfSchools-1); //get to the right element in the array
+    newSchool = newArr + (*numberOfSchools-1); //get to the right element in the array
 
     printf("\nEnter new school name: ");
     scanf("%s", newSchool->name);
@@ -373,13 +373,16 @@ void printCourseWithHighestAverage(School skool)
     printf("\nCourse with the highest score (%f): %s", best->avgGrage, best->name);
 }
 
-void freeAllSchools(void **ptr, int size)
+void freeAllSchools(School **ptr, int size)
 {
     /*  for length of array 
-
-    
-    
-    
-    
+            -> School
+            -> Courses
+            -> Studnets    
     */
+   for (int i = 0; i < size; i++)
+   {
+        (*ptr)->coursesOffered;
+   }
+   
 }
