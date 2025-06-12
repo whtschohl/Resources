@@ -9,6 +9,7 @@ The array of all students is kept in the school struct
 #include <stdio.h>
 #include <stdlib.h> // needed for dynamic memory allocation
 #include <stdbool.h>
+#include <string.h>
 
 // Structs
 
@@ -38,11 +39,11 @@ typedef struct school
 
 Student *createStudent();
 Course *createCourse();
-void createSchool(School **arr, int numberOfSchools);
+void createSchool(School **arr, int *numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
 void printSchoolDetails(School skool);
-bool isStudentInCourse(int id, Course course);
+bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools);
 bool isStudentInSchool(int id, School school);
 void printStudentCourses(int id, School skool);
 void printFailedStudents(Course course);
@@ -51,7 +52,7 @@ void printCourseAvgPass(School skool);
 void printCourseAvgFail(School skool);
 void printAvgScoreOfAllCourses(School skool);
 void printCourseWithHighestAverage(School skool);
-void freeMemory2DArr(void **ptr, int size);
+void freeAllSchools(School **ptr, int size);
 void printMenu();
 
 // Code
@@ -60,6 +61,8 @@ int main()
 {
     static int numberOfSchools = 0;
     School *allSchools = (School*)malloc(sizeof(School) * numberOfSchools);
+    int studentID;
+    char courseName[10], schoolName[10];
 
     while(true)
     {
@@ -80,7 +83,7 @@ int main()
                 createSchool(&allSchools, 0);
             } else
             {
-                createSchool(&allSchools, numberOfSchools);
+                createSchool(&allSchools, &numberOfSchools);
             }
             break;
         
@@ -93,12 +96,48 @@ int main()
             }
 
             break;
+        case 3:
+            printf("\nEnter student id: ");
+            scanf("%d", &studentID);
+            printf("\nEnter course name: ");
+            scanf("%s", courseName);
+            printf("\nEnter school name: ");
+            scanf("%s", schoolName);
+
+            if(isStudentInCourse(studentID, courseName, schoolName, allSchools))
+                printf("Student %d is enrolled in the %s course", studentID, courseName);
+            
+            break;
         
+        case 4:
+            break;
+
+        case 5:
+            break;
+
+        case 6:
+            break;
+
+        case 7:
+            break;
+
+        case 8:
+            break;
+
+        case 9:
+            break;
+
+        case 10:
+            break;
+            
+        case 11:
+            break;
+            
         default:
             break;
         }
     }
-
+    freeAllSchools(&allSchools, numberOfSchools);
     printf("\n\nEnd of Program");
     return 0;
 }
@@ -158,7 +197,9 @@ Course *createCourse()
     // Calculate average grade in course
     temp = newCourse->studentsEnrolled;
     for (int i = 0; i < newCourse->numberOfStudents; i++)
-    {   Sum += temp->grade;}
+    {   Sum += temp->grade;
+        temp++;
+    }
     newCourse->avgGrage = Sum / newCourse->numberOfStudents;
     
     
@@ -167,21 +208,21 @@ Course *createCourse()
     return newCourse;
 }
 
-void createSchool(School **arr, int numberOfSchools)
+void createSchool(School **arr, int *numberOfSchools)
 {
-    School *newArr = (School*)malloc(sizeof(School) * numberOfSchools);
+    School *newArr = (School*)malloc(sizeof(School) * *numberOfSchools);
     School *newSchool = NULL;
 
     // the array of schools increases by 1 to add the new school
     numberOfSchools++;
-    newArr = (School*)realloc(*arr, sizeof(School) * numberOfSchools); 
+    newArr = (School*)realloc(*arr, sizeof(School) * *numberOfSchools); 
     if(newArr == NULL)
     {
         printf("newArr is still NULL");
         exit(EXIT_FAILURE);
     }
     
-    newSchool = newArr + (numberOfSchools-1); //get to the right element in the array
+    newSchool = newArr + (*numberOfSchools-1); //get to the right element in the array
 
     printf("\nEnter new school name: ");
     scanf("%s", newSchool->name);
@@ -236,18 +277,33 @@ void printSchoolDetails(School skool)
     printf("\n============================================================");
 }
 
-bool isStudentInCourse(int id, Course course)
+bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools)
 {
-    Student *temp;
-    temp = course.studentsEnrolled;
+    School *tempSchool = allSchools;
+    Course *tempCourse;
+    Student *tempStud;
 
-    for (int i = 0; i < course.numberOfStudents; i++)
+    for (int i = 0; i < allSchools->numberOfCourses; i++)
+        if(0 == strcmp(tempSchool->name, schoolName))
+            tempCourse = tempSchool->coursesOffered;
+        else 
+            printf("\nSchool is not in the system - check spelling");
+    
+    for (int i = 0; i < tempCourse->numberOfStudents; i++)
     {
-        if(temp->id == id)
+        if (0 == strcmp(course, tempCourse->name))
+            tempStud = tempCourse->studentsEnrolled;
+        else
+            printf("Course is not offered at the given school - check spelling");
+    }
+
+    for (int i = 0; i < tempCourse->numberOfStudents; i++)
+    {
+        if(tempStud->id == id)
         {
             return true;
         }
-        temp++;
+        tempStud++;
     }
     
     return false;
@@ -260,7 +316,7 @@ bool isStudentInSchool(int id, School school)
 
     for (int i = 0; i < school.numberOfCourses; i++)
     {
-        if(true == isStudentInCourse(id, *temp))
+        if(true == isStudentInCourse(id, temp->name, school.name, &school))
         {
             return true;
         }
@@ -278,7 +334,7 @@ void printStudentCourses(int id, School skool)
     if (isStudentInSchool(id, skool))
     {
         printf("\nStudent Courses: ");
-        if (isStudentInCourse(id, *temp))
+        if (isStudentInCourse(id, temp->name, skool.name, &skool))
             printf("\n%s", temp->name);
         
     }
@@ -368,13 +424,27 @@ void printCourseWithHighestAverage(School skool)
         temp++;
     }
     
-    printf("\nCourse with the highest score (%d): %s", best->avgGrage, best->name);
+    printf("\nCourse with the highest score (%f): %s", best->avgGrage, best->name);
 }
 
-void freeMemory2DArr(void **ptr, int size)
+void freeAllSchools(School **ptr, int size)
 {
+    Course *tempCourse = (*ptr)->coursesOffered;
+    Student *tempStudent = tempCourse->studentsEnrolled;
+
     for (int i = 0; i < size; i++)
     {
-        free(ptr[i]); 
+        for (int j = 0; j < (*ptr)->numberOfCourses; j++)
+        {
+            for (int k = 0; k < tempCourse->numberOfStudents; k++)
+            {
+                free(tempStudent);
+                tempStudent++;
+            }
+            free(tempCourse);
+            tempCourse++;   
+        }
+        free(*ptr);
     }
+    printf("\nMemory has been given a sock.");
 }
