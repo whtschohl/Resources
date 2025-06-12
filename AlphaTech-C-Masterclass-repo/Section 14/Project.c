@@ -377,13 +377,9 @@ void freeAllSchools(School **ptr, int size)
 {
     Course *tempCourse = (*ptr)->coursesOffered;
     Student *tempStudent = tempCourse->studentsEnrolled;
-    /*  for length of array 
-            -> School
-            -> Courses
-            -> Studnets    
-    */
-   for (int i = 0; i < size; i++)
-   {
+
+    for (int i = 0; i < size; i++)
+    {
         for (int j = 0; j < (*ptr)->numberOfCourses; j++)
         {
             for (int k = 0; k < tempCourse->numberOfStudents; k++)
@@ -395,5 +391,6 @@ void freeAllSchools(School **ptr, int size)
             tempCourse++;   
         }
         free(*ptr);
-   }   
+    }
+    printf("\nMemory has been given a sock.");
 }
