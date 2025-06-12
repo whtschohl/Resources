@@ -375,6 +375,8 @@ void printCourseWithHighestAverage(School skool)
 
 void freeAllSchools(School **ptr, int size)
 {
+    Course *tempCourse = (*ptr)->coursesOffered;
+    Student *tempStudent = tempCourse->studentsEnrolled;
     /*  for length of array 
             -> School
             -> Courses
@@ -382,7 +384,16 @@ void freeAllSchools(School **ptr, int size)
     */
    for (int i = 0; i < size; i++)
    {
-        (*ptr)->coursesOffered;
-   }
-   
+        for (int j = 0; j < (*ptr)->numberOfCourses; j++)
+        {
+            for (int k = 0; k < tempCourse->numberOfStudents; k++)
+            {
+                free(tempStudent);
+                tempStudent++;
+            }
+            free(tempCourse);
+            tempCourse++;   
+        }
+        free(*ptr);
+   }   
 }
