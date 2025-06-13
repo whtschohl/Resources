@@ -43,9 +43,9 @@ void createSchool(School **arr, int *numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
 void printSchoolDetails(School skool);
-bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools);
-bool isStudentInSchool(int id, School school);
-void printStudentCourses(int id, School skool);
+bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools, int numberOfSchools);
+bool isStudentInSchool(int id, char *schoolName, School **allSchools, int numberOfSchools);
+void printStudentCourses(int id, School skool, School *allSkools, int numberOfSchools);
 void printFailedStudents(Course course);
 void printPassedStudents(Course course);
 void printCourseAvgPass(School skool);
@@ -104,12 +104,19 @@ int main()
             printf("\nEnter school name: ");
             scanf("%s", schoolName);
 
-            if(isStudentInCourse(studentID, courseName, schoolName, allSchools))
+            if(isStudentInCourse(studentID, courseName, schoolName, allSchools, numberOfSchools))
                 printf("Student %d is enrolled in the %s course", studentID, courseName);
             
             break;
         
         case 4:
+            printf("\nEnter student id: ");
+            scanf("%d", &studentID);
+            printf("\nEnter school name: ");
+            scanf("%s", schoolName);
+            
+            isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools);
+            
             break;
 
         case 5:
@@ -277,7 +284,7 @@ void printSchoolDetails(School skool)
     printf("\n============================================================");
 }
 
-bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools)
+bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools, int numberOfSchools)
 {
     School *tempSchool = allSchools;
     Course *tempCourse;
@@ -309,32 +316,40 @@ bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchool
     return false;
 }
 
-bool isStudentInSchool(int id, School school)
-{
-    Course *temp;
-    temp = school.coursesOffered;
+bool isStudentInSchool(int id, char *schoolName, School **allSchools, int numberOfSchools)
+{   
+    
+    Course *tempCourse;
+    School *tempSkool = *allSchools;    
 
-    for (int i = 0; i < school.numberOfCourses; i++)
+    for (int i = 0; i < numberOfSchools; i++)
+        if(0 == strcmp(tempSkool->name, schoolName))
+            tempCourse = tempSkool->coursesOffered;
+        else 
+            printf("\nSchool is not in the system - check spelling");
+    
+
+    for (int i = 0; i < tempSkool->numberOfCourses; i++)
     {
-        if(true == isStudentInCourse(id, temp->name, school.name, &school))
+        if(true == isStudentInCourse(id, tempCourse->name, tempSkool->name, *allSchools, numberOfSchools))
         {
             return true;
         }
-        temp++;
+        tempCourse++;
     }
     
     return false;
 }
 
-void printStudentCourses(int id, School skool)
+void printStudentCourses(int id, School skool, School *allSkools, int numberOfSchools)
 {
     Course *temp;
     temp = skool.coursesOffered;
 
-    if (isStudentInSchool(id, skool))
+    if (isStudentInSchool(id, skool.name, &allSkools, numberOfSchools))
     {
         printf("\nStudent Courses: ");
-        if (isStudentInCourse(id, temp->name, skool.name, &skool))
+        if (isStudentInCourse(id, temp->name, skool.name, &skool, numberOfSchools))
             printf("\n%s", temp->name);
         
     }
