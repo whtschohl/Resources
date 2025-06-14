@@ -141,7 +141,7 @@ int main()
             break;
             
         default:
-            break;
+            exit(EXIT_SUCCESS);
         }
     }
     freeAllSchools(&allSchools, numberOfSchools);
@@ -188,7 +188,7 @@ Course *createCourse()
 {
     Course *newCourse;
     Student *temp;
-    int Sum;
+    int Sum = 0;
     newCourse = (Course*)malloc(sizeof(Course));
     
     printf("\nCourse Name? ");
@@ -197,6 +197,7 @@ Course *createCourse()
     scanf("%d", &newCourse->numberOfStudents);
 
     Student *arrStudents = (Student*)malloc(sizeof(Student) * newCourse->numberOfStudents);
+    newCourse->studentsEnrolled = arrStudents; 
 
     for (int i = 0; i < newCourse->numberOfStudents; i++)
     {   arrStudents[i] = *createStudent();}
@@ -221,7 +222,7 @@ void createSchool(School **arr, int *numberOfSchools)
     School *newSchool = NULL;
 
     // the array of schools increases by 1 to add the new school
-    numberOfSchools++;
+    *numberOfSchools += 1;
     newArr = (School*)realloc(*arr, sizeof(School) * *numberOfSchools); 
     if(newArr == NULL)
     {
