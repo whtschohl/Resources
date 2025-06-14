@@ -61,8 +61,8 @@ int main()
 {
     static int numberOfSchools = 0;
     School *allSchools = (School*)malloc(sizeof(School) * numberOfSchools);
-    int studentID;
-    char courseName[10], schoolName[10];
+    int studentID, schoolIndex;
+    char courseName[15], schoolName[15];
 
     while(true)
     {
@@ -91,8 +91,16 @@ int main()
             if (NULL == allSchools)
             {
                 printf("\nNo schools in database");
-            }else {            
-            printSchoolDetails(allSchools[0]);
+            }else {
+                printf("\nEnter School Name: ");
+                scanf("%s", schoolName);
+                while (getchar() != '\n'); 
+                
+                for (int i = 0; i < numberOfSchools; i++)
+                    if (allSchools[i].name == schoolName)
+                        schoolIndex = i;
+
+                printSchoolDetails(allSchools[0]);
             }
 
             break;
