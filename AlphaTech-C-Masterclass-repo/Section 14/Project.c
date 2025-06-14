@@ -22,7 +22,7 @@ typedef struct student
 
 typedef struct course
 {
-    char name[10];
+    char name[15];
     float avgGrage;
     Student *studentsEnrolled;
     int numberOfStudents;
@@ -101,8 +101,10 @@ int main()
             scanf("%d", &studentID);
             printf("\nEnter course name: ");
             scanf("%s", courseName);
+            while (getchar() != '\n'); 
             printf("\nEnter school name: ");
             scanf("%s", schoolName);
+            while (getchar() != '\n'); 
 
             if(isStudentInCourse(studentID, courseName, schoolName, allSchools, numberOfSchools))
                 printf("Student %d is enrolled in the %s course", studentID, courseName);
@@ -114,6 +116,7 @@ int main()
             scanf("%d", &studentID);
             printf("\nEnter school name: ");
             scanf("%s", schoolName);
+            while (getchar() != '\n'); 
             
             isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools);
             
@@ -176,6 +179,7 @@ Student *createStudent()
 
     printf("\nStudent Name: ");
     scanf("%s", newStudent->name);
+    while (getchar() != '\n'); 
     printf("\nStudent ID: ");
     scanf("%d", &newStudent->id);
     printf("Student Grade: ");
@@ -193,8 +197,10 @@ Course *createCourse()
     
     printf("\nCourse Name? ");
     scanf("%s", newCourse->name);
+    while (getchar() != '\n');
     printf("\nHow many students are in this Course? ");
     scanf("%d", &newCourse->numberOfStudents);
+    while (getchar() != '\n'); 
 
     Student *arrStudents = (Student*)malloc(sizeof(Student) * newCourse->numberOfStudents);
     newCourse->studentsEnrolled = arrStudents; 
@@ -208,7 +214,11 @@ Course *createCourse()
     {   Sum += temp->grade;
         temp++;
     }
-    newCourse->avgGrage = Sum / newCourse->numberOfStudents;
+
+    if(0 == newCourse->numberOfStudents)
+        printf("\nNo students");
+    else
+        newCourse->avgGrage = Sum / newCourse->numberOfStudents;
     
     
     newCourse->studentsEnrolled = arrStudents;
