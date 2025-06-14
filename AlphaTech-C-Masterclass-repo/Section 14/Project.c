@@ -73,7 +73,11 @@ int main()
             add in an option to close program
         */
         printMenu();
-        scanf("%d", &option);
+        if(scanf("%d", &option) != 1)
+        {
+            printf("\nInvalid input");
+            while (getchar() != '\n'); 
+        }
 
         switch (option)
         {
@@ -93,8 +97,12 @@ int main()
                 printf("\nNo schools in database");
             }else {
                 printf("\nEnter School Name: ");
-                scanf("%s", schoolName);
-                while (getchar() != '\n'); 
+                if(scanf("%s", schoolName) != 1)
+                {
+                    printf("\nInvalid input");
+                    while (getchar() != '\n');  
+                }
+                 
                 
                 for (int i = 0; i < numberOfSchools; i++)
                     if (allSchools[i].name == schoolName)
@@ -106,13 +114,23 @@ int main()
             break;
         case 3:
             printf("\nEnter student id: ");
-            scanf("%d", &studentID);
+            if(scanf("%d", &studentID) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
             printf("\nEnter course name: ");
-            scanf("%s", courseName);
-            while (getchar() != '\n'); 
+            if(scanf("%s", courseName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
             printf("\nEnter school name: ");
-            scanf("%s", schoolName);
-            while (getchar() != '\n'); 
+            if(scanf("%s", schoolName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            } 
 
             if(isStudentInCourse(studentID, courseName, schoolName, allSchools, numberOfSchools))
                 printf("Student %d is enrolled in the %s course", studentID, courseName);
@@ -121,10 +139,17 @@ int main()
         
         case 4:
             printf("\nEnter student id: ");
-            scanf("%d", &studentID);
+            if(scanf("%d", &studentID) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
             printf("\nEnter school name: ");
-            scanf("%s", schoolName);
-            while (getchar() != '\n'); 
+            if(scanf("%s", schoolName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            } 
             
             isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools);
             
@@ -186,12 +211,23 @@ Student *createStudent()
     newStudent = (Student*)malloc(sizeof(Student));
 
     printf("\nStudent Name: ");
-    scanf("%s", newStudent->name);
-    while (getchar() != '\n'); 
+    if(scanf("%s", newStudent->name) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
     printf("\nStudent ID: ");
-    scanf("%d", &newStudent->id);
+    if(scanf("%d", &newStudent->id) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
     printf("Student Grade: ");
-    scanf("%f", &newStudent->grade);
+    if(scanf("%f", &newStudent->grade) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
 
     return newStudent;
 }
@@ -204,11 +240,17 @@ Course *createCourse()
     newCourse = (Course*)malloc(sizeof(Course));
     
     printf("\nCourse Name? ");
-    scanf("%s", newCourse->name);
-    while (getchar() != '\n');
+    if(scanf("%s", newCourse->name) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
     printf("\nHow many students are in this Course? ");
-    scanf("%d", &newCourse->numberOfStudents);
-    while (getchar() != '\n'); 
+    if(scanf("%d", &newCourse->numberOfStudents) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
 
     Student *arrStudents = (Student*)malloc(sizeof(Student) * newCourse->numberOfStudents);
     newCourse->studentsEnrolled = arrStudents; 
@@ -251,11 +293,19 @@ void createSchool(School **arr, int *numberOfSchools)
     newSchool = newArr + (*numberOfSchools-1); //get to the right element in the array
 
     printf("\nEnter new school name: ");
-    scanf("%s", newSchool->name);
+    if(scanf("%s", newSchool->name) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
 
     // Insert courses
     printf("\nHow many courses are offered: ");
-    scanf("%d", &newSchool->numberOfCourses);
+    if(scanf("%d", &newSchool->numberOfCourses) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
     newSchool->coursesOffered = (Course*)malloc(sizeof(Course) * newSchool->numberOfCourses);
 
     for (int i = 0; i < newSchool->numberOfCourses; i++)
