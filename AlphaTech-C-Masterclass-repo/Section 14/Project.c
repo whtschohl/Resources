@@ -61,12 +61,15 @@ int main()
 {
     static int numberOfSchools = 0;
     School *allSchools = (School*)malloc(sizeof(School) * numberOfSchools);
-    int studentID, schoolIndex;
+    int studentID, schoolIndex, option;
     char courseName[15], schoolName[15];
+    Course *tempCourse;
+    School *tempSchool;
+    Student *tempStud;
 
     while(true)
     {
-        int option;
+        
         // menu code
         /*
             create a menu to do what the functions want
@@ -156,6 +159,45 @@ int main()
             break;
 
         case 5:
+
+            printf("\nEnter School name: ");
+            if(scanf("%s", schoolName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
+            printf("\nEnter Course Name");
+            if(scanf("%s", courseName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
+
+            tempSchool = allSchools;
+
+            for (int i = 0; i < numberOfSchools; i++)
+            {
+                if(0 == strcmp(schoolName, tempSchool->name))
+                {
+                    tempCourse = tempSchool->coursesOffered;
+                    for (int j = 0; j < tempSchool->numberOfCourses; j++)
+                    {
+                        if (0 == strcmp(tempCourse->name, courseName))
+                        {
+                            tempStud = tempCourse->studentsEnrolled;
+                            for (int k = 0; k < tempCourse->numberOfStudents; k++)
+                            {
+                                printStudentDetails(*tempStud);
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                tempSchool++;
+            }
+            
             break;
 
         case 6:
