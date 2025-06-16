@@ -217,9 +217,15 @@ int main()
             break;
 
         case 8:
+
+            tempSchool = getSchool(allSchools, numberOfSchools);
+            printCourseAvgPass(*tempSchool);    
+
             break;
 
         case 9:
+
+
             break;
 
         case 10:
