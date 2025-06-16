@@ -204,7 +204,8 @@ int main()
 
         case 6:
 
-            
+            tempCourse = getCourse(allSchools, numberOfSchools);
+            printFailedStudents(*tempCourse);
             
             break;
 
