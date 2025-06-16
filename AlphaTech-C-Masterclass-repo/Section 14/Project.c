@@ -225,6 +225,8 @@ int main()
 
         case 9:
 
+            tempSchool = getSchool(allSchools, numberOfSchools);
+            printCourseAvgFail(*tempSchool);
 
             break;
 
