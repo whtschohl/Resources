@@ -39,6 +39,8 @@ typedef struct school
 
 Student *createStudent();
 Course *createCourse();
+Course *getCourse(School *allSkools, int numberOfSchools);
+School *getSchool();
 void createSchool(School **arr, int *numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
@@ -201,6 +203,9 @@ int main()
             break;
 
         case 6:
+
+            
+            
             break;
 
         case 7:
@@ -316,6 +321,50 @@ Course *createCourse()
     newCourse->studentsEnrolled = arrStudents;
 
     return newCourse;
+}
+
+Course *getCourse(School *allSkools, int numberOfSchools)
+{
+    char courseName[15];
+    Course *tempCourse;
+
+    printf("\nCourse Name? ");
+    if(scanf("%s", courseName != 1))
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }   
+    
+    for (int i = 0; i < tempCourse->numberOfStudents; i++)
+    {
+        if (0 == strcmp(courseName, tempCourse->name))
+            return tempCourse;
+        else
+            printf("Course is not offered at the given school - check spelling");
+    }
+
+    return NULL;
+}
+
+School *getSchool(School *allSchools, int numberOfSchools)
+{
+    School *tempSchool;
+    char schoolName[15];
+
+    printf("\nEnter School name: ");
+            if(scanf("%s", schoolName) != 1)
+            {
+                printf("\nInvalid input");
+                while (getchar() != '\n');  
+            }
+
+    for (int i = 0; i < allSchools->numberOfCourses; i++)
+        if(0 == strcmp(tempSchool->name, schoolName))
+            return tempSchool;
+        else 
+            printf("\nSchool is not in the system - check spelling");
+    
+    return NULL;
 }
 
 void createSchool(School **arr, int *numberOfSchools)
