@@ -239,6 +239,9 @@ int main()
             break;
             
         case 11:
+
+            tempSchool = getSchool(allSchools, numberOfSchools);
+            printCourseWithHighestAverage(*tempSchool);
             break;
             
         default:
