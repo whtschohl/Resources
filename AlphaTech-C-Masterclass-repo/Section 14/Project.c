@@ -210,6 +210,10 @@ int main()
             break;
 
         case 7:
+
+            tempCourse = getCourse(allSchools, numberOfSchools);
+            printPassedStudents(*tempCourse);
+            
             break;
 
         case 8:
