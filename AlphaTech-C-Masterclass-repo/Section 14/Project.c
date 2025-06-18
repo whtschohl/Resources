@@ -350,7 +350,7 @@ Course *getCourse(School *allSkools, int numberOfSchools)
     Course *tempCourse;
 
     printf("\nCourse Name? ");
-    if(scanf("%s", courseName != 1))
+    if(scanf("%s", courseName) != 1)
     {
         printf("\nInvalid input");
         while (getchar() != '\n');  
