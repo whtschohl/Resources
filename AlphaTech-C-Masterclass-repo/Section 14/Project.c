@@ -40,7 +40,7 @@ typedef struct school
 Student *createStudent();
 Course *createCourse();
 Course *getCourse(School *allSkools, int numberOfSchools);
-School *getSchool();
+School *getSchool(School *allSchools, int numberOfSchools);
 void createSchool(School **arr, int *numberOfSchools);
 void printStudentDetails(Student stud);
 void printCourseDetails(Course course);
