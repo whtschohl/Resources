@@ -141,7 +141,7 @@ int main()
                 printf("Student %d is enrolled in the %s course", studentID, courseName);
             else
                 printf("\nStudent is not enrolled in this the %s course", courseName);
-                
+
             break;
         
         case 4:
@@ -159,9 +159,9 @@ int main()
             } 
             
             if(isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools))
-                // print confirmation
+                printf("\nStudent %d is in the school %s.", studentID, schoolName);
             else    
-                //print stud not there
+                printf("\nStudent is not enrolled in the school %s", schoolName);
             
             break;
 
