@@ -197,10 +197,8 @@ int main()
                                 printStudentDetails(*tempStud);
                             }   
                         } else
-                            //print course not there
-                        
-                    }
-                    
+                            printf("\nCourse is not offered at this school");
+                    }  
                 }
                 tempSchool++;
             }
