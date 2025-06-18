@@ -110,10 +110,10 @@ int main()
                  
                 
                 for (int i = 0; i < numberOfSchools; i++)
-                    if (allSchools[i].name == schoolName)
+                    if (0 == strcmp(allSchools[i].name, schoolName))
                         schoolIndex = i;
 
-                printSchoolDetails(allSchools[0]);
+                printSchoolDetails(allSchools[schoolIndex]);
             }
 
             break;
@@ -139,7 +139,8 @@ int main()
 
             if(isStudentInCourse(studentID, courseName, schoolName, allSchools, numberOfSchools))
                 printf("Student %d is enrolled in the %s course", studentID, courseName);
-            
+            else
+                // print student not in course
             break;
         
         case 4:
@@ -156,7 +157,10 @@ int main()
                 while (getchar() != '\n');  
             } 
             
-            isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools);
+            if(isStudentInSchool(studentID, schoolName, &allSchools, numberOfSchools))
+                // print confirmation
+            else    
+                //print stud not there
             
             break;
 
@@ -168,7 +172,7 @@ int main()
                 printf("\nInvalid input");
                 while (getchar() != '\n');  
             }
-            printf("\nEnter Course Name");
+            printf("\nEnter Course Name: ");
             if(scanf("%s", courseName) != 1)
             {
                 printf("\nInvalid input");
@@ -190,9 +194,9 @@ int main()
                             for (int k = 0; k < tempCourse->numberOfStudents; k++)
                             {
                                 printStudentDetails(*tempStud);
-                            }
-                            
-                        }
+                            }   
+                        } else
+                            //print course not there
                         
                     }
                     
