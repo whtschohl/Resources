@@ -65,7 +65,7 @@ int main()
     School *allSchools = (School*)malloc(sizeof(School) * numberOfSchools);
     int studentID, schoolIndex, option;
     char courseName[15], schoolName[15];
-    Course *tempCourse;
+    Course *tempCourse = NULL;
     School *tempSchool;
     Student *tempStud;
 
@@ -208,7 +208,9 @@ int main()
         case 6:
 
             tempCourse = getCourse(allSchools, numberOfSchools);
-            printFailedStudents(*tempCourse);
+            if(!(NULL == tempCourse))
+                printFailedStudents(*tempCourse);
+            else printf("\nError");
             
             break;
 
@@ -234,7 +236,6 @@ int main()
             break;
 
         case 10:
-
             
             tempSchool = getSchool(allSchools, numberOfSchools);
             printAvgScoreOfAllCourses(*tempSchool);
@@ -350,21 +351,24 @@ Course *createCourse()
 Course *getCourse(School *allSkools, int numberOfSchools)
 {
     char courseName[15];
-    Course *tempCourse;
+    Course *tempCourse = allSkools->coursesOffered;
 
     printf("\nCourse Name? ");
     if(scanf("%s", courseName) != 1)
     {
         printf("\nInvalid input");
         while (getchar() != '\n');  
-    }   
+    }
     
     for (int i = 0; i < tempCourse->numberOfStudents; i++)
     {
+        
         if (0 == strcmp(courseName, tempCourse->name))
             return tempCourse;
         else
             printf("Course is not offered at the given school - check spelling");
+
+        allSkools++;
     }
 
     return NULL;
