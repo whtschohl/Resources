@@ -622,7 +622,7 @@ void printAvgScoreOfAllCourses(School skool)
 void printCourseWithHighestAverage(School skool)
 {
     Course *temp = skool.coursesOffered;
-    Course *best = NULL;
+    Course *best = temp;
 
     if (temp->avgGrage > best->avgGrage)
     {
