@@ -567,7 +567,7 @@ void printPassedStudents(Course course)
 
     for (int i = 0; i < course.numberOfStudents; i++)
     {
-        if (temp->grade > 50)
+        if (temp->grade > 49)
             printf("\n%d: %s", temp->id, temp->name);
         temp++;
     } 
