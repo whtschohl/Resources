@@ -368,7 +368,7 @@ Course *getCourse(School *allSkools, int numberOfSchools)
         else
             printf("Course is not offered at the given school - check spelling");
 
-        allSkools++;
+        tempCourse++;
     }
 
     return NULL;
@@ -376,22 +376,25 @@ Course *getCourse(School *allSkools, int numberOfSchools)
 
 School *getSchool(School *allSchools, int numberOfSchools)
 {
-    School *tempSchool;
+    School *tempSchool = allSchools;
     char schoolName[15];
 
     printf("\nEnter School name: ");
-            if(scanf("%s", schoolName) != 1)
-            {
-                printf("\nInvalid input");
-                while (getchar() != '\n');  
-            }
+    if(scanf("%s", schoolName) != 1)
+    {
+        printf("\nInvalid input");
+        while (getchar() != '\n');  
+    }
 
     for (int i = 0; i < allSchools->numberOfCourses; i++)
         if(0 == strcmp(tempSchool->name, schoolName))
             return tempSchool;
         else 
+        {
             printf("\nSchool is not in the system - check spelling");
-    
+            tempSchool++;
+        }
+
     return NULL;
 }
 
