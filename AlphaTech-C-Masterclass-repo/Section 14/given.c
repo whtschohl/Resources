@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
+#include <stdlib.h>
 
 // Step 1: Defining the 'Student' Struct
 
@@ -27,3 +27,39 @@ typedef struct school
     Course *courseArray;
 }School;
 
+// Step 4: Creating a Student
+
+Student *createStudent()
+{
+    Student* newStudent = (Student*)malloc(sizeof(Student));
+    //assert
+    printf("Enter student name: ");
+    scanf("%s", newStudent->name);
+    printf("Enter student ID: ");
+    scanf("%d", newStudent->id);
+    return newStudent;
+}
+
+// Step 5: Creating a Course
+
+Course *createCourse()
+{
+    Course* newCourse = (Student*)malloc(sizeof(Student));
+    //assert
+    printf("Enter course name: ");
+    scanf("%s", newCourse->name);
+    printf("Enter number of students: ");
+    scanf("%d", newCourse->totalStudents);
+    newCourse->studentArray = (Student*)malloc(sizeof(Student) * newCourse->totalStudents);
+    //assert
+    for (int i = 0; i < newCourse->totalStudents; i++)
+    {
+        printf("Enter details for student #%d\n", i + 1);
+        Student* newStudent = createStudent();
+        //assert
+        newCourse->studentArray[i] = *newStudent; // copying field-by-field
+        free(newStudent); // free the temperary student memory allocated by "createStudent" function
+    }
+    return newCourse;
+    
+}
