@@ -22,6 +22,8 @@ typedef struct course {
 
 typedef struct school
 {
-    /* data */
-};
+    char name[20];
+    unsigned int totalCourses;
+    Course *courseArray;
+}School;
 
