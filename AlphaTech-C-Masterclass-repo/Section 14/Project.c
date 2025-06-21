@@ -252,6 +252,11 @@ int main()
             exit(EXIT_SUCCESS);
         }
     }
+    // free memory
+    free(tempStud);
+    free(tempCourse);
+    free(tempSchool);
+
     freeAllSchools(&allSchools, numberOfSchools);
     printf("\n\nEnd of Program");
     return 0;
@@ -344,7 +349,7 @@ Course *createCourse()
     
     
     newCourse->studentsEnrolled = arrStudents;
-
+    free(temp);
     return newCourse;
 }
 
@@ -370,7 +375,7 @@ Course *getCourse(School *allSkools, int numberOfSchools)
 
         tempCourse++;
     }
-
+    free(tempCourse);
     return NULL;
 }
 
@@ -394,7 +399,8 @@ School *getSchool(School *allSchools, int numberOfSchools)
             printf("\nSchool is not in the system - check spelling");
             tempSchool++;
         }
-
+    
+    free(tempSchool);
     return NULL;
 }
 
@@ -459,6 +465,7 @@ void printCourseDetails(Course course)
         temp++;
     }    
     printf("\n------------------------------------------------------------");
+    free(temp);
 }
 
 void printSchoolDetails(School skool)
@@ -473,6 +480,7 @@ void printSchoolDetails(School skool)
         temp++;
     }    
     printf("\n============================================================");
+    free(temp);
 }
 
 bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchools, int numberOfSchools)
@@ -504,6 +512,10 @@ bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchool
         tempStud++;
     }
     
+    free(tempStud);
+    free(tempCourse);
+    free(tempSchool);
+
     return false;
 }
 
@@ -529,6 +541,9 @@ bool isStudentInSchool(int id, char *schoolName, School **allSchools, int number
         tempCourse++;
     }
     
+    free(tempCourse);
+    free(tempSkool);
+
     return false;
 }
 
@@ -546,6 +561,8 @@ void printStudentCourses(int id, School skool, School *allSkools, int numberOfSc
     }
     else 
         printf("\nStudent is not in the given school");
+    
+    free(temp);
 }
 
 void printFailedStudents(Course course)
@@ -560,6 +577,8 @@ void printFailedStudents(Course course)
             printf("\n%d: %s", temp->id, temp->name);
         temp++;
     }    
+
+    free(temp);
 }
 
 void printPassedStudents(Course course)
@@ -574,6 +593,7 @@ void printPassedStudents(Course course)
             printf("\n%d: %s", temp->id, temp->name);
         temp++;
     } 
+    free(temp);
 }
 
 void printCourseAvgPass(School skool)
@@ -587,12 +607,13 @@ void printCourseAvgPass(School skool)
         if (temp->avgGrage > 50)
             printf("\n%s", temp->name);
         temp++;        
-    }   
+    }  
+    free(temp); 
 }
 
 void printCourseAvgFail(School skool)
 {
-        Course *temp = skool.coursesOffered;
+    Course *temp = skool.coursesOffered;
 
     printf("All Courses with a failing average:");
 
@@ -601,7 +622,8 @@ void printCourseAvgFail(School skool)
         if (temp->avgGrage < 50)
             printf("\n%s", temp->name);
         temp++;        
-    } 
+    }
+    free(temp);
 }
 
 void printAvgScoreOfAllCourses(School skool)
@@ -617,6 +639,7 @@ void printAvgScoreOfAllCourses(School skool)
     avg = avg / skool.numberOfCourses;
 
     printf("\nAverage grade of all courses: %.2f", avg);    
+    free(temp);
 }
 
 void printCourseWithHighestAverage(School skool)
@@ -631,6 +654,8 @@ void printCourseWithHighestAverage(School skool)
     }
     
     printf("\nCourse with the highest score (%f): %s", best->avgGrage, best->name);
+    free(temp);
+    free(best);
 }
 
 void freeAllSchools(School **ptr, int size)
@@ -653,4 +678,6 @@ void freeAllSchools(School **ptr, int size)
         free(*ptr);
     }
     printf("\nMemory has been given a sock.");
+    free(tempStudent);
+    free(tempCourse);
 }
