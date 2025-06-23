@@ -86,4 +86,10 @@ School* createSchool()
     return newSchool;   
 }
 
-// 
+// Step 7: Printing student details
+
+void printStudentDetails(Student *student)
+{
+    printf("Student name: %s\n", student->name);
+    printf("Student ID: %u\n", student->id);
+}
