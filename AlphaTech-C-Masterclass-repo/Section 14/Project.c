@@ -441,6 +441,8 @@ void createSchool(School **arr, int *numberOfSchools)
 
     // return new array of schools
     *arr = newArr;    
+    free(newArr);
+    free(newSchool);
 }
 
 void printStudentDetails(Student stud)
@@ -507,7 +509,10 @@ bool isStudentInCourse(int id, char *course, char *schoolName, School *allSchool
     {
         if(tempStud->id == id)
         {
-            return true;
+            free(tempStud);
+            free(tempCourse);
+            free(tempSchool);
+            return true;            
         }
         tempStud++;
     }
@@ -536,6 +541,8 @@ bool isStudentInSchool(int id, char *schoolName, School **allSchools, int number
     {
         if(true == isStudentInCourse(id, tempCourse->name, tempSkool->name, *allSchools, numberOfSchools))
         {
+            free(tempCourse);
+            free(tempSkool);    
             return true;
         }
         tempCourse++;
