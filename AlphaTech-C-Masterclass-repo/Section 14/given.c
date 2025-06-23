@@ -60,6 +60,30 @@ Course *createCourse()
         newCourse->studentArray[i] = *newStudent; // copying field-by-field
         free(newStudent); // free the temperary student memory allocated by "createStudent" function
     }
-    return newCourse;
-    
+    return newCourse;   
 }
+
+// Step 6: Creating a School
+
+School* createSchool()
+{
+    School *newSchool = (School*)malloc(sizeof(School));
+    //assert
+    printf("Enter school name: ");
+    scanf("%s", newSchool->name);
+    printf("Enter number of courses: ");
+    scanf("%d", newSchool->totalCourses);
+    newSchool->courseArray = (Course*)malloc(sizeof(Course) * newSchool->totalCourses);
+    //assert
+    for (int i = 0; i < newSchool->totalCourses; i++)
+    {
+        printf("Enter details for course #%d\n", i + 1);
+        Course* newCourse = createCourse();
+        //assert
+        newSchool->courseArray[i] = *newCourse; // copying field-by-field
+        free(newCourse); 
+    }
+    return newSchool;   
+}
+
+// 
