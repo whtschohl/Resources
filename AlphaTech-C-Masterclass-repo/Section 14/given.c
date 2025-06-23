@@ -93,3 +93,12 @@ void printStudentDetails(Student *student)
     printf("Student name: %s\n", student->name);
     printf("Student ID: %u\n", student->id);
 }
+
+// Step 8: Printing course details
+
+void printStudentDetails(Course *course)
+{
+    printf("Student name: %s\n", course->name);
+    printf("Student ID: %u\n", course->);
+}
+
