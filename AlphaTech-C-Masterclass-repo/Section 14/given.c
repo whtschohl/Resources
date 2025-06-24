@@ -7,6 +7,7 @@
 typedef struct student {
     char name[20];
     unsigned int id;
+    unsigned int grade;
 }Student;
 
 // Step 2: Defining the 'Course' Struct
@@ -35,7 +36,9 @@ Student *createStudent()
     printf("Enter student name: ");
     scanf("%s", newStudent->name);
     printf("Enter student ID: ");
-    scanf("%d", newStudent->id);
+    scanf("%u", newStudent->id);
+    printf("Enter student grade: ");
+    scanf("%u", newStudent->grade);
     return newStudent;
 }
 
@@ -91,6 +94,7 @@ void printStudentDetails(Student *student)
 {
     printf("Student name: %s\n", student->name);
     printf("Student ID: %u\n", student->id);
+    printf("Student grade: %u\n", student->grade);
 }
 
 // Step 8: Printing course details
@@ -125,3 +129,16 @@ void printStudentCourses(School *school, int studentID)
     }
 }
 
+// Step 10: Printing Students Who Failed Course
+
+void printStudentsWhoFailed(Course* course, double cutOffGrade)
+{
+    printf("Students who failed in %s:\n", course->name);
+    for (int i = 0; i < course->totalStudents; i++)
+    {
+        if(course->studentArray[i].grade < cutOffGrade)
+            printStudentDetails;
+    }
+}
+
+// Step 11: Printing Students Who Passed Course
