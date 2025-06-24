@@ -20,8 +20,7 @@ typedef struct course {
 
 // Step 3: Defining the 'School' Struct
 
-typedef struct school
-{
+typedef struct school{
     char name[20];
     unsigned int totalCourses;
     Course *courseArray;
@@ -98,7 +97,13 @@ void printStudentDetails(Student *student)
 
 void printStudentDetails(Course *course)
 {
-    printf("Student name: %s\n", course->name);
-    printf("Student ID: %u\n", course->);
+    printf("Course name: %s\n", course->name);
+    printf("Course Average Grade: %f\n", course->averageGrade);
+    printf("Course total student: %u\n", course->totalStudents);
+    for (int i = 0; i < course->totalStudents; i++)
+    {
+        printf("Details for student #%d:\n", i + 1);
+        printStudentDetails(&(course->studentArray[i]));
+    }    
 }
 
