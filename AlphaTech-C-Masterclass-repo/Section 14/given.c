@@ -142,3 +142,13 @@ void printStudentsWhoFailed(Course* course, double cutOffGrade)
 }
 
 // Step 11: Printing Students Who Passed Course
+
+void printStudentsWhoPassed(Course* course, double cutOffGrade)
+{
+    printf("Students who passed in %s:\n", course->name);
+    for (int i = 0; i < course->totalStudents; i++)
+    {
+        if(course->studentArray[i].grade >= cutOffGrade)
+            printStudentDetails;
+    }
+}
