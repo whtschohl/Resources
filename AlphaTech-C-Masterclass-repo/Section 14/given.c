@@ -36,9 +36,9 @@ Student *createStudent()
     printf("Enter student name: ");
     scanf("%s", newStudent->name);
     printf("Enter student ID: ");
-    scanf("%u", newStudent->id);
+    scanf("%u", &newStudent->id);
     printf("Enter student grade: ");
-    scanf("%u", newStudent->grade);
+    scanf("%u", &newStudent->grade);
     return newStudent;
 }
 
@@ -46,12 +46,12 @@ Student *createStudent()
 
 Course *createCourse()
 {
-    Course* newCourse = (Student*)malloc(sizeof(Student));
+    Course* newCourse = (Course*)malloc(sizeof(Course));
     //assert
     printf("Enter course name: ");
     scanf("%s", newCourse->name);
     printf("Enter number of students: ");
-    scanf("%d", newCourse->totalStudents);
+    scanf("%u", &newCourse->totalStudents);
     newCourse->studentArray = (Student*)malloc(sizeof(Student) * newCourse->totalStudents);
     //assert
     for (int i = 0; i < newCourse->totalStudents; i++)
@@ -74,7 +74,7 @@ School* createSchool()
     printf("Enter school name: ");
     scanf("%s", newSchool->name);
     printf("Enter number of courses: ");
-    scanf("%d", newSchool->totalCourses);
+    scanf("%u", &newSchool->totalCourses);
     newSchool->courseArray = (Course*)malloc(sizeof(Course) * newSchool->totalCourses);
     //assert
     for (int i = 0; i < newSchool->totalCourses; i++)
@@ -99,7 +99,7 @@ void printStudentDetails(Student *student)
 
 // Step 8: Printing course details
 
-void printStudentDetails(Course *course)
+void printCourseDetails(Course *course)
 {
     printf("Course name: %s\n", course->name);
     printf("Course Average Grade: %f\n", course->averageGrade);
@@ -115,10 +115,10 @@ void printStudentDetails(Course *course)
 
 void printStudentCourses(School *school, int studentID)
 {
-    printf("Courses for student with ID %d:\n");
+    printf("Courses for student with ID %d:\n", studentID);
     for (int i = 0; i < school->totalCourses; i++)
     {
-        for (int j = 0; j < school->courseArray; j++)
+        for (int j = 0; j < school->totalCourses; j++)
         {
             if (school->courseArray[i].studentArray[j].id == studentID)
             {
@@ -150,5 +150,17 @@ void printStudentsWhoPassed(Course* course, double cutOffGrade)
     {
         if(course->studentArray[i].grade >= cutOffGrade)
             printStudentDetails;
+    }
+}
+
+// Step 12: Printing All COurses with Pass Average Grade
+
+void printCourseWithPassAvgGrade(School* school, double cutOffGrade)
+{
+    printf("Courses with pass average grade:\n");
+    for (int i = 0; i < school->totalCourses; i++)
+    {
+        if(school->courseArray[i].averageGrade >= cutOffGrade)
+            printCourseDetails(&(school->courseArray[i]));
     }
 }
