@@ -107,3 +107,21 @@ void printStudentDetails(Course *course)
     }    
 }
 
+// Step 9: Printing All Student's Courses
+
+void printStudentCourses(School *school, int studentID)
+{
+    printf("Courses for student with ID %d:\n");
+    for (int i = 0; i < school->totalCourses; i++)
+    {
+        for (int j = 0; j < school->courseArray; j++)
+        {
+            if (school->courseArray[i].studentArray[j].id == studentID)
+            {
+                printf(" - %s\n", school->courseArray[i].name);
+                break; // student was found in this course, no need to keep tracking this course
+            }
+        }
+    }
+}
+
