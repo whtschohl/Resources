@@ -42,6 +42,15 @@ Student *createStudent()
     return newStudent;
 }
 
+void updateAverageGrade(Course* course)
+{
+    double totalGrades = 0;
+    for (int i = 0; i < course->totalStudents; i++)
+        totalGrades += (course->studentArray[i].grade);
+    course->averageGrade = totalGrades / course->averageGrade;
+    
+}
+
 // Step 5: Creating a Course
 
 Course *createCourse()
@@ -62,6 +71,7 @@ Course *createCourse()
         newCourse->studentArray[i] = *newStudent; // copying field-by-field
         free(newStudent); // free the temperary student memory allocated by "createStudent" function
     }
+    updateAverageGrade(newCourse);
     return newCourse;   
 }
 
