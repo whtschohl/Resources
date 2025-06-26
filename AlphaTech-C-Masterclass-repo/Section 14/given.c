@@ -176,3 +176,16 @@ void printCourseWithFailAvgGrade(School* school, double cutOffGrade)
             printCourseDetails(&(school->courseArray[i]));
     }
 }
+
+// Step 14: Printing the Average Grade Between All Courses 
+
+void printAverageGradeAllCourses(School *school)
+{
+    double totalGrade = 0;
+    for (int i = 0; i < school->totalCourses; i++)
+        totalGrade += (school->courseArray[i].averageGrade);
+
+    double average = totalGrade / school->totalCourses;
+    printf("Average grade between all courses in school %s is %.2f\n", school->name, average);    
+}
+
