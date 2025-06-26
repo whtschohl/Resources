@@ -189,3 +189,20 @@ void printAverageGradeAllCourses(School *school)
     printf("Average grade between all courses in school %s is %.2f\n", school->name, average);    
 }
 
+// Step 15: Printing the Course with the Highest Average Grade
+
+void printCourseWithHighestAverage(School *school)
+{
+    double highestAvg = 0;
+    Course *highestAvgCourse = NULL;
+
+    for (int i = 0; i < school->totalCourses; i++)
+        if (school->courseArray[i].averageGrade > highestAvg)
+        {
+            highestAvg = school->courseArray[i].averageGrade;
+            highestAvgCourse = &(school->courseArray[i]);
+        }
+        
+    printf("Course with the highest average grade:\n"); 
+    printCourseDetails(highestAvgCourse);   
+}
