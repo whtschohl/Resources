@@ -153,7 +153,7 @@ void printStudentsWhoPassed(Course* course, double cutOffGrade)
     }
 }
 
-// Step 12: Printing All COurses with Pass Average Grade
+// Step 12: Printing All Courses with Pass Average Grade
 
 void printCourseWithPassAvgGrade(School* school, double cutOffGrade)
 {
@@ -161,6 +161,18 @@ void printCourseWithPassAvgGrade(School* school, double cutOffGrade)
     for (int i = 0; i < school->totalCourses; i++)
     {
         if(school->courseArray[i].averageGrade >= cutOffGrade)
+            printCourseDetails(&(school->courseArray[i]));
+    }
+}
+
+// Step 13: Printing All Courses with Fail Average Grade
+
+void printCourseWithFailAvgGrade(School* school, double cutOffGrade)
+{
+    printf("Courses with fail average grade:\n");
+    for (int i = 0; i < school->totalCourses; i++)
+    {
+        if(school->courseArray[i].averageGrade < cutOffGrade)
             printCourseDetails(&(school->courseArray[i]));
     }
 }
