@@ -226,6 +226,13 @@ printSchoolDetails(School* school)
     
 }
 
+void freeSchool(School* school)
+{
+    freeStudents;
+    free(school->courseArray);
+    free(school);
+}
+
 int main()
 {
     // Create School
