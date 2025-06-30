@@ -226,6 +226,11 @@ printSchoolDetails(School* school)
     
 }
 
+void freeStudents(Student* student)
+{
+    free(student);
+}
+
 void freeSchool(School* school)
 {
     freeStudents;
