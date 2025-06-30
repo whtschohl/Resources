@@ -243,6 +243,7 @@ void freeSchool(School* school)
 {
     freeCourses(school->courseArray, school->totalCourses);
     free(school->courseArray);
+    school->courseArray = NULL;
     free(school);
 }
 
