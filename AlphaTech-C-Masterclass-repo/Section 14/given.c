@@ -235,6 +235,7 @@ void freeCourses(Course* course, unsigned int totalCourses)
     for (unsigned int i = 0; i < totalCourses; i++)
     {
         freeStudents(course[i].studentArray);
+        //course[i].studentArray = NULL;
     }    
 }
 
@@ -259,4 +260,5 @@ int main()
     printStudentsWhoFailed(&(mySchool->courseArray[0]), 60.0);
     printStudentsWhoPassed(&(mySchool->courseArray[0]), 60.0);
     
+    freeSchool(mySchool);
 }   
