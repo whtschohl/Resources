@@ -223,12 +223,19 @@ printSchoolDetails(School* school)
     {
         printCourseDetails(&(school->courseArray[i]));
     }
-    
 }
 
 void freeStudents(Student* student)
 {
     free(student);
+}
+
+void freeCourses(Course* course, unsigned int totalCourses)
+{
+    for (unsigned int i = 0; i < totalCourses; i++)
+    {
+        freeStudents(course[i].studentArray);
+    }    
 }
 
 void freeSchool(School* school)
