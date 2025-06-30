@@ -240,7 +240,7 @@ void freeCourses(Course* course, unsigned int totalCourses)
 
 void freeSchool(School* school)
 {
-    freeStudents;
+    freeCourses(school->courseArray, school->totalCourses);
     free(school->courseArray);
     free(school);
 }
