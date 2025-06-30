@@ -235,7 +235,7 @@ void freeCourses(Course* course, unsigned int totalCourses)
     for (unsigned int i = 0; i < totalCourses; i++)
     {
         freeStudents(course[i].studentArray);
-        //course[i].studentArray = NULL;
+        course[i].studentArray = NULL;
     }    
 }
 
