@@ -58,6 +58,7 @@ void freeAllSchools(School **ptr, int size);
 void printMenu();
 
 // Code
+// Edit code not to use temp and pointer arithmatic. It is better practice to use index[i]
 
 int main()
 {
