@@ -239,10 +239,12 @@ void updateStudentGrade(Course* course, unsigned int studentID, unsigned int new
         {
             // Update student grade
             course->studentArray[i].grade = newGrade;
+
+            // Automatically update the course average
+            updateAverageGrade(course);
             return;
         }
     }
-
     printf("Student was not found!\n");
 }
 
