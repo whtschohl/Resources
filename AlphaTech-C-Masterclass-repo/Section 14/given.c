@@ -217,12 +217,33 @@ void printCourseWithHighestAverage(School *school)
     printCourseDetails(highestAvgCourse);   
 }
 
+// Step 16: Printing School details
+
 printSchoolDetails(School* school)
 {
     for (int i = 0; i < school->totalCourses; i++)
     {
         printCourseDetails(&(school->courseArray[i]));
     }
+}
+
+// Step 17: Updating Student Grade
+
+void updateStudentGrade(Course* course, unsigned int studentID, unsigned int newGrade)
+{
+    // Iterate over the students in the course
+    for (unsigned int i = 0; i < course->totalStudents; i++)
+    {
+        // Checkis if the student ID matches the provided studentID
+        if (course->studentArray[i].id == studentID)
+        {
+            // Update student grade
+            course->studentArray[i].grade = newGrade;
+            return;
+        }
+    }
+
+    printf("Student was not found!\n");
 }
 
 void freeStudents(Student* student)
