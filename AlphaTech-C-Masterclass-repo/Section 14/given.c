@@ -248,6 +248,25 @@ void updateStudentGrade(Course* course, unsigned int studentID, unsigned int new
     printf("Student was not found!\n");
 }
 
+// Step 18: Updateing Student Name
+
+void updateStudentName(Course* course, unsigned int studentID, char* newName)
+{
+    // Iterate over the students in the course
+    for (unsigned int i = 0; i < course->totalStudents; i++)
+    {
+        // Checkis if the student ID matches the provided studentID
+        if (course->studentArray[i].id == studentID)
+        {
+            // Update student name
+            strcpy(course->studentArray[i].name, newName);
+            
+            return;
+        }
+    }
+    printf("Student was not found!\n");
+}
+
 void freeStudents(Student* student)
 {
     free(student);
