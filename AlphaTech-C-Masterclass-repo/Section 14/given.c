@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 // Step 1: Defining the 'Student' Struct
 
@@ -265,6 +266,22 @@ void updateStudentName(Course* course, unsigned int studentID, char* newName)
         }
     }
     printf("Student was not found!\n");
+}
+
+// Step 19: Is Course In School?
+
+bool isCourseInSchool(School* school, char* courseName)
+{
+    Course* courseArray = school->courseArray;
+    unsigned int numCourses = school->totalCourses;
+
+    // Iterate over all the courses in the array
+    for (unsigned int i = 0; i < numCourses; i++)
+    {
+        if (strcmp(courseArray->name, courseName) == 0)
+            return true;
+    }
+    return false;    
 }
 
 void freeStudents(Student* student)
