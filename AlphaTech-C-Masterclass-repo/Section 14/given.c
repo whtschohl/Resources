@@ -284,6 +284,13 @@ bool isCourseInSchool(School* school, char* courseName)
     return false;    
 }
 
+// Step 20: Updating Course name
+
+void updateCourseName(Course* course, char* newName)
+{
+    strcpy(course->name, newName);
+}
+
 void freeStudents(Student* student)
 {
     free(student);
