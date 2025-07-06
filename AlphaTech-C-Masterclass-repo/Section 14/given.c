@@ -291,6 +291,23 @@ void updateCourseName(Course* course, char* newName)
     strcpy(course->name, newName);
 }
 
+// Step 21: Printing Common Courses Between Schools'
+
+void printCommonCoursesBetweenSchool(School* school1, School* school2)
+{
+    printf("Common courses between %s and %s:\n", school1->name, school2->name);
+
+    // Iterate over all courses in the first school
+    for (unsigned int i = 0; i < school1->totalCourses; i++)
+    {
+        // Check if the course is also in the second school
+        if (isCourseInSchool(school2, school1->courseArray[i].name))
+            printf("%s", school1->courseArray[i].name);        
+    }    
+}
+
+// Step
+
 void freeStudents(Student* student)
 {
     free(student);
