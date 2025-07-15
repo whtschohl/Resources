@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 typedef struct a {
-    short val1;
-    int val2;
     char val3;
+    short val1;
+    int val2;    
 }A;
 
 typedef struct b
