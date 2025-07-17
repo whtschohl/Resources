@@ -13,26 +13,26 @@ The array of all students is kept in the school struct
 
 // Structs
 
-typedef struct student
+typedef struct student // initial size = 20
 {
-    char name[10];
-    int id;
-    float grade;
+    int id;         // 4 bytes    
+    float grade;    // 4 bytes
+    char name[10];  // 1 byte
 }Student;
 
-typedef struct course
+typedef struct course // initial size = 40 reduced to 32
 {
-    char name[15];
-    float avgGrage;
-    Student *studentsEnrolled;
-    int numberOfStudents;
+    Student *studentsEnrolled;  // 20
+    float avgGrage;             // 4
+    int numberOfStudents;       // 4
+    char name[10];              // 1
 }Course;
 
-typedef struct school
+typedef struct school // initial size = 32 reduced to 24
 {
-    char name[10];
-    Course *coursesOffered;
-    int numberOfCourses;
+    Course *coursesOffered;     // 40
+    int numberOfCourses;        // 4
+    char name[10];              // 1
 }School;
 
 // Functions
@@ -69,6 +69,10 @@ int main()
     Course *tempCourse = NULL;
     School *tempSchool;
     Student *tempStud;
+    unsigned int sizeofStudent = sizeof(Student);
+    unsigned int sizeofCourse = sizeof(Course);
+    unsigned int sizeofSchool = sizeof(School);
+    unsigned int sizeofFloat = sizeof(float);
 
     while(true)
     {
