@@ -18,5 +18,6 @@ void descending();
 
 int main()
 {
+    int arr = {1,7,3,2,9,4,8,6,5};
     void *ptrFunc = NULL;
 }
