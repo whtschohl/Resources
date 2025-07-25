@@ -28,13 +28,21 @@ void division(int a, int b)
         printf("Cannot divide by 0!\n")    ;
 }
 
+void remainder(int a, int b)
+{
+    if (b != 0)
+        printf("%d %% %d = %d\n", a, b, a%b);
+    else
+        printf("Cannot divide by 0!\n")    ;
+}
+
 int main()
 {
-    void (*funPtrArray[])(int,int) = {addition, subtraction, multiplication, division};
+    void (*funPtrArray[])(int,int) = {addition, subtraction, multiplication, division, remainder};
     int num1, num2, choice;
     //char op;
 
-    printf("Choose: \n0 - addition \n1 - subtraction \n2 - multiplication \n3 - division\n");
+    printf("Choose: \n0 - addition \n1 - subtraction \n2 - multiplication \n3 - division \n4 - remainder \n");
     //printf("Enter the operation that you want to perform (+,-,*,/): ");
     scanf("%d",&choice);
     printf("Enter num 1: ");
