@@ -19,11 +19,15 @@
 #include <stdlib.h>
 #include <math.h>
 
+// Defines
+
+#define SIZE = 9 
+
 // Functions
-void ascending(int *arr);
-void descending(int *arr);
+void ascending(int *arr, int size);
+void descending(int *arr, int size);
 void swap(int *num1, int *num2);
-void printArr(int *arr);
+void printArr(int *arr, int size);
 
 int main()
 {   
@@ -47,20 +51,18 @@ int main()
 // Use Bubble Sort Algo
 // Bubble sort compares 2 adjacent elements -> 1 vs 7; then 7 vs 3; etc...
 
-void ascending(int *arr)
+void ascending(int *arr, int size)
 {
-    int size = round(sizeof(arr) / sizeof(int));
     for (int i = 0; i < size; i++)
         if (arr[i] > arr[i+1])
-            swap(arr[i], arr[i+1]);     
+            swap(&arr[i], &arr[i+1]);     
 }
 
-void descending(int *arr)
+void descending(int *arr, int size)
 {
-    int size = round(sizeof(arr) / sizeof(int));
     for (int i = 0; i > size; i++)
         if (arr[i] > arr[i+1])
-            swap(arr[i], arr[i+1]);  
+            swap(&arr[i], &arr[i+1]);  
 }
 
 void swap(int *num1, int *num2)
@@ -72,7 +74,7 @@ void swap(int *num1, int *num2)
     *num2 = temp;
 }
 
-void printArr(int *arr)
+void printArr(int *arr, int size)
 {
     int size = round(sizeof(arr) / sizeof(int));
     printf("Arr:");
