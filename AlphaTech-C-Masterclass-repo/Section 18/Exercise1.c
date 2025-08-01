@@ -23,11 +23,25 @@
 void ascending(int *arr);
 void descending(int *arr);
 void swap(int *num1, int *num2);
+void printArr(int *arr);
 
 int main()
-{
+{   
+    int choice;
     int arr[] = {1, 7, 3, 2, 9, 4, 8, 6, 5};
+    void (*pfaSortType[])(int *arr) = {ascending, descending};
     void *ptrFunc = NULL;
+
+    printf("Choose: \n0 - Ascending order \n1 - Descending order");
+    scanf("%d", &choice);
+
+    printf("Before:\n");
+    printArr(arr);
+    (*pfaSortType[choice])(arr);
+    printf("After:\n");
+    printArr(arr);
+    
+    return 0;
 }
 
 // Use Bubble Sort Algo
@@ -56,4 +70,13 @@ void swap(int *num1, int *num2)
     temp = *num1;
     *num1 = *num2;
     *num2 = temp;
+}
+
+void printArr(int *arr)
+{
+    int size = round(sizeof(arr) / sizeof(int));
+    printf("Arr:");
+    for (int i = 0; i < size; i++)
+        printf(" %d", arr[i]);     
+    printf("\n");
 }
