@@ -21,7 +21,7 @@
 
 // Defines
 
-#define SIZE = 9 
+#define SIZE 9 
 
 // Functions
 void ascending(int *arr, int size);
@@ -33,17 +33,17 @@ int main()
 {   
     int choice;
     int arr[] = {1, 7, 3, 2, 9, 4, 8, 6, 5};
-    void (*pfaSortType[])(int *arr) = {ascending, descending};
+    void (*pfaSortType[])(int *arr, int size) = {ascending, descending};
     void *ptrFunc = NULL;
 
     printf("Choose: \n0 - Ascending order \n1 - Descending order");
     scanf("%d", &choice);
 
     printf("Before:\n");
-    printArr(arr);
-    (*pfaSortType[choice])(arr);
+    printArr(arr, SIZE);
+    (*pfaSortType[choice])(arr, SIZE);
     printf("After:\n");
-    printArr(arr);
+    printArr(arr, SIZE);
     
     return 0;
 }
@@ -76,7 +76,6 @@ void swap(int *num1, int *num2)
 
 void printArr(int *arr, int size)
 {
-    int size = round(sizeof(arr) / sizeof(int));
     printf("Arr:");
     for (int i = 0; i < size; i++)
         printf(" %d", arr[i]);     
