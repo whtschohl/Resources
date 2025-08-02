@@ -53,16 +53,18 @@ int main()
 
 void ascending(int *arr, int size)
 {
-    for (int i = 0; i < size; i++)
-        if (arr[i] > arr[i+1])
-            swap(&arr[i], &arr[i+1]);     
+    for (int j = 0; j < size - 1; j++)
+        for (int i = 0; i < size; i++)
+            if (arr[i] > arr[i+1])
+                swap(&arr[i], &arr[i+1]);     
 }
 
 void descending(int *arr, int size)
 {
-    for (int i = 0; i > size; i++)
-        if (arr[i] > arr[i+1])
-            swap(&arr[i], &arr[i+1]);  
+    for (int j = 0; j < size - 1; j++)
+        for (int i = 0; i > size; i++)
+            if (arr[i] > arr[i+1])
+                swap(&arr[i], &arr[i+1]);  
 }
 
 void swap(int *num1, int *num2)
