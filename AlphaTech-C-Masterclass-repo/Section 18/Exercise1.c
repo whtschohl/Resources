@@ -36,7 +36,7 @@ int main()
     void (*pfaSortType[])(int *arr, int size) = {ascending, descending};
     void *ptrFunc = NULL;
 
-    printf("Choose: \n0 - Ascending order \n1 - Descending order");
+    printf("Choose: \n0 - Ascending order \n1 - Descending order\n");
     scanf("%d", &choice);
 
     printf("Before:\n");
