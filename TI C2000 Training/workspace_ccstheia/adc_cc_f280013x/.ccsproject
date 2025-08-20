@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVariant value="50:Theia-based"/>
+	<ccsVersion value="70.2.0"/>
+	<deviceFamily value="C2000"/>
+	<executableActions value=""/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=lab_adc_controlcard.projectspec.adc_cc_f280013x"/>
+	<origin value="C:\ti\C2000Ware_5_05_00_00\training\device\f280013x\analog_subsystems\lab_adc\lab_adc_controlcard.projectspec"/>
+	<filesToOpen value=""/>
+</projectOptions>

@@ -1,0 +1,8 @@
+{
+    "interruptInfo" : [
+        {
+            "interruptName": "INT_myADCA_1",
+            "interruptHandler": "INT_myADCA_1_ISR"
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+[
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/adc.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/asysctl.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/can.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/cmpss.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/cmpss_lite.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/cputimer.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/dcc.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/dcsm.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ecap.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/epg.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/epwm.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/eqep.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/flash.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/gpio.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/hrpwm.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/i2c.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/interrupt.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/memcfg.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/sci.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/spi.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/sysctl.c"
+   },
+   {
+      "directory" : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs/Debug",
+      "command"   : "clang++ -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/ccs\" -I\"../\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -xc",
+      "file"      : "C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib/xbar.c"
+   }
+]

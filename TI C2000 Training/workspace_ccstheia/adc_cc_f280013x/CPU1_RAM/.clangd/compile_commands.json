@@ -1,0 +1,27 @@
+[
+   {
+      "directory" : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x\" -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device\" -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DCPU1 -DUSE_ADC_REFERENCE_INTERNAL -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device/device.c"
+   },
+   {
+      "directory" : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x\" -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device\" -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DCPU1 -DUSE_ADC_REFERENCE_INTERNAL -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg\" -DF280013x=1",
+      "file"      : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device/f280013x_codestartbranch.asm"
+   },
+   {
+      "directory" : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x\" -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device\" -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DCPU1 -DUSE_ADC_REFERENCE_INTERNAL -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/lab_main.c"
+   },
+   {
+      "directory" : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x\" -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device\" -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DCPU1 -DUSE_ADC_REFERENCE_INTERNAL -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg/board.c"
+   },
+   {
+      "directory" : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM",
+      "command"   : "clang++ -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x\" -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/device\" -I\"C:/ti/C2000Ware_5_05_00_00/driverlib/f280013x/driverlib\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DCPU1 -DUSE_ADC_REFERENCE_INTERNAL -I\"C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "C:/Users/hans.tschohl/workspace_ccstheia/adc_cc_f280013x/CPU1_RAM/syscfg/c2000ware_libraries.c"
+   }
+]

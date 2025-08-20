@@ -1,0 +1,7 @@
+- Date: 
+- Issue: [What is the Actual problem?]
+- Assumption: [Why do you think this problem is happening?]
+- Plan: [How are you going to fix it?]
+	1. Step one
+	2. Step two
+	3. ...
