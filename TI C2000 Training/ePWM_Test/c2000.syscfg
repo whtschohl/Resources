@@ -28,6 +28,12 @@ epwm1.epwmActionQualifier_EPWM_AQ_OUTPUT_B_ON_TIMEBASE_UP_CMPB   = "EPWM_AQ_OUTP
 epwm1.epwmActionQualifier_EPWM_AQ_OUTPUT_B_ON_TIMEBASE_DOWN_CMPB = "EPWM_AQ_OUTPUT_LOW";
 epwm1.epwmCounterCompare_cmpA                                    = 1500;
 epwm1.epwmCounterCompare_cmpB                                    = 500;
-epwm1.epwm.$assign                                               = "EPWM1";
-epwm1.epwm.epwm_aPin.$assign                                     = "GPIO0";
-epwm1.epwm.epwm_bPin.$assign                                     = "GPIO1";
+epwm1.epwm.$assign                                               = "EPWM3";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+epwm1.epwm.epwm_aPin.$suggestSolution = "C8/A9, GPIO227";
+epwm1.epwm.epwm_bPin.$suggestSolution = "A10/C10, GPIO230";

@@ -66,13 +66,17 @@ void PinMux_init()
 	//
 	
 	//
-	// EPWM1 -> myEPWM0 Pinmux
+	// EPWM2 -> myEPWM0 Pinmux
 	//
 	GPIO_setPinConfig(myEPWM0_EPWMA_PIN_CONFIG);
+	// AGPIO -> GPIO mode selected
+	GPIO_setAnalogMode(230, GPIO_ANALOG_DISABLED);
 	GPIO_setPadConfig(myEPWM0_EPWMA_GPIO, GPIO_PIN_TYPE_STD);
 	GPIO_setQualificationMode(myEPWM0_EPWMA_GPIO, GPIO_QUAL_SYNC);
 
 	GPIO_setPinConfig(myEPWM0_EPWMB_PIN_CONFIG);
+	// AGPIO -> GPIO mode selected
+	GPIO_setAnalogMode(227, GPIO_ANALOG_DISABLED);
 	GPIO_setPadConfig(myEPWM0_EPWMB_GPIO, GPIO_PIN_TYPE_STD);
 	GPIO_setQualificationMode(myEPWM0_EPWMB_GPIO, GPIO_QUAL_SYNC);
 
@@ -93,7 +97,7 @@ void EPWM_init(){
     EPWM_setPhaseShift(myEPWM0_BASE, 0);	
     EPWM_setCounterCompareValue(myEPWM0_BASE, EPWM_COUNTER_COMPARE_A, 1500);	
     EPWM_setCounterCompareShadowLoadMode(myEPWM0_BASE, EPWM_COUNTER_COMPARE_A, EPWM_COMP_LOAD_ON_CNTR_ZERO);	
-    EPWM_setCounterCompareValue(myEPWM0_BASE, EPWM_COUNTER_COMPARE_B, 1000);	
+    EPWM_setCounterCompareValue(myEPWM0_BASE, EPWM_COUNTER_COMPARE_B, 500);	
     EPWM_setCounterCompareShadowLoadMode(myEPWM0_BASE, EPWM_COUNTER_COMPARE_B, EPWM_COMP_LOAD_ON_CNTR_ZERO);	
     EPWM_disableActionQualifierShadowLoadMode(myEPWM0_BASE, EPWM_ACTION_QUALIFIER_A);	
     EPWM_setActionQualifierShadowLoadMode(myEPWM0_BASE, EPWM_ACTION_QUALIFIER_A, EPWM_AQ_LOAD_ON_CNTR_ZERO);	

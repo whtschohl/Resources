@@ -59,32 +59,32 @@ extern "C"
 //*****************************************************************************
 
 //
-// EPWM3 -> myEPWM0 Pinmux
+// EPWM2 -> myEPWM0 Pinmux
 //
 //
-// EPWM3_A - GPIO Settings
+// EPWM2_A - GPIO Settings
 //
-#define GPIO_PIN_EPWM3_A 0
-#define myEPWM0_EPWMA_GPIO 0
-#define myEPWM0_EPWMA_PIN_CONFIG GPIO_0_EPWM3_A
+#define GPIO_PIN_EPWM2_A 230
+#define myEPWM0_EPWMA_GPIO 230
+#define myEPWM0_EPWMA_PIN_CONFIG GPIO_230_EPWM2_A
 //
-// EPWM3_B - GPIO Settings
+// EPWM2_B - GPIO Settings
 //
-#define GPIO_PIN_EPWM3_B 1
-#define myEPWM0_EPWMB_GPIO 1
-#define myEPWM0_EPWMB_PIN_CONFIG GPIO_1_EPWM3_B
+#define GPIO_PIN_EPWM2_B 227
+#define myEPWM0_EPWMB_GPIO 227
+#define myEPWM0_EPWMB_PIN_CONFIG GPIO_227_EPWM2_B
 
 //*****************************************************************************
 //
 // EPWM Configurations
 //
 //*****************************************************************************
-#define myEPWM0_BASE EPWM3_BASE
+#define myEPWM0_BASE EPWM2_BASE
 #define myEPWM0_TBPRD 2000
 #define myEPWM0_COUNTER_MODE EPWM_COUNTER_MODE_UP_DOWN
 #define myEPWM0_TBPHS 0
-#define myEPWM0_CMPA 500
-#define myEPWM0_CMPB 1000
+#define myEPWM0_CMPA 1500
+#define myEPWM0_CMPB 500
 #define myEPWM0_CMPC 0
 #define myEPWM0_CMPD 0
 #define myEPWM0_DBRED 0
