@@ -47,6 +47,7 @@ GEN_MISC_FILES += \
 ./syscfg/board.cmd.genlibs \
 ./syscfg/board.json \
 ./syscfg/pinmux.csv \
+./syscfg/epwm.dot \
 ./syscfg/c2000ware_libraries.cmd.genlibs \
 ./syscfg/c2000ware_libraries.h \
 ./syscfg/clocktree.h 
@@ -64,6 +65,7 @@ GEN_MISC_FILES__QUOTED += \
 "syscfg\board.cmd.genlibs" \
 "syscfg\board.json" \
 "syscfg\pinmux.csv" \
+"syscfg\epwm.dot" \
 "syscfg\c2000ware_libraries.cmd.genlibs" \
 "syscfg\c2000ware_libraries.h" \
 "syscfg\clocktree.h" 

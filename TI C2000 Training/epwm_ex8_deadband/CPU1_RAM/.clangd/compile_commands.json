@@ -1,0 +1,17 @@
+[
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM/syscfg\" -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/device/device.c"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM/syscfg\"",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/device/f280013x_codestartbranch.asm"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/CPU1_RAM/syscfg\" -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/epwm_ex8_deadband/epwm_ex8_deadband.c"
+   }
+]

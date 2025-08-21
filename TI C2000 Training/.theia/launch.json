@@ -22,6 +22,15 @@
                     ]
                 }
             ]
+        },
+        {
+            "name": "EPWM_Test",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "EPWM_Test",
+                "resourceId": "/EPWM_Test"
+            }
         }
     ]
 }

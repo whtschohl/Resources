@@ -18,6 +18,7 @@ syscfg/board.cmd.genlibs: build-197804959
 syscfg/board.opt: build-197804959
 syscfg/board.json: build-197804959
 syscfg/pinmux.csv: build-197804959
+syscfg/epwm.dot: build-197804959
 syscfg/c2000ware_libraries.cmd.genlibs: build-197804959
 syscfg/c2000ware_libraries.opt: build-197804959
 syscfg/c2000ware_libraries.c: build-197804959
