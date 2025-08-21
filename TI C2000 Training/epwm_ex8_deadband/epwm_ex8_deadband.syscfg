@@ -82,8 +82,8 @@ epwm3.copyFrom                                                   = "myEPWM1";
 epwm3.epwmDeadband_delayRED                                      = 400;
 epwm3.epwmDeadband_delayFED                                      = 200;
 epwm3.epwm.$assign                                               = "EPWM3";
-epwm3.epwm.epwm_aPin.$assign                                     = "GPIO4";
-epwm3.epwm.epwm_bPin.$assign                                     = "GPIO5";
+epwm3.epwm.epwm_aPin.$assign                                     = "C8/A9, GPIO227";
+epwm3.epwm.epwm_bPin.$assign                                     = "A10/C10, GPIO230";
 
 epwm4.epwmDeadband_polarityFED                                   = "EPWM_DB_POLARITY_ACTIVE_LOW";
 epwm4.epwmDeadband_enableRED                                     = true;
@@ -130,8 +130,8 @@ epwm5.copyFrom                                                   = "myEPWM1";
 epwm5.epwmDeadband_delayRED                                      = 400;
 epwm5.epwmDeadband_delayFED                                      = 200;
 epwm5.epwm.$assign                                               = "EPWM5";
-epwm5.epwm.epwm_aPin.$assign                                     = "GPIO8";
-epwm5.epwm.epwm_bPin.$assign                                     = "GPIO9";
+epwm5.epwm.epwm_aPin.$assign                                     = "GPIO16";
+epwm5.epwm.epwm_bPin.$assign                                     = "GPIO17";
 
 epwm6.epwmTimebase_clockDiv                                      = "EPWM_CLOCK_DIVIDER_4";
 epwm6.epwmTimebase_hsClockDiv                                    = "EPWM_HSCLOCK_DIVIDER_4";

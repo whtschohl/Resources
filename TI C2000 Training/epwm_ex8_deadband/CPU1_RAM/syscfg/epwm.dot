@@ -375,8 +375,8 @@ digraph {
 
  	epwm3_TB:epwm3_syncout -> SYNCOUT_EPWM3
 
-    epwm3_TZ:epwm3_tz_epwma_out:e -> GPIO4
-    epwm3_TZ:epwm3_tz_epwmb_out:e -> GPIO5
+    epwm3_TZ:epwm3_tz_epwma_out:e -> C8/A9, GPIO227
+    epwm3_TZ:epwm3_tz_epwmb_out:e -> A10/C10, GPIO230
        
     subgraph cluster_epwm4 {
         label = "EPWM4 = myEPWM4";
@@ -615,8 +615,8 @@ digraph {
 
  	epwm5_TB:epwm5_syncout -> SYNCOUT_EPWM5
 
-    epwm5_TZ:epwm5_tz_epwma_out:e -> GPIO8
-    epwm5_TZ:epwm5_tz_epwmb_out:e -> GPIO9
+    epwm5_TZ:epwm5_tz_epwma_out:e -> GPIO16
+    epwm5_TZ:epwm5_tz_epwmb_out:e -> GPIO17
        
     subgraph cluster_epwm6 {
         label = "EPWM6 = myEPWM6";
