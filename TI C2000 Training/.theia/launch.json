@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "empty_driverlib_project",
             "type": "ccs-debug",
@@ -31,6 +32,50 @@
                 "name": "EPWM_Test",
                 "resourceId": "/EPWM_Test"
             }
+        },
+        {
+            "name": "epwm_ex8_deadband",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "epwm_ex8_deadband",
+                "resourceId": "/epwm_ex8_deadband"
+            },
+            "connections": [
+                {
+                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+                {
+            "name": "ePWM_Test",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "ePWM_Test",
+                "resourceId": "/ePWM_Test"
+            },
+            "connections": [
+                {
+                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

@@ -1,0 +1,27 @@
+[
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg/board.c"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg/c2000ware_libraries.c"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device/device.c"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg\" -DF280013x=1",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device/f280013x_codestartbranch.asm"
+   },
+   {
+      "directory" : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM",
+      "command"   : "clang++ -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test\" -I\"C:/ti/C2000Ware_6_00_00_00\" -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/device\" -I\"C:/ti/C2000Ware_6_00_00_00/driverlib/f280013x/driverlib/\" -I\"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/include\" -DDEBUG -DRAM -I\"U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/CPU1_RAM/syscfg\" -DF280013x=1 -xc",
+      "file"      : "U:/1. Projects/000 Selbst Lernen/Resources/TI C2000 Training/ePWM_Test/ePWM_main.c"
+   }
+]
