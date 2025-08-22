@@ -12,8 +12,6 @@
 const adc     = scripting.addModule("/driverlib/adc.js", {}, false);
 const adc1    = adc.addInstance();
 const asysctl = scripting.addModule("/driverlib/asysctl.js");
-const epwm    = scripting.addModule("/driverlib/epwm.js", {}, false);
-const epwm1   = epwm.addInstance();
 
 /**
  * Write custom configuration values to the imported modules.
@@ -37,13 +35,6 @@ adc1.analog   = analog1;
 
 asysctl.analogReference        = "INTERNAL";
 asysctl.analogReferenceVoltage = "1P65";
-
-epwm1.$name                                             = "myEPWM0";
-epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEnable         = true;
-epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEventPrescalar = "1";
-epwm1.epwmCounterCompare_cmpA                           = 1000;
-epwm1.epwmTimebase_period                               = 1999;
-epwm1.epwmTimebase_hsClockDiv                           = "EPWM_HSCLOCK_DIVIDER_1";
 
 /**
  * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
@@ -72,6 +63,3 @@ analog1.analog["a8/c11Pin"].$suggestSolution           = "A8/C11";
 analog1.analog["c4/a14Pin"].$suggestSolution           = "C4/A14";
 analog1.analog["c6, gpio226Pin"].$suggestSolution      = "C6, GPIO226";
 analog1.analog["c8/a9, gpio227Pin"].$suggestSolution   = "C8/A9, GPIO227";
-epwm1.epwm.$suggestSolution                            = "EPWM1";
-epwm1.epwm.epwm_aPin.$suggestSolution                  = "GPIO0";
-epwm1.epwm.epwm_bPin.$suggestSolution                  = "GPIO1";

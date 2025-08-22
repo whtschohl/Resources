@@ -56,6 +56,19 @@
 #include "c2000ware_libraries.h"
 
 //
+// Defines
+//
+#define RESULTS_BUFFER_SIZE     256 
+
+//
+// Globals
+//
+uint16_t myADC0Results[RESULTS_BUFFER_SIZE];   // Buffer for results
+uint16_t index;                              // Index into result buffer
+volatile uint16_t bufferFull;                // Flag to indicate buffer is full
+
+
+//
 // Main
 //
 void main(void)
@@ -92,6 +105,17 @@ void main(void)
     //
     C2000Ware_libraries_init();
 
+        //
+    // Initialize results buffer
+    //
+    for(index = 0; index < RESULTS_BUFFER_SIZE; index++)
+    {
+        myADC0Results[index] = 0;
+    }
+
+    index = 0;
+    bufferFull = 0;
+
     //
     // Enable Global Interrupt (INTM) and real time interrupt (DBGM)
     //
@@ -106,7 +130,50 @@ void main(void)
     for(;;)
     {
         // Enter code here
+
+        //
+        // Wait while ePWM1 causes ADC conversions which then cause interrupts.
+        // When the results buffer is filled, the bufferFull flag will be set.
+        //
+        while(bufferFull == 0)
+        {
+        }
+        bufferFull = 0;     // Clear the buffer full flag
+
+        //
+        // Software breakpoint. At this point, conversion results are stored in
+        // myADC0Results.
+        //
+        // Hit run again to get updated conversions.
+        //
+        ESTOP0;
     }
+}
+
+__interrupt void INT_myADC0_1_ISR(void)
+{
+    // add latest reult to the buffer
+    myADC0Results[index++] = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+
+    // set the bufferFull flag if the buffer is full
+    if(RESULTS_BUFFER_SIZE <= index)
+    {
+        index = 0;
+        bufferFull = 1;
+    }
+
+    // clear the interupt flag
+    ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+
+    // check if overflow has occured
+    if(true == ADC_getInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1))
+    {
+        ADC_clearInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1);
+        ADC_clearInterruptStatus(myADC0_BASE,ADC_INT_NUMBER1);
+    }
+
+    // acknowledge the interupt
+    Interrupt_clearACKGroup(INT_myADC0_1_INTERRUPT_ACK_GROUP);
 }
 
 //

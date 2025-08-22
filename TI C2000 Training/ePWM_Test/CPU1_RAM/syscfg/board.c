@@ -66,17 +66,17 @@ void PinMux_init()
 	//
 	
 	//
-	// EPWM2 -> myEPWM0 Pinmux
+	// EPWM3 -> myEPWM0 Pinmux
 	//
 	GPIO_setPinConfig(myEPWM0_EPWMA_PIN_CONFIG);
 	// AGPIO -> GPIO mode selected
-	GPIO_setAnalogMode(230, GPIO_ANALOG_DISABLED);
+	GPIO_setAnalogMode(227, GPIO_ANALOG_DISABLED);
 	GPIO_setPadConfig(myEPWM0_EPWMA_GPIO, GPIO_PIN_TYPE_STD);
 	GPIO_setQualificationMode(myEPWM0_EPWMA_GPIO, GPIO_QUAL_SYNC);
 
 	GPIO_setPinConfig(myEPWM0_EPWMB_PIN_CONFIG);
 	// AGPIO -> GPIO mode selected
-	GPIO_setAnalogMode(227, GPIO_ANALOG_DISABLED);
+	GPIO_setAnalogMode(230, GPIO_ANALOG_DISABLED);
 	GPIO_setPadConfig(myEPWM0_EPWMB_GPIO, GPIO_PIN_TYPE_STD);
 	GPIO_setQualificationMode(myEPWM0_EPWMB_GPIO, GPIO_QUAL_SYNC);
 

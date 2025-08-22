@@ -62,22 +62,6 @@ extern "C"
 // ANALOG -> myANALOGPinMux0 Pinmux
 //
 
-//
-// EPWM1 -> myEPWM0 Pinmux
-//
-//
-// EPWM1_A - GPIO Settings
-//
-#define GPIO_PIN_EPWM1_A 0
-#define myEPWM0_EPWMA_GPIO 0
-#define myEPWM0_EPWMA_PIN_CONFIG GPIO_0_EPWM1_A
-//
-// EPWM1_B - GPIO Settings
-//
-#define GPIO_PIN_EPWM1_B 1
-#define myEPWM0_EPWMB_GPIO 1
-#define myEPWM0_EPWMB_PIN_CONFIG GPIO_1_EPWM1_B
-
 //*****************************************************************************
 //
 // ADC Configurations
@@ -101,25 +85,6 @@ void myADC0_init();
 
 //*****************************************************************************
 //
-// EPWM Configurations
-//
-//*****************************************************************************
-#define myEPWM0_BASE EPWM1_BASE
-#define myEPWM0_TBPRD 1999
-#define myEPWM0_COUNTER_MODE EPWM_COUNTER_MODE_STOP_FREEZE
-#define myEPWM0_TBPHS 0
-#define myEPWM0_CMPA 1000
-#define myEPWM0_CMPB 0
-#define myEPWM0_CMPC 0
-#define myEPWM0_CMPD 0
-#define myEPWM0_DBRED 0
-#define myEPWM0_DBFED 0
-#define myEPWM0_TZA_ACTION EPWM_TZ_ACTION_HIGH_Z
-#define myEPWM0_TZB_ACTION EPWM_TZ_ACTION_HIGH_Z
-#define myEPWM0_INTERRUPT_SOURCE EPWM_INT_TBCTR_DISABLED
-
-//*****************************************************************************
-//
 // INTERRUPT Configurations
 //
 //*****************************************************************************
@@ -132,21 +97,13 @@ extern __interrupt void adcA1ISR(void);
 
 //*****************************************************************************
 //
-// SYNC Scheme Configurations
-//
-//*****************************************************************************
-
-//*****************************************************************************
-//
 // Board Configurations
 //
 //*****************************************************************************
 void	Board_init();
 void	ADC_init();
 void	ASYSCTL_init();
-void	EPWM_init();
 void	INTERRUPT_init();
-void	SYNC_init();
 void	PinMux_init();
 
 //*****************************************************************************
