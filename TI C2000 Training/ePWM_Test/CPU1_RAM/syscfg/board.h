@@ -57,6 +57,11 @@ extern "C"
 // PinMux Configurations
 //
 //*****************************************************************************
+//
+// AIO233 - GPIO Settings
+//
+#define GPIO_PIN_AIO233 233
+#define myAIO0_AIO_PIN_CONFIG GPIO_233_GPIO233
 
 //
 // ANALOG -> myANALOGPinMux0 Pinmux
@@ -77,6 +82,38 @@ extern "C"
 #define GPIO_PIN_EPWM3_B 1
 #define myEPWM0_EPWMB_GPIO 1
 #define myEPWM0_EPWMB_PIN_CONFIG GPIO_1_EPWM3_B
+
+//
+// EPWM2 -> myEPWM1 Pinmux
+//
+//
+// EPWM2_A - GPIO Settings
+//
+#define GPIO_PIN_EPWM2_A 230
+#define myEPWM1_EPWMA_GPIO 230
+#define myEPWM1_EPWMA_PIN_CONFIG GPIO_230_EPWM2_A
+//
+// EPWM2_B - GPIO Settings
+//
+#define GPIO_PIN_EPWM2_B 228
+#define myEPWM1_EPWMB_GPIO 228
+#define myEPWM1_EPWMB_PIN_CONFIG GPIO_228_EPWM2_B
+
+//
+// EPWM1 -> myEPWM2 Pinmux
+//
+//
+// EPWM1_A - GPIO Settings
+//
+#define GPIO_PIN_EPWM1_A 224
+#define myEPWM2_EPWMA_GPIO 224
+#define myEPWM2_EPWMA_PIN_CONFIG GPIO_224_EPWM1_A
+//
+// EPWM1_B - GPIO Settings
+//
+#define GPIO_PIN_EPWM1_B 226
+#define myEPWM2_EPWMB_GPIO 226
+#define myEPWM2_EPWMB_PIN_CONFIG GPIO_226_EPWM1_B
 //
 // GPIO29 - GPIO Settings
 //
@@ -99,6 +136,14 @@ void myADC0_init();
 
 //*****************************************************************************
 //
+// AIO Configurations
+//
+//*****************************************************************************
+#define myAIO0 233
+void myAIO0_init();
+
+//*****************************************************************************
+//
 // ASYSCTL Configurations
 //
 //*****************************************************************************
@@ -109,18 +154,44 @@ void myADC0_init();
 //
 //*****************************************************************************
 #define myEPWM0_BASE EPWM3_BASE
-#define myEPWM0_TBPRD 2000
+#define myEPWM0_TBPRD 1499
 #define myEPWM0_COUNTER_MODE EPWM_COUNTER_MODE_UP_DOWN
 #define myEPWM0_TBPHS 0
-#define myEPWM0_CMPA 1500
-#define myEPWM0_CMPB 500
+#define myEPWM0_CMPA 375
+#define myEPWM0_CMPB 0
 #define myEPWM0_CMPC 0
 #define myEPWM0_CMPD 0
-#define myEPWM0_DBRED 0
-#define myEPWM0_DBFED 0
+#define myEPWM0_DBRED 30
+#define myEPWM0_DBFED 30
 #define myEPWM0_TZA_ACTION EPWM_TZ_ACTION_HIGH_Z
 #define myEPWM0_TZB_ACTION EPWM_TZ_ACTION_HIGH_Z
 #define myEPWM0_INTERRUPT_SOURCE EPWM_INT_TBCTR_DISABLED
+#define myEPWM1_BASE EPWM2_BASE
+#define myEPWM1_TBPRD 0
+#define myEPWM1_COUNTER_MODE EPWM_COUNTER_MODE_STOP_FREEZE
+#define myEPWM1_TBPHS 0
+#define myEPWM1_CMPA 0
+#define myEPWM1_CMPB 0
+#define myEPWM1_CMPC 0
+#define myEPWM1_CMPD 0
+#define myEPWM1_DBRED 0
+#define myEPWM1_DBFED 0
+#define myEPWM1_TZA_ACTION EPWM_TZ_ACTION_HIGH_Z
+#define myEPWM1_TZB_ACTION EPWM_TZ_ACTION_HIGH_Z
+#define myEPWM1_INTERRUPT_SOURCE EPWM_INT_TBCTR_DISABLED
+#define myEPWM2_BASE EPWM1_BASE
+#define myEPWM2_TBPRD 0
+#define myEPWM2_COUNTER_MODE EPWM_COUNTER_MODE_STOP_FREEZE
+#define myEPWM2_TBPHS 0
+#define myEPWM2_CMPA 0
+#define myEPWM2_CMPB 0
+#define myEPWM2_CMPC 0
+#define myEPWM2_CMPD 0
+#define myEPWM2_DBRED 0
+#define myEPWM2_DBFED 0
+#define myEPWM2_TZA_ACTION EPWM_TZ_ACTION_HIGH_Z
+#define myEPWM2_TZB_ACTION EPWM_TZ_ACTION_HIGH_Z
+#define myEPWM2_INTERRUPT_SOURCE EPWM_INT_TBCTR_DISABLED
 
 //*****************************************************************************
 //
@@ -155,6 +226,7 @@ extern __interrupt void INT_myADC0_1_ISR(void);
 //*****************************************************************************
 void	Board_init();
 void	ADC_init();
+void	AIO_init();
 void	ASYSCTL_init();
 void	EPWM_init();
 void	GPIO_init();

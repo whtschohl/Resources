@@ -6,23 +6,22 @@ digraph {
 
     node [shape = circle style=filled];
 
-        adca_SOC0 [label="ADCA SOC0" fillcolor="#FFA0A0" pos="0.000,7.689!"]
-        adca_SOC1 [label="ADCA SOC1" fillcolor="#FFA0A0" pos="2.942,7.103!"]
-        adca_SOC2 [label="ADCA SOC2" fillcolor="#FFA0A0" pos="5.437,5.437!"]
-        adca_SOC3 [label="ADCA SOC3" fillcolor="#FFA0A0" pos="7.103,2.942!"]
-        adca_SOC4 [label="ADCA SOC4" fillcolor="#FFA0A0" pos="7.689,0.000!"]
-        adca_SOC5 [label="ADCA SOC5" fillcolor="#FFA0A0" pos="7.103,-2.942!"]
-        adca_SOC6 [label="ADCA SOC6" fillcolor="#FFA0A0" pos="5.437,-5.437!"]
-        adca_SOC7 [label="ADCA SOC7" fillcolor="#FFA0A0" pos="2.942,-7.103!"]
-        adca_SOC8 [label="ADCA SOC8" fillcolor="#FFA0A0" pos="0.000,-7.689!"]
-        adca_SOC9 [label="ADCA SOC9" fillcolor="#FFA0A0" pos="-2.942,-7.103!"]
-        adca_SOC10 [label="ADCA SOC10" fillcolor="#FFA0A0" pos="-5.437,-5.437!"]
-        adca_SOC11 [label="ADCA SOC11" fillcolor="#FFA0A0" pos="-7.103,-2.942!"]
-        adca_SOC12 [label="ADCA SOC12" fillcolor="#FFA0A0" pos="-7.689,-0.000!"]
-        adca_SOC13 [label="ADCA SOC13" fillcolor="#FFA0A0" pos="-7.103,2.942!"]
-        adca_SOC14 [label="ADCA SOC14" fillcolor="#FFA0A0" pos="-5.437,5.437!"]
-        adca_SOC15 [label="ADCA SOC15" fillcolor="#FFA0A0" pos="-2.942,7.103!"]
-        adca_SOC0 -> adca_SOC1
+        adca_SOC1 [label="ADCA SOC1" fillcolor="#FFA0A0" pos="0.000,7.215!"]
+        adca_SOC2 [label="ADCA SOC2" fillcolor="#FFA0A0" pos="2.934,6.591!"]
+        adca_SOC3 [label="ADCA SOC3" fillcolor="#FFA0A0" pos="5.361,4.828!"]
+        adca_SOC4 [label="ADCA SOC4" fillcolor="#FFA0A0" pos="6.861,2.229!"]
+        adca_SOC5 [label="ADCA SOC5" fillcolor="#FFA0A0" pos="7.175,-0.754!"]
+        adca_SOC6 [label="ADCA SOC6" fillcolor="#FFA0A0" pos="6.248,-3.607!"]
+        adca_SOC7 [label="ADCA SOC7" fillcolor="#FFA0A0" pos="4.241,-5.837!"]
+        adca_SOC8 [label="ADCA SOC8" fillcolor="#FFA0A0" pos="1.500,-7.057!"]
+        adca_SOC9 [label="ADCA SOC9" fillcolor="#FFA0A0" pos="-1.500,-7.057!"]
+        adca_SOC10 [label="ADCA SOC10" fillcolor="#FFA0A0" pos="-4.241,-5.837!"]
+        adca_SOC11 [label="ADCA SOC11" fillcolor="#FFA0A0" pos="-6.248,-3.607!"]
+        adca_SOC12 [label="ADCA SOC12" fillcolor="#FFA0A0" pos="-7.175,-0.754!"]
+        adca_SOC13 [label="ADCA SOC13" fillcolor="#FFA0A0" pos="-6.861,2.229!"]
+        adca_SOC14 [label="ADCA SOC14" fillcolor="#FFA0A0" pos="-5.361,4.828!"]
+        adca_SOC15 [label="ADCA SOC15" fillcolor="#FFA0A0" pos="-2.934,6.591!"]
+        adca_SOC0 [fillcolor="#FFA0A0" pos="18.000, 7.215!"]
         adca_SOC1 -> adca_SOC2
         adca_SOC2 -> adca_SOC3
         adca_SOC3 -> adca_SOC4
@@ -37,7 +36,7 @@ digraph {
         adca_SOC12 -> adca_SOC13
         adca_SOC13 -> adca_SOC14
         adca_SOC14 -> adca_SOC15
-        adca_SOC15 -> adca_SOC0
+        adca_SOC15 -> adca_SOC1
     node [shape=rect style=filled];
         ADC_TRIGGER_SW_ONLY[label="Software only" fillcolor="yellow"  fontsize="40" color="white" pos="24.000,-3.000!"]
           
@@ -72,9 +71,4 @@ digraph {
         adca_ADC_TRIGGER_SW_ONLY_soc14[label="soc14 (S+H[SYSCLK]: 1, Conv[SYSCLK]: 31)" fillcolor="#FFA0A0" width="16.000" pos="243.000,-9.000!"]
           
         adca_ADC_TRIGGER_SW_ONLY_soc15[label="soc15 (S+H[SYSCLK]: 1, Conv[SYSCLK]: 31)" fillcolor="#FFA0A0" width="16.000" pos="259.000,-9.000!"]
-        ADC_TRIGGER_EPWM3_SOCA[label="ePWM3, ADCSOCA" fillcolor="yellow"  fontsize="40" color="white" pos="24.000,-12.000!"]
-          
-        adca_ADC_TRIGGER_EPWM3_SOCA[label="ADCA"  fontsize="40" fillcolor="white" color="white" pos="24.000,-18.000!"]
-          
-        adca_ADC_TRIGGER_EPWM3_SOCA_soc0[label="soc0 (S+H[SYSCLK]: 9, Conv[SYSCLK]: 31)" fillcolor="#FFA0A0" width="20.000" pos="37.000,-18.000!"]
 }
