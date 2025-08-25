@@ -38,7 +38,6 @@ epwm1.epwmTimebase_clockDiv                             = "EPWM_CLOCK_DIVIDER_4"
 epwm1.epwmTimebase_hsClockDiv                           = "EPWM_HSCLOCK_DIVIDER_4";
 epwm1.epwmTimebase_period                               = 2000;
 epwm1.epwmTimebase_counterMode                          = "EPWM_COUNTER_MODE_UP_DOWN";
-epwm1.epwmCounterCompare_cmpA                           = 1000;
 epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEnable         = true;
 epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEventPrescalar = "1";
 epwm1.epwmEventTrigger_EPWM_SOC_A_triggerSource         = "EPWM_SOC_TBCTR_U_CMPA";

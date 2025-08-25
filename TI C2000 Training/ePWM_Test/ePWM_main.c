@@ -55,6 +55,20 @@
 #include "board.h"
 #include "c2000ware_libraries.h"
 
+
+//
+// Defines
+//
+#define RESULTS_BUFFER_SIZE     256 
+
+//
+// Globals
+//
+uint16_t myADC0Results[RESULTS_BUFFER_SIZE];   // Buffer for results
+uint16_t index;                              // Index into result buffer
+volatile uint16_t bufferFull;                // Flag to indicate buffer is full
+
+
 //
 // Main
 //
@@ -108,6 +122,17 @@ void main(void)
     C2000Ware_libraries_init();
 
     //
+    // Initialize results buffer
+    //
+    for(index = 0; index < RESULTS_BUFFER_SIZE; index++)
+    {
+        myADC0Results[index] = 0;
+    }
+
+    index = 0;
+    bufferFull = 0;
+
+    //
     // Enable Global Interrupt (INTM) and real time interrupt (DBGM)
     //
     EINT;
@@ -120,10 +145,39 @@ void main(void)
     //
     for(;;)
     {
-        // Enter code here
-        NOP;
+        if (myADC0Results[index] > 2048)   // halfway of 12-bit range
+            GPIO_writePin(myGPIO0, 1);  // Set GPIO0 HIGH
+        else
+            GPIO_writePin(myGPIO0, 0);  // Set GPIO0 LOW
+
+        if(bufferFull)
+        {
+            bufferFull = 0;
+        }
     }
 }
+
+__interrupt void INT_myADC0_1_ISR(void)
+{
+    myADC0Results[index++] = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+
+    if(index >= RESULTS_BUFFER_SIZE)
+    {
+        index = 0;
+        bufferFull = 1;   // mark buffer ready (optional)
+    }
+
+    ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+
+    if(ADC_getInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1))
+    {
+        ADC_clearInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1);
+        ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+    }
+
+    Interrupt_clearACKGroup(INT_myADC0_1_INTERRUPT_ACK_GROUP);
+}
+
 
 //
 // End of File

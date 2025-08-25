@@ -108,7 +108,7 @@ void myADC0_init();
 #define myEPWM0_TBPRD 2000
 #define myEPWM0_COUNTER_MODE EPWM_COUNTER_MODE_UP_DOWN
 #define myEPWM0_TBPHS 0
-#define myEPWM0_CMPA 1000
+#define myEPWM0_CMPA 0
 #define myEPWM0_CMPB 0
 #define myEPWM0_CMPC 0
 #define myEPWM0_CMPD 0

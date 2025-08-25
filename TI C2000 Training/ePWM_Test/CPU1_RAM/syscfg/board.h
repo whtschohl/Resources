@@ -59,20 +59,49 @@ extern "C"
 //*****************************************************************************
 
 //
+// ANALOG -> myANALOGPinMux0 Pinmux
+//
+
+//
 // EPWM3 -> myEPWM0 Pinmux
 //
 //
 // EPWM3_A - GPIO Settings
 //
-#define GPIO_PIN_EPWM3_A 227
-#define myEPWM0_EPWMA_GPIO 227
-#define myEPWM0_EPWMA_PIN_CONFIG GPIO_227_EPWM3_A
+#define GPIO_PIN_EPWM3_A 0
+#define myEPWM0_EPWMA_GPIO 0
+#define myEPWM0_EPWMA_PIN_CONFIG GPIO_0_EPWM3_A
 //
 // EPWM3_B - GPIO Settings
 //
-#define GPIO_PIN_EPWM3_B 230
-#define myEPWM0_EPWMB_GPIO 230
-#define myEPWM0_EPWMB_PIN_CONFIG GPIO_230_EPWM3_B
+#define GPIO_PIN_EPWM3_B 1
+#define myEPWM0_EPWMB_GPIO 1
+#define myEPWM0_EPWMB_PIN_CONFIG GPIO_1_EPWM3_B
+//
+// GPIO29 - GPIO Settings
+//
+#define myGPIO0_GPIO_PIN_CONFIG GPIO_29_GPIO29
+
+//*****************************************************************************
+//
+// ADC Configurations
+//
+//*****************************************************************************
+#define myADC0_BASE ADCA_BASE
+#define myADC0_RESULT_BASE ADCARESULT_BASE
+#define myADC0_SOC0 ADC_SOC_NUMBER0
+#define myADC0_FORCE_SOC0 ADC_FORCE_SOC0
+#define myADC0_SAMPLE_WINDOW_SOC0 75
+#define myADC0_TRIGGER_SOURCE_SOC0 ADC_TRIGGER_EPWM3_SOCA
+#define myADC0_CHANNEL_SOC0 ADC_CH_ADCIN0
+void myADC0_init();
+
+
+//*****************************************************************************
+//
+// ASYSCTL Configurations
+//
+//*****************************************************************************
 
 //*****************************************************************************
 //
@@ -95,6 +124,26 @@ extern "C"
 
 //*****************************************************************************
 //
+// GPIO Configurations
+//
+//*****************************************************************************
+#define myGPIO0 29
+void myGPIO0_init();
+
+//*****************************************************************************
+//
+// INTERRUPT Configurations
+//
+//*****************************************************************************
+
+// Interrupt Settings for INT_myADC0_1
+// ISR need to be defined for the registered interrupts
+#define INT_myADC0_1 INT_ADCA1
+#define INT_myADC0_1_INTERRUPT_ACK_GROUP INTERRUPT_ACK_GROUP1
+extern __interrupt void INT_myADC0_1_ISR(void);
+
+//*****************************************************************************
+//
 // SYNC Scheme Configurations
 //
 //*****************************************************************************
@@ -105,7 +154,11 @@ extern "C"
 //
 //*****************************************************************************
 void	Board_init();
+void	ADC_init();
+void	ASYSCTL_init();
 void	EPWM_init();
+void	GPIO_init();
+void	INTERRUPT_init();
 void	SYNC_init();
 void	PinMux_init();
 

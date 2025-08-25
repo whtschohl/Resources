@@ -9,12 +9,33 @@
 /**
  * Import the modules used in this configuration.
  */
-const epwm  = scripting.addModule("/driverlib/epwm.js", {}, false);
-const epwm1 = epwm.addInstance();
+const adc     = scripting.addModule("/driverlib/adc.js", {}, false);
+const adc1    = adc.addInstance();
+const analog  = scripting.addModule("/driverlib/analog.js", {}, false);
+const analog1 = analog.addInstance();
+const epwm    = scripting.addModule("/driverlib/epwm.js", {}, false);
+const epwm1   = epwm.addInstance();
+const gpio    = scripting.addModule("/driverlib/gpio.js", {}, false);
+const gpio1   = gpio.addInstance();
 
 /**
  * Write custom configuration values to the imported modules.
  */
+adc1.$name                   = "myADC0";
+adc1.enabledSOCs             = ["ADC_SOC_NUMBER0"];
+adc1.adcClockPrescaler       = "ADC_CLK_DIV_3_0";
+adc1.soc0SampleWindow        = 9;
+adc1.interruptPulseMode      = "ADC_PULSE_END_OF_CONV";
+adc1.enabledInts             = ["ADC_INT_NUMBER1"];
+adc1.enableInterrupt1        = true;
+adc1.registerInterrupts      = ["1"];
+adc1.soc0Trigger             = "ADC_TRIGGER_EPWM3_SOCA";
+adc1.adcInt1.enableInterrupt = true;
+
+analog1.$name                = "myANALOGPinMux0";
+adc1.analog                  = analog1;
+analog1.analog.a1Pin.$assign = "A1";
+
 epwm1.$name                                                      = "myEPWM0";
 epwm1.epwmTimebase_clockDiv                                      = "EPWM_CLOCK_DIVIDER_4";
 epwm1.epwmTimebase_hsClockDiv                                    = "EPWM_HSCLOCK_DIVIDER_4";
@@ -28,12 +49,40 @@ epwm1.epwmActionQualifier_EPWM_AQ_OUTPUT_B_ON_TIMEBASE_UP_CMPB   = "EPWM_AQ_OUTP
 epwm1.epwmActionQualifier_EPWM_AQ_OUTPUT_B_ON_TIMEBASE_DOWN_CMPB = "EPWM_AQ_OUTPUT_LOW";
 epwm1.epwmCounterCompare_cmpA                                    = 1500;
 epwm1.epwmCounterCompare_cmpB                                    = 500;
+epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEnable                  = true;
+epwm1.epwmEventTrigger_EPWM_SOC_A_triggerSource                  = "EPWM_SOC_TBCTR_U_CMPA";
+epwm1.epwmEventTrigger_EPWM_SOC_A_triggerEventPrescalar          = "1";
 epwm1.epwm.$assign                                               = "EPWM3";
+
+gpio1.$name     = "myGPIO0";
+gpio1.direction = "GPIO_DIR_MODE_OUT";
 
 /**
  * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-epwm1.epwm.epwm_aPin.$suggestSolution = "C8/A9, GPIO227";
-epwm1.epwm.epwm_bPin.$suggestSolution = "A10/C10, GPIO230";
+analog1.analog.$suggestSolution                        = "ANALOG";
+analog1.analog["a0/c15/cmp1_daclPin"].$suggestSolution = "A0/C15/CMP1_DACL";
+analog1.analog["a10/c10, gpio230Pin"].$suggestSolution = "A10/C10, GPIO230";
+analog1.analog["a11/c0Pin"].$suggestSolution           = "A11/C0";
+analog1.analog["a12/c1Pin"].$suggestSolution           = "A12/C1";
+analog1.analog["a15/c7Pin"].$suggestSolution           = "A15/C7";
+analog1.analog["a16/c16, gpio28Pin"].$suggestSolution  = "A16/C16, GPIO28";
+analog1.analog["a17/c17, gpio20Pin"].$suggestSolution  = "A17/C17, GPIO20";
+analog1.analog["a18/c18, gpio21Pin"].$suggestSolution  = "A18/C18, GPIO21";
+analog1.analog["a19/c19, gpio13Pin"].$suggestSolution  = "A19/C19, GPIO13";
+analog1.analog["a2/c9, gpio224Pin"].$suggestSolution   = "A2/C9, GPIO224";
+analog1.analog["a20/c20, gpio12Pin"].$suggestSolution  = "A20/C20, GPIO12";
+analog1.analog["a3/c5, gpio242Pin"].$suggestSolution   = "A3/C5, GPIO242";
+analog1.analog["a4/c14Pin"].$suggestSolution           = "A4/C14";
+analog1.analog["a5/c2Pin"].$suggestSolution            = "A5/C2";
+analog1.analog["a6, gpio228Pin"].$suggestSolution      = "A6, GPIO228";
+analog1.analog["a7/c3Pin"].$suggestSolution            = "A7/C3";
+analog1.analog["a8/c11Pin"].$suggestSolution           = "A8/C11";
+analog1.analog["c4/a14Pin"].$suggestSolution           = "C4/A14";
+analog1.analog["c6, gpio226Pin"].$suggestSolution      = "C6, GPIO226";
+analog1.analog["c8/a9, gpio227Pin"].$suggestSolution   = "C8/A9, GPIO227";
+epwm1.epwm.epwm_aPin.$suggestSolution                  = "GPIO0";
+epwm1.epwm.epwm_bPin.$suggestSolution                  = "GPIO1";
+gpio1.gpioPin.$suggestSolution                         = "GPIO29";
