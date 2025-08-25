@@ -1,8 +1,0 @@
-{
-    "interruptInfo" : [
-        {
-            "interruptName": "INT_Led_Toggle_Timer",
-            "interruptHandler": "INT_Led_Toggle_Timer_ISR"
-        }
-    ]
-}
