@@ -33,28 +33,6 @@
             }
         },
         {
-            "name": "epwm_ex8_deadband",
-            "type": "ccs-debug",
-            "request": "launch",
-            "projectInfo": {
-                "name": "epwm_ex8_deadband",
-                "resourceId": "/epwm_ex8_deadband"
-            },
-            "connections": [
-                {
-                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
-                    "cores": [
-                        {
-                            "name": "C28xx_CPU1",
-                            "debuggerSettings": {
-                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "CSS&syscfg_Test",
             "type": "ccs-debug",
             "request": "launch",
