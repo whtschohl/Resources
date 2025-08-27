@@ -2,37 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "empty_driverlib_project",
-            "type": "ccs-debug",
-            "request": "launch",
-            "projectInfo": {
-                "name": "empty_driverlib_project",
-                "resourceId": "/empty_driverlib_project"
-            },
-            "connections": [
-                {
-                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
-                    "cores": [
-                        {
-                            "name": "C28xx_CPU1",
-                            "debuggerSettings": {
-                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "EPWM_Test",
-            "type": "ccs-debug",
-            "request": "launch",
-            "projectInfo": {
-                "name": "EPWM_Test",
-                "resourceId": "/EPWM_Test"
-            }
-        },
-        {
             "name": "CSS&syscfg_Test",
             "type": "ccs-debug",
             "request": "launch",
@@ -55,12 +24,56 @@
             ]
         },
         {
-            "name": "adc_ex2_soc_epwm",
+            "name": "Test_project",
             "type": "ccs-debug",
             "request": "launch",
             "projectInfo": {
-                "name": "adc_ex2_soc_epwm",
-                "resourceId": "/adc_ex2_soc_epwm"
+                "name": "Test_project",
+                "resourceId": "/Test_project"
+            },
+            "connections": [
+                {
+                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "SCI_LAB",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "SCI_LAB",
+                "resourceId": "/SCI_LAB"
+            },
+            "connections": [
+                {
+                    "name": "Texas Instruments XDS110 USB Debug Probe_0",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "sci_cc_f280013x",
+            "type": "ccs-debug",
+            "request": "launch",
+            "projectInfo": {
+                "name": "sci_cc_f280013x",
+                "resourceId": "/sci_cc_f280013x"
             },
             "connections": [
                 {

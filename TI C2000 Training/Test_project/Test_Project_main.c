@@ -54,6 +54,25 @@
 #include "device.h"
 #include "board.h"
 #include "c2000ware_libraries.h"
+#include "embedded_stdio.h"
+
+//
+// Defines
+//
+#define RESULTS_BUFFER_SIZE     256             // 8 bits
+
+//
+// Globals
+//
+uint16_t myADC0Results[RESULTS_BUFFER_SIZE];    // Buffer for results
+uint16_t index;                                 // Index into result buffer
+volatile uint16_t bufferFull;                   // Flag to indicate buffer is full
+
+// 
+// Functions
+// 
+void scia_sendString(char *msg);
+void scia_sendChar(uint16_t data);
 
 //
 // Main
@@ -83,14 +102,38 @@ void main(void)
     Interrupt_initVectorTable();
 
     //
+    // Disable sync(Freeze clock to PWM as well). GTBCLKSYNC is applicable
+    // only for multiple core devices. Uncomment the below statement if
+    // applicable.
+    //
+    // SysCtl_disablePeripheral(SYSCTL_PERIPH_CLK_GTBCLKSYNC);
+    SysCtl_disablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+
+    //
     // Configure ePWM1, ePWM2, and TZ GPIOs/Modules
     //
     Board_init();
 
     //
+    // Enable sync and clock to PWM
+    //
+    SysCtl_enablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+
+    //
     // C2000Ware Library initialization
     //
     C2000Ware_libraries_init();
+
+    //
+    // Initialize results buffer
+    //
+    for(index = 0; index < RESULTS_BUFFER_SIZE; index++)
+    {
+        myADC0Results[index] = 0;
+    }
+
+    index = 0;
+    bufferFull = 0;
 
     //
     // Enable Global Interrupt (INTM) and real time interrupt (DBGM)
@@ -100,12 +143,77 @@ void main(void)
 
     // Enter code here
 
+    // scia_sendString("SCI OK!\r\n");
+
+
     //
     // IDLE loop. Just sit and loop forever (optional):
     //
     for(;;)
     {
         // Enter code here
+        // NOP;
+        // scia_sendString("SCI OK!\r\n");
+        SCI_writeCharArray(mySCI0_BASE, (uint16_t*)("SCI OK!\r\n"), 24);
+        DEVICE_DELAY_US(500000);
+    }
+}
+
+__interrupt void INT_myADC0_1_ISR(void)
+{
+    // static bool value = 0;
+
+    // value ^= 1;
+    // GPIO_writePin(myGPIO0, value);
+
+    myADC0Results[index] = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+    index++;
+
+    // Send to PC as ASCII
+    // char buffer[16];
+    // uint16_to_str(myADC0Results[index-1], buffer); 
+    // scia_sendString("Hello World!\r\n");
+    SCI_writeCharArray(mySCI0_BASE, (uint16_t*)("Hello World!"), 24);
+
+
+    if(index >= RESULTS_BUFFER_SIZE)
+    {
+        index = 0;
+        bufferFull = 1;   // mark buffer ready (optional)
+    }
+
+    if (myADC0Results[index-1] > 2048)            // halfway of 12-bit range
+        GPIO_writePin(myGPIO0, 1);  // Set GPIO0 HIGH
+    else
+        GPIO_writePin(myGPIO0, 0);  // Set GPIO0 LOW
+
+    if(bufferFull)
+    {
+        bufferFull = 0;
+    } 
+
+    ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+
+    if(ADC_getInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1))
+    {
+        ADC_clearInterruptOverflowStatus(myADC0_BASE, ADC_INT_NUMBER1);
+        ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+    }
+
+    Interrupt_clearACKGroup(INT_myADC0_1_INTERRUPT_ACK_GROUP);
+}
+
+void scia_sendChar(uint16_t data)
+{
+    // Use the blocking write which includes an internal wait
+    SCI_writeCharBlockingFIFO(SCIA_BASE, data);
+}
+
+void scia_sendString(char *msg)
+{
+    while(*msg != '\0')
+    {
+        scia_sendChar(*msg++);
     }
 }
 

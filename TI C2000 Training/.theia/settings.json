@@ -1,0 +1,4 @@
+{
+    "CCS.debug.serial.options.localEcho": true,
+    "CCS.debug.serial.options.sendCharactersOnEnter": true
+}

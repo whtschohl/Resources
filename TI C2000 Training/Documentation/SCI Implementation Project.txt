@@ -1,0 +1,123 @@
+Great that you’re thinking about **SCI (Serial Communication Interface = UART)** ✅
+This is a perfect tool to **observe your ADC results in real time** without depending only on breakpoints or GPIO toggling.
+
+Here’s how you can **implement and test SCI in your project** (on the F2800137 controlCARD):
+
+---
+
+## 1. What SCI will do in your project
+
+* The MCU will **sample ADC values** as you already have.
+* Instead of only storing them in `myADC0Results[]`, you will **send them out via SCI** to a PC.
+* On the PC, you can use **a serial terminal (Putty, TeraTerm, CCS Serial Plotter, or Python script)** to see the values as text or even as a real-time graph.
+
+---
+
+## 2. Steps to add SCI
+
+### 🔹 SysConfig setup
+
+1. Open **SysConfig** for your project.
+2. Add an **SCI module** (e.g., SCI\_A).
+3. Configure:
+
+   * Baud Rate (e.g., 115200)
+   * Pin assignment → On TMDSCNCD2800137, SCI\_A TX and RX are usually available on GPIO28 (TX) and GPIO29 (RX).
+4. Enable TX and RX.
+
+---
+
+### 🔹 Code additions
+
+In your code, add something like this:
+
+```c
+#include "driverlib.h"
+#include "device.h"
+#include "board.h"
+
+void scia_init(void)
+{
+    // Use SysConfig generated init (Board_init()) OR manually:
+    SCI_setConfig(SCIA_BASE, DEVICE_LSPCLK_FREQ, 115200, 
+                  (SCI_CONFIG_WLEN_8 | SCI_CONFIG_STOP_ONE | SCI_CONFIG_PAR_NONE));
+
+    SCI_enableModule(SCIA_BASE);
+    SCI_enableLoopback(SCIA_BASE);   // Optional, for self-test
+    SCI_performSoftwareReset(SCIA_BASE);
+}
+
+void scia_sendChar(uint16_t data)
+{
+    while(!SCI_isTransmitterReady(SCIA_BASE)) { }
+    SCI_writeCharBlockingFIFO(SCIA_BASE, data);
+}
+
+void scia_sendString(char *msg)
+{
+    while(*msg != '\0')
+    {
+        scia_sendChar(*msg++);
+    }
+}
+```
+
+---
+
+### 🔹 Sending ADC results
+
+Inside your ISR or main loop:
+
+```c
+__interrupt void INT_myADC0_1_ISR(void)
+{
+    uint16_t result = ADC_readResult(ADCARESULT_BASE, ADC_SOC_NUMBER0);
+    myADC0Results[index++] = result;
+
+    // Send to PC as ASCII
+    char buffer[16];
+    sprintf(buffer, "%u\r\n", result);   // convert number to string
+    scia_sendString(buffer);
+
+    if(index >= RESULTS_BUFFER_SIZE)
+    {
+        index = 0;
+        bufferFull = 1;
+    }
+
+    ADC_clearInterruptStatus(myADC0_BASE, ADC_INT_NUMBER1);
+    Interrupt_clearACKGroup(INT_myADC0_1_INTERRUPT_ACK_GROUP);
+}
+```
+
+---
+
+## 3. Testing SCI
+
+1. Connect your PC to the controlCARD **UART pins** (GPIO28=TX → USB-UART adapter RX, GPIO29=RX → adapter TX, and GND).
+
+   * Some docking stations already have **FTDI/USB-UART** built in, so SCI\_A is routed to your PC’s USB.
+2. Open a terminal program (PuTTY, TeraTerm, CCS terminal).
+
+   * Set baud: **115200**, 8N1.
+3. Run your code.
+
+   * You should see numbers scrolling (the ADC results).
+   * If you copy-paste into Excel or use Python/Matplotlib, you can plot them.
+
+---
+
+## 4. Verification
+
+* First test with **loopback mode** (`SCI_enableLoopback`) → SCI sends data back to itself.
+* Then test with your PC serial terminal.
+* You should see **ADC values change** when you vary the input at ADCIN0 (e.g., apply a potentiometer voltage).
+
+---
+
+✅ With SCI working, you’ll have **real-time, continuous visualization of ADC results** without stopping PWM.
+This is much closer to what you’ll do in a real motor-control system: the MCU measures, then streams/logs/debugs data over UART.
+
+---
+
+Do you want me to draw you a **flow diagram showing how ADC + ISR + SCI streaming works together**?
