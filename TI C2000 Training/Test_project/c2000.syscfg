@@ -19,6 +19,7 @@ const gpio    = scripting.addModule("/driverlib/gpio.js", {}, false);
 const gpio1   = gpio.addInstance();
 const sci     = scripting.addModule("/driverlib/sci.js", {}, false);
 const sci1    = sci.addInstance();
+const sci2    = sci.addInstance();
 
 /**
  * Write custom configuration values to the imported modules.
@@ -69,6 +70,10 @@ sci1.sci.sci_txPin.$assign = "GPIO29";
 sci1.rxQual.$name          = "myGPIOQUAL0";
 sci1.txQual.$name          = "myGPIOQUAL1";
 
+sci2.$name        = "mySCI1";
+sci2.rxQual.$name = "myGPIOQUAL2";
+sci2.txQual.$name = "myGPIOQUAL3";
+
 /**
  * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
@@ -78,3 +83,6 @@ analog1.analog.$suggestSolution                        = "ANALOG";
 analog1.analog["a0/c15/cmp1_daclPin"].$suggestSolution = "A0/C15/CMP1_DACL";
 sci1.sci.$suggestSolution                              = "SCIA";
 sci1.sci.sci_rxPin.$suggestSolution                    = "A16/C16, GPIO28";
+sci2.sci.$suggestSolution                              = "SCIB";
+sci2.sci.sci_rxPin.$suggestSolution                    = "A19/C19, GPIO13";
+sci2.sci.sci_txPin.$suggestSolution                    = "A20/C20, GPIO12";

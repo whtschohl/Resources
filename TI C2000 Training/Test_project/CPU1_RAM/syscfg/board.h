@@ -98,6 +98,22 @@ extern "C"
 #define mySCI0_SCITX_GPIO 29
 #define mySCI0_SCITX_PIN_CONFIG GPIO_29_SCIA_TX
 
+//
+// SCIB -> mySCI1 Pinmux
+//
+//
+// SCIB_RX - GPIO Settings
+//
+#define GPIO_PIN_SCIB_RX 13
+#define mySCI1_SCIRX_GPIO 13
+#define mySCI1_SCIRX_PIN_CONFIG GPIO_13_SCIB_RX
+//
+// SCIB_TX - GPIO Settings
+//
+#define GPIO_PIN_SCIB_TX 12
+#define mySCI1_SCITX_GPIO 12
+#define mySCI1_SCITX_PIN_CONFIG GPIO_12_SCIB_TX
+
 //*****************************************************************************
 //
 // ADC Configurations
@@ -171,6 +187,14 @@ extern __interrupt void INT_myADC0_1_ISR(void);
 #define mySCI0_FIFO_TX_LVL SCI_FIFO_TX0
 #define mySCI0_FIFO_RX_LVL SCI_FIFO_RX0
 void mySCI0_init();
+#define mySCI1_BASE SCIB_BASE
+#define mySCI1_BAUDRATE 115200
+#define mySCI1_CONFIG_WLEN SCI_CONFIG_WLEN_8
+#define mySCI1_CONFIG_STOP SCI_CONFIG_STOP_ONE
+#define mySCI1_CONFIG_PAR SCI_CONFIG_PAR_NONE
+#define mySCI1_FIFO_TX_LVL SCI_FIFO_TX0
+#define mySCI1_FIFO_RX_LVL SCI_FIFO_RX0
+void mySCI1_init();
 
 //*****************************************************************************
 //

@@ -155,6 +155,7 @@ void main(void)
         // NOP;
         // scia_sendString("SCI OK!\r\n");
         SCI_writeCharArray(mySCI0_BASE, (uint16_t*)("SCI OK!\r\n"), 24);
+        SCI_writeCharArray(mySCI1_BASE, (uint16_t*)("SCI OK!\r\n"), 24);
         DEVICE_DELAY_US(500000);
     }
 }
@@ -174,7 +175,7 @@ __interrupt void INT_myADC0_1_ISR(void)
     // uint16_to_str(myADC0Results[index-1], buffer); 
     // scia_sendString("Hello World!\r\n");
     SCI_writeCharArray(mySCI0_BASE, (uint16_t*)("Hello World!"), 24);
-
+    SCI_writeCharArray(mySCI1_BASE, (uint16_t*)("Hello World!"), 24);
 
     if(index >= RESULTS_BUFFER_SIZE)
     {
