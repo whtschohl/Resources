@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?ccsproject version="1.0"?>
+<projectOptions>
+	<ccsVariant value="50:Theia-based"/>
+	<ccsVersion value="70.2.0"/>
+	<deviceFamily value="C2000"/>
+	<executableActions value=""/>
+	<createSlaveProjects value=""/>
+	<templateProperties value="id=lab_blinkyled_controlcard.projectspec.syscfg_cc_f280013x"/>
+	<origin value="C:\ti\C2000Ware_6_00_00_00\training\device\f280013x\getting_started\lab_blinkyled_sysconfig\lab_blinkyled_controlcard.projectspec"/>
+	<filesToOpen value=""/>
+</projectOptions>

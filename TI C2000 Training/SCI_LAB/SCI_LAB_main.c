@@ -92,8 +92,8 @@ void main(void)
     
     // Send starting message.
     msg = "\r\n\n\nHello World! Enter a number 0-9 to change the LED blink rate.\0";
-    // SCI_writeCharArray(mySCIA_BASE, (uint16_t*)msg, 65);
-    SCI_writeCharArray(mySCIA_BASE, (uint16_t*)msg, strlen(msg));
+    SCI_writeCharArray(mySCIA_BASE, (uint16_t*)msg, 65);
+    // SCI_writeCharArray(mySCIA_BASE, (uint16_t*)msg, strlen(msg));
 
 
     for(;;)

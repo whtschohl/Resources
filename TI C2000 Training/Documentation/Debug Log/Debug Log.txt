@@ -1,34 +1,53 @@
-- Date: 
+- Date:
 - Issue: [What is the Actual problem?]
 - Assumption: [Why do you think this problem is happening?]
 - Plan: [How are you going to fix it?]
-	1. Step one
-	2. Step two
-	3. …
-- Solution: 
+ 	1. Step one
+ 	2. Step two
+ 	3. …
+- Solution:
 
---------------------------------------------------------------------------------
+---
+
+- Date: 27.08.2025
+- Issue: The Serial Communication Interface was not working together with the PC
+- Assumption: There is some Hardware feature that is being overlooked
+- Plan:
+ 	1. Read through the ControlCard Docking Station datasheets to find
+ 		something About the Serial communication over the JTAG interface
+ 	2. Read through the ControlCard F2800137 module datasheets to find
+ 		something About the Serial communication over the JTAG interface
+ 	3. Read through the XDS110 Debug Probe datasheets to find something
+ 		About the Serial communication over the JTAG interface
+ 	4. Look for TI tutorial Videos / Pictures on how to set up the SCI
+- Solution:
+ 	- controlCARD F2800137 module has 2 switches (S1:A Position 2, S2) that
+ 		needs to be off
+ 	- use the AUX. FUNCTIONS 14 pin Output on the XDS110 and connect the
+ 		UARTRX pin to the configured SCI TX on the Docking Station.
+
+---
 
 - Date: 27.08.2025
 - Issue: Error: "The project does not have a target configuration file."
 - Assumption: The launch.json is trying to execute a different projects' target
-		config file.
-- Plan: 
-	1. Double check to make sure that this Project does indeed have a target
-		config file and that it is correctly configured
-	2. Check launch.json file to make sure that no duplicate Projects are 
-		defined
-	3. Ask for help / advice
-- Solution: Project name in launch.json was incorrect. (SCI_LAB_main when it 
-		should be SCI_LAB)
+ 		config file.
+- Plan:
+ 	1. Double check to make sure that this Project does indeed have a target
+ 		config file and that it is correctly configured
+ 	2. Check launch.json file to make sure that no duplicate Projects are
+ 		defined
+ 	3. Ask for help / advice
+- Solution: Project name in launch.json was incorrect. (SCI_LAB_main when it
+ 		should be SCI_LAB)
 
---------------------------------------------------------------------------------
+---
 
 - Date: 20.08.2025
 - Issue: Cannot debug the controlCARD through the JTAG on the Docking Station.
 - Assumption: Hardware error
-- Plan: 
-	1. Test all connections
-	2. Ask ChatGPT if there are any tricks / Settings I Need to Change.
-- Solution: Switch S1:A position 1 needs to be set to 0 in order to program 
-		the controlCARD through the JTAG on the Docking Station.
+- Plan:
+ 	1. Test all connections
+ 	2. Ask ChatGPT if there are any tricks / Settings I Need to Change.
+- Solution: Switch S1:A position 1 needs to be set to 0 in order to program
+ 		the controlCARD through the JTAG on the Docking Station.

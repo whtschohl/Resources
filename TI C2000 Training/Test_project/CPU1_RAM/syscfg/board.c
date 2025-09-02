@@ -90,6 +90,14 @@ void PinMux_init()
 
 	// GPIO23 -> myGPIO0 Pinmux
 	GPIO_setPinConfig(GPIO_23_GPIO23);
+	// A6, GPIO228 -> myBootPin1 Pinmux
+	GPIO_setPinConfig(GPIO_228_GPIO228);
+	// AGPIO -> GPIO mode selected
+	GPIO_setAnalogMode(228, GPIO_ANALOG_DISABLED);
+	// C6, GPIO226 -> myBootPin2 Pinmux
+	GPIO_setPinConfig(GPIO_226_GPIO226);
+	// AGPIO -> GPIO mode selected
+	GPIO_setAnalogMode(226, GPIO_ANALOG_DISABLED);
 	//
 	// SCIA -> mySCI0 Pinmux
 	//
@@ -263,12 +271,24 @@ void EPWM_init(){
 //*****************************************************************************
 void GPIO_init(){
 	myGPIO0_init();
+	myBootPin1_init();
+	myBootPin2_init();
 }
 
 void myGPIO0_init(){
 	GPIO_setPadConfig(myGPIO0, GPIO_PIN_TYPE_STD);
 	GPIO_setQualificationMode(myGPIO0, GPIO_QUAL_SYNC);
 	GPIO_setDirectionMode(myGPIO0, GPIO_DIR_MODE_OUT);
+}
+void myBootPin1_init(){
+	GPIO_setPadConfig(myBootPin1, GPIO_PIN_TYPE_STD);
+	GPIO_setQualificationMode(myBootPin1, GPIO_QUAL_SYNC);
+	GPIO_setDirectionMode(myBootPin1, GPIO_DIR_MODE_IN);
+}
+void myBootPin2_init(){
+	GPIO_setPadConfig(myBootPin2, GPIO_PIN_TYPE_STD);
+	GPIO_setQualificationMode(myBootPin2, GPIO_QUAL_SYNC);
+	GPIO_setDirectionMode(myBootPin2, GPIO_DIR_MODE_IN);
 }
 
 //*****************************************************************************

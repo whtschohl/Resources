@@ -81,6 +81,14 @@ extern "C"
 // GPIO23 - GPIO Settings
 //
 #define myGPIO0_GPIO_PIN_CONFIG GPIO_23_GPIO23
+//
+// GPIO228 - GPIO Settings
+//
+#define myBootPin1_GPIO_PIN_CONFIG GPIO_228_GPIO228
+//
+// GPIO226 - GPIO Settings
+//
+#define myBootPin2_GPIO_PIN_CONFIG GPIO_226_GPIO226
 
 //
 // SCIA -> mySCI0 Pinmux
@@ -161,6 +169,10 @@ void myADC0_init();
 //*****************************************************************************
 #define myGPIO0 23
 void myGPIO0_init();
+#define myBootPin1 228
+void myBootPin1_init();
+#define myBootPin2 226
+void myBootPin2_init();
 
 //*****************************************************************************
 //

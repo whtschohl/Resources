@@ -68,16 +68,27 @@
             ]
         },
         {
-            "name": "sci_cc_f280013x",
+            "name": "PVx_Bootloader",
             "type": "ccs-debug",
             "request": "launch",
             "projectInfo": {
-                "name": "sci_cc_f280013x",
-                "resourceId": "/sci_cc_f280013x"
+                "name": "PVx_Bootloader",
+                "resourceId": "/PVx_Bootloader"
             },
             "connections": [
                 {
                     "name": "Texas Instruments XDS110 USB Debug Probe_0",
+                    "cores": [
+                        {
+                            "name": "C28xx_CPU1",
+                            "debuggerSettings": {
+                                "data": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\" ?>\n<PropertyValues/>\n"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Texas Instruments XDS110 USB Debug Probe",
                     "cores": [
                         {
                             "name": "C28xx_CPU1",

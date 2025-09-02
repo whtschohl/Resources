@@ -132,10 +132,16 @@ SCI_LAB.out
 EXE_OUTPUTS__QUOTED += \
 "SCI_LAB.out" 
 
+BIN_OUTPUTS += \
+SCI_LAB.hex 
+
+BIN_OUTPUTS__QUOTED += \
+"SCI_LAB.hex" 
+
 
 # All Target
 all: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "SCI_LAB.out"
+	@$(MAKE) --no-print-directory -Onone "SCI_LAB.out" secondary-outputs
 
 # Tool invocations
 SCI_LAB.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
@@ -145,15 +151,24 @@ SCI_LAB.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
+SCI_LAB.hex: $(EXE_OUTPUTS)
+	@echo 'Building secondary target: "$@"'
+	@echo 'Invoking: C2000 Hex Utility'
+	"C:/ti/ccs2020/ccs/tools/compiler/ti-cgt-c2000_22.6.2.LTS/bin/hex2000" --diag_wrap=off -o "SCI_LAB.hex" $(EXE_OUTPUTS__QUOTED)
+	@echo 'Finished building secondary target: "$@"'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) $(GEN_MISC_FILES__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
+	-$(RM) $(GEN_MISC_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
 	-$(RM) "SCI_LAB_main.obj" "syscfg\board.obj" "syscfg\c2000ware_libraries.obj" "device\device.obj" "device\f280013x_codestartbranch.obj" 
 	-$(RM) "SCI_LAB_main.d" "syscfg\board.d" "syscfg\c2000ware_libraries.d" "device\device.d" 
 	-$(RM) "device\f280013x_codestartbranch.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '
+
+secondary-outputs: $(BIN_OUTPUTS)
 
 .PHONY: all clean dependents
 .SECONDARY:

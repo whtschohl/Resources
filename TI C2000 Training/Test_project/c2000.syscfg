@@ -17,6 +17,8 @@ const epwm    = scripting.addModule("/driverlib/epwm.js", {}, false);
 const epwm1   = epwm.addInstance();
 const gpio    = scripting.addModule("/driverlib/gpio.js", {}, false);
 const gpio1   = gpio.addInstance();
+const gpio2   = gpio.addInstance();
+const gpio3   = gpio.addInstance();
 const sci     = scripting.addModule("/driverlib/sci.js", {}, false);
 const sci1    = sci.addInstance();
 const sci2    = sci.addInstance();
@@ -64,6 +66,10 @@ gpio1.$name           = "myGPIO0";
 gpio1.direction       = "GPIO_DIR_MODE_OUT";
 gpio1.gpioPin.$assign = "GPIO23";
 
+gpio2.$name = "myBootPin1";
+
+gpio3.$name = "myBootPin2";
+
 sci1.$name                 = "mySCI0";
 sci1.baudRates             = 115600;
 sci1.sci.sci_txPin.$assign = "GPIO29";
@@ -81,6 +87,8 @@ sci2.txQual.$name = "myGPIOQUAL3";
  */
 analog1.analog.$suggestSolution                        = "ANALOG";
 analog1.analog["a0/c15/cmp1_daclPin"].$suggestSolution = "A0/C15/CMP1_DACL";
+gpio2.gpioPin.$suggestSolution                         = "A6, GPIO228";
+gpio3.gpioPin.$suggestSolution                         = "C6, GPIO226";
 sci1.sci.$suggestSolution                              = "SCIA";
 sci1.sci.sci_rxPin.$suggestSolution                    = "A16/C16, GPIO28";
 sci2.sci.$suggestSolution                              = "SCIB";
