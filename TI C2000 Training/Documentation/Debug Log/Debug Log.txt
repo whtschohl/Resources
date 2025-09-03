@@ -9,6 +9,17 @@
 
 ---
 
+- Date: 01.09.2025
+- Issue: #1965: cannot open source file "f280013_device.h"
+- Assumption: Path to include file is not being found
+- Plan: 
+ 	1. Check include paths in Project properties
+ 	2. check file spelling
+- Solution: wrong include Name:
+		#include "f280013x_device.h"
+
+---
+
 - Date: 27.08.2025
 - Issue: The Serial Communication Interface was not working together with the PC
 - Assumption: There is some Hardware feature that is being overlooked

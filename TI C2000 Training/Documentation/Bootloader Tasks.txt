@@ -1,0 +1,27 @@
+Bootloader
+
+[] Change the PVx_Bootloader program to work with the F280013x MCU
+	[] Start from the Bootloader refrence
+		[] Check the C2000 Bootloader guide (sprabv4 for Piccolo, or the F280013x TRM boot ROM section).
+		[] Confirm supported boot modes: SCI, SPI, CAN, etc
+	[] Update device headers/includes
+		[] Replace old includes (e.g. F2802x_Device.h) with the new driverlib.h, device.h, and board headers.
+		[] Ensure the linker command file matches F280013x flash/RAM map.
+		[] Check your device.h → make sure it’s pulling in the f280013x headers from C2000Ware.
+	[] Memory Map
+		[] Open the linker command file (.cmd) and update flash/RAM addresses to match the F280013x memory map.
+		[] Compare F28004x.cmd vs F280013x.cmd in C2000Ware → align flash sectors, RAM names, and sizes.
+	[] Peripheral Base Addresses
+		[] Most SCI/SPI/CAN peripheral register bases are the same, but double-check in the TRM (Technical Reference Manual).
+		[] If addresses differ, update the driverlib calls accordingly.
+	[] Boot Mode / Boot Pins
+		[] The bootloader entry mechanism depends on boot pin GPIOs (different between F28004x and F280013x).
+		[] Check Device_boot.c or the Boot ROM guide in C2000Ware for F280013x → adjust your code to read the right GPIO pins for selecting SCI/SPI boot.
+	[] System Clock
+		[] F280013x uses a slightly different PLL/clock setup.
+		[] Make sure your SCI baud calculation uses DEVICE_LSPCLK_FREQ from device.h (and that it’s correct for your board).
+	[] Test Step
+		[] First goal: Get SCI bootloader to send/receive one message (“Bootloader ready”) over UART.
+		[] That confirms your clock + peripheral setup is correct.
+
+[] Neaten up the #ifdefs with #defines in headers and custom build configurations
