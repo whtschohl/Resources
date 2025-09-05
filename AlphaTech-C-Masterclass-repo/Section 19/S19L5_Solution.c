@@ -24,7 +24,7 @@ int main()
     // if '.' was not found in filename, return error
     if(-1 == dotPosition)
     {
-        printf("Error: filename does not have an extension.\n")
+        printf("Error: filename does not have an extension.\n");
     }
     
     // Construct new filename up to the last '.'
