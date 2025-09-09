@@ -1,3 +1,6 @@
 {
-    "function-explorer.hideFolders": false
+    "function-explorer.hideFolders": false,
+    "files.associations": {
+        "stdlib.h": "c"
+    }
 }
