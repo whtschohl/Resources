@@ -55,4 +55,8 @@ void separateNum(char *file)
             fputc(' ', fpEven);
         }     
     }
+
+    fclose(fp);
+    fclose(fpEven);
+    fclose(fpOdd);
 }
