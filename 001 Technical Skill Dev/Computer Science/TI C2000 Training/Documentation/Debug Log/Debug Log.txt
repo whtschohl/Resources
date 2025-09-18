@@ -9,12 +9,22 @@
 
 ---
 
+- Date: 17.09.2025
+- Issue: Previously specified target is not currently connected!
+- Assumption: The IDE is still trying to load onto the exact same port. 
+- Plan: 
+ 	1. Restart Program
+- Solution: Just as assumed
+
+---
+
 - Date: 16.09.2025
 - Issue: wPWM syncing isnt working properly - epwm2 is Always HIGH
 - Assumption: The Sync Event is calibrated incorrectly
 - Plan: 
  	1. Compare sysconfig Settings with working syncronised epwm
-- Solution:
+- Solution: Wrong load Settings. It synchronised the Output Signal when the PWM1 was high. 
+		The PWM2 needed to get set on Synch and on ZERO
 
 ---
 
