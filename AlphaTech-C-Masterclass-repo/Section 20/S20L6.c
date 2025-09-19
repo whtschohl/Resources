@@ -14,6 +14,7 @@ int main()
     Point targetPoint;  // This point we're looking for.
     Point pointInFile;  // Will be used to read a point from the file.
     FILE* fp = fopen("myFile3.bin", "rb");
+    int i = 0;
     
     printf("What is the point you're looking for?\n");
     printf("Enter x: ");
@@ -27,7 +28,12 @@ int main()
         {
             fread(&pointInFile, sizeof(Point), 1, fp);
             if((pointInFile.x == targetPoint.x) && (pointInFile.y == targetPoint.y))
+            {
                 printf("Your point was found in the file!!\n");
+                printf("point number in file = %d\n", i);
+                break;
+            }
+            i++;
         }
         fclose(fp);
     }
