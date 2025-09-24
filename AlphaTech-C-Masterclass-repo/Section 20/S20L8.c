@@ -18,7 +18,7 @@ void mulPointBy3(char* filename, unsigned int choice)
         p.y *= 3;
         fseek(fp, (-1) * (int)sizeof(Point), SEEK_CUR);
         fwrite(&p, sizeof(Point), 1, fp);
-        fclose(fp)
+        fclose(fp);
     }
 }
 
