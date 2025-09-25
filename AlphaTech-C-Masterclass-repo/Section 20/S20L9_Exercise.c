@@ -79,6 +79,7 @@ void reversePointsInFile(char *filename)
 
         // Close file
         fclose(fp);
+        free(arrPoints);
     } else
         printf("Could not open File");
     
