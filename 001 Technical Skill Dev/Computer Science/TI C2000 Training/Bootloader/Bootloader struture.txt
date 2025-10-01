@@ -1,0 +1,24 @@
+---
+Bootloader Porgam Steps
+---
+
+	---
+	main
+	---
+
+1. initiate device
+2. Calculate Checksum
+3. if checksum is equal to the stored checksum (Application is already on flash) jump to code start
+4. Initiate GPIO
+5. Initiate Interrupts
+6. Initiate Communications interface
+7. Initiate timer
+8. Initiate Flash API
+9. Run while(1) loop:
+	9.1 Check for any communication requests
+	9.2 Check checksum confirmation time out
+
+	--- 
+	Custom CAN File (Main Comms Interface file)
+	---
+1. 
