@@ -24,3 +24,29 @@
     * pay close attention to memory management
     * main focus: manipulating the bin file and managing the dynamic memory
 */
+
+#define     _CRT_SECURE_NO_WARNINGS
+#include    <stdio.h>
+#include    <stdlib.h>
+
+//
+// Type def
+//
+
+typedef struct student {
+    char *name;
+    int totalGrades;
+    int *grades;
+}Student;
+
+//
+// Functions
+//
+
+void printStudDetails(Student arr, char *name);
+void addStudent(Student arr);
+void createRecordFile(Student arr, char *name);
+void readRecordFromFile(Student arr);
+void updateGrades(Student arr, char *name);
+void addGrades(Student arr, char *name);
+void printAverageGrades(Student arr);
