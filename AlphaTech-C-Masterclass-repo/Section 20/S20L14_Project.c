@@ -50,3 +50,7 @@ void readRecordFromFile(Student arr);
 void updateGrades(Student arr, char *name);
 void addGrades(Student arr, char *name);
 void printAverageGrades(Student arr);
+
+//
+// Code
+//
