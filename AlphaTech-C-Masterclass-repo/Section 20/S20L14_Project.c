@@ -74,7 +74,7 @@ int main()
     vPrintStudDetails(pstArr, iTotalSudents);
 }
 
-void printStudDetails(stStudent *pstArr, int iSize)
+void vPrintStudDetails(stStudent *pstArr, int iSize)
 {
     // var
     char *pcName = {NULL};
