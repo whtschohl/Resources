@@ -49,13 +49,13 @@ typedef struct student {
 // Functions
 //
 
-void vPrintStudDetails(stStudent *arr, int size);
-void vAddStudent(stStudent *arr, int size);
-void vCreateRecordFile(stStudent *arr, char *name, int size);
-void vReadRecordFromFile(stStudent *arr, int size);
-void vUpdateGrades(stStudent *arr, char *name, int size);
-void vAddGrades(stStudent *arr, char *name, int size);
-void vPrintAverageGrades(stStudent *arr, int size);
+void vPrintStudDetails(stStudent *arr, int *iSize);
+void vAddStudent(stStudent *arr, int *iSize);
+void vCreateRecordFile(stStudent *arr, char *name, int *iSize);
+void vReadRecordFromFile(stStudent *arr, int *iSize);
+void vUpdateGrades(stStudent *arr, char *name, int *iSize);
+void vAddGrades(stStudent *arr, char *name, int *iSize);
+void vPrintAverageGrades(stStudent *arr, int *iSize);
 
 //
 // Code
@@ -74,7 +74,7 @@ int main()
     vPrintStudDetails(pstArr, iTotalSudents);
 }
 
-void vPrintStudDetails(stStudent *pstArr, int iSize)
+void vPrintStudDetails(stStudent *pstArr, int *iSize)
 {
     // var
     char *pcName = {NULL};
@@ -93,4 +93,13 @@ void vPrintStudDetails(stStudent *pstArr, int iSize)
         }
 
     return;
+}
+
+void vAddStudent(stStudent *arr, int *iSize)
+{
+    stStudent *pstNewStudent;
+    pstNewStudent = (stStudent*)malloc(sizeof(stStudent));
+
+    arr = (stStudent*)malloc(sizeof(stStudent) * *iSize);
+    arr[*iSize] = *pstNewStudent;
 }
