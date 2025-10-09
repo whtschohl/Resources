@@ -103,3 +103,16 @@ void vAddStudent(stStudent *arr, int *iSize)
     arr = (stStudent*)malloc(sizeof(stStudent) * *iSize);
     arr[*iSize] = *pstNewStudent;
 }
+
+void vCreateRecordFile(stStudent *arr, char *name, int *iSize)
+{
+    // write arr to file in bin
+    FILE* fp = fopen("recordFile.bin", "wb");
+    if (NULL == fp)
+    {
+        int iWritten = fwrite(arr, sizeof(stStudent), iSize, fp);
+        printf("Successfully Written Elements: %d\n", iWritten);
+    }
+    fclose(fp);
+    return;    
+}
