@@ -112,7 +112,22 @@ void vCreateRecordFile(stStudent *arr, char *name, int *iSize)
     {
         int iWritten = fwrite(arr, sizeof(stStudent), iSize, fp);
         printf("Successfully Written Elements: %d\n", iWritten);
+        fclose(fp);
     }
-    fclose(fp);
     return;    
+}
+
+void vReadRecordFromFile(stStudent *arr, int *iSize)
+{
+    FILE* fp = fopen("recordFile.bin", "rb");
+    if (NULL == fp)
+    {
+        fseek(fp, 0, SEEK_END);
+        *iSize = (ftell(fp) / sizeof(stStudent));
+        fseek(fp, 0, SEEK_SET);
+        arr = (stStudent*)realloc(arr, *iSize * sizeof(stStudent)); // reassign new size of memory, specific to file
+        fread(arr, sizeof(stStudent), iSize, fp);
+        fclose(fp);
+    }
+    return;
 }
