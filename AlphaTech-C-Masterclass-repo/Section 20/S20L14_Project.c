@@ -53,7 +53,7 @@ void vPrintStudDetails(stStudent *arr, int *iSize);
 void vAddStudent(stStudent *arr, int *iSize);
 void vCreateRecordFile(stStudent *arr, char *name, int *iSize);
 void vReadRecordFromFile(stStudent *arr, int *iSize);
-void vUpdateGrades(stStudent *arr, char *name, int *iSize);
+void vUpdateGrades(stStudent *arr, char *name);
 void vAddGrades(stStudent *arr, char *name, int *iSize);
 void vPrintAverageGrades(stStudent *arr, int *iSize);
 
@@ -130,4 +130,13 @@ void vReadRecordFromFile(stStudent *arr, int *iSize)
         fclose(fp);
     }
     return;
+}
+
+void vUpdateGrades(stStudent *arr, char *name)
+{
+    for (int i = 0; i < arr->m_iTotalGrades; i++)
+    {
+        printf("\nEnter new Grade: ");
+        scanf("%d", &arr->m_pstGrades[i]);
+    }
 }
