@@ -140,3 +140,11 @@ void vUpdateGrades(stStudent *arr, char *name)
         scanf("%d", &arr->m_pstGrades[i]);
     }
 }
+
+void vAddGrades(stStudent *arr, char *name, int *iSize)
+{
+    int *grades = (int*)malloc(sizeof((sizeof(int) * arr->m_iTotalGrades) + sizeof(int)));
+    
+    printf("Enter new Grade to be added: ");
+    scanf("&d", &grades[arr->m_iTotalGrades]);
+}
