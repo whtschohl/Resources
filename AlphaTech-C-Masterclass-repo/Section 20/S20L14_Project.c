@@ -147,4 +147,5 @@ void vAddGrades(stStudent *arr, char *name, int *iSize)
     
     printf("Enter new Grade to be added: ");
     scanf("&d", &grades[arr->m_iTotalGrades]);
+    arr->m_pstGrades = grades;
 }
