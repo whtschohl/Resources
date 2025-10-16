@@ -64,13 +64,13 @@ void vPrintAverageGrades(stStudent *arr);
 int main()
 {
     // var
-    stStudent *pstArr = { NULL };
+    stStudent stArr;
 
     // create student
-    vAddStudent(pstArr);
+    vAddStudent(&stArr);
 
     // print student details
-    vPrintStudDetails(pstArr);
+    vPrintStudDetails(&stArr);
 }
 
 void vPrintStudDetails(stStudent *arr)
@@ -136,7 +136,7 @@ void vUpdateGrades(stStudent *arr, char *name)
     for (int i = 0; i < arr->m_iTotalGrades; i++)
     {
         printf("\nEnter new Course: ");
-        scanf("%s", &arr->m_pstGrades[i].m_sCourse);
+        scanf("%s", arr->m_pstGrades[i].m_sCourse);
         printf("\nEnter new Grade: ");
         scanf("%f", &arr->m_pstGrades[i].m_fGrade);
     }
@@ -147,9 +147,9 @@ void vAddGrades(stStudent *arr, char *name)
     stGrades *grades = (stGrades*)malloc(sizeof((sizeof(stGrades) * arr->m_iTotalGrades) + sizeof(stGrades)));
     
     printf("Enter new Course name to be added: ");
-    scanf("&s", &grades[arr->m_iTotalGrades].m_sCourse);
+    scanf("%s", grades[arr->m_iTotalGrades].m_sCourse);
     printf("Enter new Grade to be added: ");
-    scanf("&f", &grades[arr->m_iTotalGrades].m_fGrade);
+    scanf("%f", &grades[arr->m_iTotalGrades].m_fGrade);
 
     arr->m_pstGrades = grades;
 }
