@@ -52,6 +52,32 @@ void saveStudentsArrayToFile(Student* studentsArray, unsigned int totalStudent, 
     }
 }
 
+    // Not working ...
+// void saveStudentsArrayToFile(Student* studentsArray, unsigned int totalStudent, char* filename)
+// {
+//     FILE* fp = fopen(filename, "wb");
+//     if (fp != NULL)
+//     {
+//         fwrite(studetnsArray, sizeof(Student), totalStudent, fp);
+//         fclose(fp);
+//     }
+// }
+
+Student readStudentRecord(char* filename)
+{
+    Student s;
+    FILE* fp = fopen(filename, "rb");
+    if(fp != NULL)
+    {
+        fread(s.name, sizeof(char), 30, fp);
+        fread(&s.total_grades, sizeof(int), 1, fp);
+        s.grades = (int*)malloc(sizeof(int) * s.total_grades);
+        // assert ..
+        fread(&s.grades, sizeof(int), s.total_grades, fp);
+        fclose(fp);
+    }
+}
+
 int main()
 {
 
