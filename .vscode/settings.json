@@ -8,6 +8,8 @@
         "ranges": "c",
         "span": "c",
         "text_encoding": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "queue": "c",
+        "vector": "c"
     }
 }
