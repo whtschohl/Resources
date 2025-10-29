@@ -14,6 +14,8 @@
     example: {3,2,2,1,3,3}, k = 3 - return 1
 ***************************************************************************************************/
 
+// Note: This solution is O( n * k ) - exponential complexity (No Bueno)
+
 #include <stdio.h>
 
 #define SIZE 6
@@ -41,7 +43,6 @@ int freq_as_value(int *arr, const int size, const int k)
         
         if(i != iCount)
             return 0;
-        
     }
     return 1;
 }

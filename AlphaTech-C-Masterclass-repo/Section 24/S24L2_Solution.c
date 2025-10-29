@@ -14,6 +14,8 @@
     example: {3,2,2,1,3,3}, k = 3 - return 1
 ***************************************************************************************************/
 
+// Note: This solution is O(n+k) - linear complexity
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
