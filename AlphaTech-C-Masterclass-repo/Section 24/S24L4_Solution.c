@@ -47,4 +47,6 @@ int main()
 {
     int arr[SIZE] = {3,5,4,2,3};
     int res = findDominantValue(arr, SIZE);
+
+    return 0;
 }
