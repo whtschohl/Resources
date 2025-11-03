@@ -27,7 +27,7 @@ int findDominantValue(int *sourceArr, int size)
     countArr = (int*)calloc((size + 1), sizeof(int));
     assert(countArr);
 
-    // Build the Countign Array
+    // Build the Counting Array
     for (i = 0; i < size; i++)
         countArr[sourceArr[i]]++;
     
