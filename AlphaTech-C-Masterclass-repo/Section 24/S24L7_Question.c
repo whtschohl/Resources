@@ -42,7 +42,7 @@ int findLargestMissingValue(int *sourceArr, int size)
 
 int main()
 {
-    int arr[SIZE] = {2,1,2,4,5,6,7} ;
+    int arr[SIZE] = {1,2,3,4,5,6,7} ;
     int res = findLargestMissingValue(arr, SIZE);
 
     printf("result: %d\n", res);
