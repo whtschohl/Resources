@@ -27,34 +27,23 @@ int areAllLettersIncluded(char *seq1, int size1, char *seq2, int size2)
     int i,j;
 
     count1 = (int*)calloc(size1, sizeof(int));
-    count2 = (int*)calloc(size2, sizeof(int));
 
     for (i = 0; i <= size1; i++)
         for (j = 0; j < size2; j++)
             if (seq1[i] == seq2[j])
             {
                 count1[i]++;
-                count2[j]++;
+                seq2[j] = ' ';
             }
         
     for(i = 0; i < size1; i++)
         if (0 == count1[i])
         {
             free(count1);
-            free(count2);
             return 0;
         }
     
-    for(i = 0; i < size2; i++)
-        if (0 == count2[i])
-        {
-            free(count1);
-            free(count2);
-            return 0;
-        }
-        
     free(count1);
-    free(count2);
     return 1;
 }
 
