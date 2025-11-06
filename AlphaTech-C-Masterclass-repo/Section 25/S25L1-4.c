@@ -11,7 +11,7 @@
     OR:  "|"    | bit1 -> |OR | -> bit  | if any bit is 0 then      |
                 | bit2 -> |___|         | output is 1, else 0       |
                 |          ___          |                           |
-    XOR: "|"    | bit1 -> |XOR| -> bit  | if the 2 bits differ then |
+    XOR: "^"    | bit1 -> |XOR| -> bit  | if the 2 bits differ then |
                 | bit2 -> |___|         | output is 1, else 0       |
 
 */
