@@ -2,12 +2,13 @@
     Displaying in binary
 */
 #include <stdio.h>
+#include <math.h>
 
 void printBin(int value)
 {
     int i, result, mask;
     result = 0;
-    mask = 0b10000000;  // because we are printing from left to right
+    mask = pow(2, 8);  // because we are printing from left to right
 
     for(i = 0; i < 8; i++)
     {
