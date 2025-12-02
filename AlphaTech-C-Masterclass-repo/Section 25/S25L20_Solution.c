@@ -10,10 +10,9 @@
 
 void swap(int* a, int* b)
 {
-    int temp = 0;
-    temp |= *a;
-    *a = *b;
-    *b = temp;
+    *a ^= *b;   // a = 0010
+    *b ^= *a;   // b = 0101
+    *a ^= *b;   // a = 0111
 }
 
 int main()
